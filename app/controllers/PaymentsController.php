@@ -40,9 +40,22 @@ class PaymentsController extends \BaseController
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
-        Payment::create($data);
+        if (Input::hasFile('attachment')) {
+            $uploaded_file   = Input::file('attachment');
+            $extension       = $uploaded_file->getClientOriginalExtension();
+            $filename        = Sentry::getUser()->first_name . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/payments';
+            $uploaded_file->move($destinationPath, $filename); // 25
 
-        return Redirect::route('payments.index');
+            $data['attachment'] = $filename;
+            $data['school']     = Sentry::getUser()->first_name;
+            $data['year']       = date('Y');
+            $data['verifikasi'] = 0;
+            $data['user_id']    = Sentry::getUser()->id;
+            Payment::create($data);
+
+            return Redirect::to('user/cost')->with("successMessage", "Konfirmasi Pembayaran berhasil dimasukkan");
+        }
     }
 
     /**

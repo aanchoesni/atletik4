@@ -48,7 +48,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -64,14 +64,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -97,7 +100,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -113,14 +116,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -146,7 +152,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -162,14 +168,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -195,7 +204,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -211,14 +220,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -244,7 +256,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -260,14 +272,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -293,7 +308,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -309,14 +324,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -342,7 +360,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -358,14 +376,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -390,7 +411,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -406,14 +427,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -441,7 +465,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -457,14 +481,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -490,7 +517,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -506,14 +533,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -539,7 +569,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -555,14 +585,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -588,7 +621,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -604,14 +637,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -637,7 +673,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -653,14 +689,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -686,7 +725,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -702,14 +741,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -735,7 +777,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -751,14 +793,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -783,7 +828,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -799,14 +844,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -833,7 +881,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -849,14 +897,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -882,7 +933,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -898,14 +949,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -931,7 +985,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -947,14 +1001,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -980,7 +1037,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -996,14 +1053,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -1029,7 +1089,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -1045,14 +1105,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -1078,7 +1141,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -1094,14 +1157,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -1127,7 +1193,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -1143,14 +1209,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>
@@ -1176,7 +1245,7 @@
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
                   <th><i class="fa fa-bookmark"></i> Kota Lahir</th>
                   <th><i class=" fa fa-bookmark"></i> Tanggal Lahir</th>
-                  <th><i class=" fa fa-edit"></i> Status</th>
+                  <th><i class=" fa fa-edit"></i> Verifikasi</th>
                   <th></th>
               </tr>
               </thead>
@@ -1192,14 +1261,17 @@
                   @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                   <td>
                       @if($value->verifikasi==0)
-                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('user.contests.edit', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Ubah"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.contests.destroy',['contests'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
+                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs', 'title'=>'Hapus')) }}
                       {{ Form::close() }}
                       @endif
                       @if($value->verifikasi==1)
-                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                      <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
+                      <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
+                      @endif
+                      @if($spay)
+                      <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
               </tr>

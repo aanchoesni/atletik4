@@ -18,7 +18,7 @@
             <div class="col-lg-12">
                 <section class="panel panel-danger">
                   <header class="panel-heading" style="font-weight:bold">
-                      Cek kembali konfirmasi pembayaran!!! Pembayaran yang sudah dikonfirmasi tidak bisa di ubah.
+                      Cek kembali konfirmasi pembayaran!!!<br>1. Pembayaran yang sudah dikonfirmasi tidak bisa di ubah<br>2. Atlit yang didaftarkan tidak bisa diubah.
                   </header>
                 </section>
             </div>

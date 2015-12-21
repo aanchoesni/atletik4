@@ -14,6 +14,7 @@ class ContestsController extends \BaseController
         $menu    = Menu::where('tipe', Sentry::getUser()->last_name)->get();
         $jenjang = Sentry::getUser()->last_name;
         $thn     = date('Y');
+        $spay    = Payment::where('user_id', Sentry::getUser()->id)->where(DB::raw('year'), '=', date('Y'))->first();
 
         if ($jenjang === 'SMA') {
             $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
@@ -36,7 +37,8 @@ class ContestsController extends \BaseController
                 ->with('tppis', $tppis)
                 ->with('ltpas', $ltpas)
                 ->with('ltpis', $ltpis)
-                ->with('thn', $thn);
+                ->with('thn', $thn)
+                ->with('spay', $spay);
         } elseif ($jenjang === 'SMP') {
             $runpas = Contest::where('nocontest', 'Lari 60m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
             $runpis = Contest::where('nocontest', 'Lari 60m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
@@ -58,7 +60,8 @@ class ContestsController extends \BaseController
                 ->with('tppis', $tppis)
                 ->with('ltpas', $ltpas)
                 ->with('ltpis', $ltpis)
-                ->with('thn', $thn);
+                ->with('thn', $thn)
+                ->with('spay', $spay);
         } elseif ($jenjang === 'SD') {
             $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
             $runpis = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
@@ -80,7 +83,8 @@ class ContestsController extends \BaseController
                 ->with('lbpis', $lbpis)
                 ->with('lespa', $lespa)
                 ->with('lespi', $lespi)
-                ->with('thn', $thn);
+                ->with('thn', $thn)
+                ->with('spay', $spay);
         }
     }
 
@@ -273,9 +277,9 @@ class ContestsController extends \BaseController
      */
     public function show($id)
     {
-        $contest = Contest::findOrFail($id);
+        $contest = Contest::findOrFail(Crypt::decrypt($id));
 
-        return View::make('contests.show', compact('contest'));
+        return View::make('contests.show', compact('contest'))->withTitle('Cetak');
     }
 
     /**

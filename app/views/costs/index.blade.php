@@ -16,13 +16,15 @@
         <!--<div class="panel-heading navyblue"> INVOICE</div>-->
         <div class="panel-body">
             <div class="text-center invoice-btn">
-                @if($jtotal>0)
-                <a href="{{ Route('user.payment.create') }}" class="btn btn-danger btn-lg"><i class="fa fa-check"></i> Konfirmasi Pembayaran </a>
-                @else
-                <a class="btn btn-danger btn-lg"><i class="fa fa-check"></i> Tidak Ada Pembayaran </a>
+                @if(!$payment)
+                    @if($jtotal>0)
+                    <a href="{{ Route('user.payment.create') }}" class="btn btn-danger btn-lg"><i class="fa fa-check"></i> Konfirmasi Pembayaran </a>
+                    @else
+                    <a class="btn btn-danger btn-lg"><i class="fa fa-check"></i> Tidak Ada Pembayaran </a>
+                    @endif
                 @endif
                 @if($payment)
-                <a class="btn btn-info btn-lg" onclick="javascript:window.print();"><i class="fa fa-print"></i> Download </a>
+                <a class="btn btn-info btn-lg"><i class="fa fa-print"></i> Download </a>
                 @endif
             </div>
             <div class="row invoice-list">
