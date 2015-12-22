@@ -274,8 +274,8 @@
                     <td>10</td>
                     <td>Buku Hasil</td>
                     <td class="">Rp {{number_format($cost->moneydocbook, 0)}}</td>
-                    <td class="">0</td>
-                    <td align="right">Rp {{number_format(0, 0)}}</td>
+                    <td class="">{{$book}}</td>
+                    <td align="right">Rp {{number_format($jbook, 0)}}</td>
                 </tr>
                 </tbody>
             </table>

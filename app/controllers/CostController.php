@@ -41,25 +41,29 @@ class CostController extends BaseController
             $docbook = Docbook::find($cek->id);
 
             if ($jenjang === 'SMA') {
-                $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $runpis = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $ljpas  = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $ljpis  = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $tppas  = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $tppis  = Contest::where('nocontest', 'Tolak Peluru pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $ltpas  = Contest::where('nocontest', 'Lompat Tinggi pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $ltpis  = Contest::where('nocontest', 'Lompat Tinggi pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $runpas  = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $runpis  = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $ljpas   = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $ljpis   = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $tppas   = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $tppis   = Contest::where('nocontest', 'Tolak Peluru pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $ltpas   = Contest::where('nocontest', 'Lompat Tinggi pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $ltpis   = Contest::where('nocontest', 'Lompat Tinggi pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $sertoff = Officer::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('sertifikat', 1)->count();
+                $book    = Docbook::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('docbook', 1)->count();
 
-                $jrunpas = $runpas * $cost->moneyreg;
-                $jrunpis = $runpis * $cost->moneyreg;
-                $jljpas  = $ljpas * $cost->moneyreg;
-                $jljpis  = $ljpis * $cost->moneyreg;
-                $jtppas  = $tppas * $cost->moneyreg;
-                $jtppis  = $tppis * $cost->moneyreg;
-                $jltpas  = $ltpas * $cost->moneyreg;
-                $jltpis  = $ltpis * $cost->moneyreg;
+                $jrunpas  = $runpas * $cost->moneyreg;
+                $jrunpis  = $runpis * $cost->moneyreg;
+                $jljpas   = $ljpas * $cost->moneyreg;
+                $jljpis   = $ljpis * $cost->moneyreg;
+                $jtppas   = $tppas * $cost->moneyreg;
+                $jtppis   = $tppis * $cost->moneyreg;
+                $jltpas   = $ltpas * $cost->moneyreg;
+                $jltpis   = $ltpis * $cost->moneyreg;
+                $jsertoff = $sertoff * $cost->moneysertoff;
+                $jbook    = $book * $cost->moneydocbook;
 
-                $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis;
+                $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis + $jsertoff + $jbook;
 
                 return View::make('costs.index', compact('docbook'))
                     ->withtitle("Dashboard User")
@@ -72,6 +76,8 @@ class CostController extends BaseController
                     ->with('tppis', $tppis)
                     ->with('ltpas', $ltpas)
                     ->with('ltpis', $ltpis)
+                    ->with('sertoff', $sertoff)
+                    ->with('book', $book)
                     ->with('jrunpas', $jrunpas)
                     ->with('jrunpis', $jrunpis)
                     ->with('jljpas', $jljpas)
@@ -80,30 +86,36 @@ class CostController extends BaseController
                     ->with('jtppis', $jtppis)
                     ->with('jltpas', $jltpas)
                     ->with('jltpis', $jltpis)
+                    ->with('jsertoff', $jsertoff)
+                    ->with('jbook', $jbook)
                     ->with('jtotal', $jtotal)
                     ->with('cost', $cost)
                     ->with('school', $school)
                     ->with('payment', $payment);
             } elseif ($jenjang === 'SMP') {
-                $runpas = Contest::where('nocontest', 'Lari 60m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $runpis = Contest::where('nocontest', 'Lari 60m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $ljpas  = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $ljpis  = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $tppas  = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $tppis  = Contest::where('nocontest', 'Tolak Peluru pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $ltpas  = Contest::where('nocontest', 'Lompat Tinggi pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-                $ltpis  = Contest::where('nocontest', 'Lompat Tinggi pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $runpas  = Contest::where('nocontest', 'Lari 60m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $runpis  = Contest::where('nocontest', 'Lari 60m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $ljpas   = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $ljpis   = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $tppas   = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $tppis   = Contest::where('nocontest', 'Tolak Peluru pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $ltpas   = Contest::where('nocontest', 'Lompat Tinggi pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $ltpis   = Contest::where('nocontest', 'Lompat Tinggi pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+                $sertoff = Officer::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('sertifikat', 1)->count();
+                $book    = Docbook::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('docbook', 1)->count();
 
-                $jrunpas = $runpas * $cost->moneyreg;
-                $jrunpis = $runpis * $cost->moneyreg;
-                $jljpas  = $ljpas * $cost->moneyreg;
-                $jljpis  = $ljpis * $cost->moneyreg;
-                $jtppas  = $tppas * $cost->moneyreg;
-                $jtppis  = $tppis * $cost->moneyreg;
-                $jltpas  = $ltpas * $cost->moneyreg;
-                $jltpis  = $ltpis * $cost->moneyreg;
+                $jrunpas  = $runpas * $cost->moneyreg;
+                $jrunpis  = $runpis * $cost->moneyreg;
+                $jljpas   = $ljpas * $cost->moneyreg;
+                $jljpis   = $ljpis * $cost->moneyreg;
+                $jtppas   = $tppas * $cost->moneyreg;
+                $jtppis   = $tppis * $cost->moneyreg;
+                $jltpas   = $ltpas * $cost->moneyreg;
+                $jltpis   = $ltpis * $cost->moneyreg;
+                $jsertoff = $sertoff * $cost->moneysertoff;
+                $jbook    = $book * $cost->moneydocbook;
 
-                $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis;
+                $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis + $jsertoff + $jbook;
 
                 return View::make('costs.index', compact('docbook'))
                     ->withtitle("Biaya")
@@ -116,6 +128,8 @@ class CostController extends BaseController
                     ->with('tppis', $tppis)
                     ->with('ltpas', $ltpas)
                     ->with('ltpis', $ltpis)
+                    ->with('sertoff', $sertoff)
+                    ->with('book', $book)
                     ->with('jrunpas', $jrunpas)
                     ->with('jrunpis', $jrunpis)
                     ->with('jljpas', $jljpas)
@@ -124,6 +138,8 @@ class CostController extends BaseController
                     ->with('jtppis', $jtppis)
                     ->with('jltpas', $jltpas)
                     ->with('jltpis', $jltpis)
+                    ->with('jsertoff', $jsertoff)
+                    ->with('jbook', $jbook)
                     ->with('jtotal', $jtotal)
                     ->with('cost', $cost)
                     ->with('school', $school)
@@ -138,6 +154,7 @@ class CostController extends BaseController
                 $lespa   = Contest::where('nocontest', 'Lari Estafet pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
                 $lespi   = Contest::where('nocontest', 'Lari Estafet pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
                 $sertoff = Officer::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('sertifikat', 1)->count();
+                $book    = Docbook::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('docbook', 1)->count();
 
                 $jrunpas = $runpas * $cost->moneyreg;
                 $jrunpis = $runpis * $cost->moneyreg;
@@ -160,8 +177,9 @@ class CostController extends BaseController
                     $jlespi = $lespi * $cost->moneyregest;
                 }
                 $jsertoff = $sertoff * $cost->moneysertoff;
+                $jbook    = $book * $cost->moneydocbook;
 
-                $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jlbpas + $jlbpis + $jlespa + $jlespi + $jsertoff;
+                $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jlbpas + $jlbpis + $jlespa + $jlespi + $jsertoff + $jbook;
 
                 return View::make('costs.index', compact('docbook'))
                     ->withtitle("Biaya")
@@ -175,6 +193,7 @@ class CostController extends BaseController
                     ->with('lespa', $lespa)
                     ->with('lespi', $lespi)
                     ->with('sertoff', $sertoff)
+                    ->with('book', $book)
                     ->with('jrunpas', $jrunpas)
                     ->with('jrunpis', $jrunpis)
                     ->with('jljpas', $jljpas)
@@ -184,6 +203,7 @@ class CostController extends BaseController
                     ->with('jlespa', $jlespa)
                     ->with('jlespi', $jlespi)
                     ->with('jsertoff', $jsertoff)
+                    ->with('jbook', $jbook)
                     ->with('jtotal', $jtotal)
                     ->with('cost', $cost)
                     ->with('school', $school)
@@ -200,25 +220,29 @@ class CostController extends BaseController
         $payment = Payment::where('user_id', Sentry::getUser()->id)->where(DB::raw('year'), '=', date('Y'))->first();
 
         if ($jenjang === 'SMA') {
-            $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $runpis = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ljpas  = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ljpis  = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $tppas  = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $tppis  = Contest::where('nocontest', 'Tolak Peluru pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ltpas  = Contest::where('nocontest', 'Lompat Tinggi pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ltpis  = Contest::where('nocontest', 'Lompat Tinggi pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $runpas  = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $runpis  = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ljpas   = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ljpis   = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $tppas   = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $tppis   = Contest::where('nocontest', 'Tolak Peluru pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ltpas   = Contest::where('nocontest', 'Lompat Tinggi pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ltpis   = Contest::where('nocontest', 'Lompat Tinggi pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $sertoff = Officer::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('sertifikat', 1)->count();
+            $book    = Docbook::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('docbook', 1)->count();
 
-            $jrunpas = $runpas * $cost->moneyreg;
-            $jrunpis = $runpis * $cost->moneyreg;
-            $jljpas  = $ljpas * $cost->moneyreg;
-            $jljpis  = $ljpis * $cost->moneyreg;
-            $jtppas  = $tppas * $cost->moneyreg;
-            $jtppis  = $tppis * $cost->moneyreg;
-            $jltpas  = $ltpas * $cost->moneyreg;
-            $jltpis  = $ltpis * $cost->moneyreg;
+            $jrunpas  = $runpas * $cost->moneyreg;
+            $jrunpis  = $runpis * $cost->moneyreg;
+            $jljpas   = $ljpas * $cost->moneyreg;
+            $jljpis   = $ljpis * $cost->moneyreg;
+            $jtppas   = $tppas * $cost->moneyreg;
+            $jtppis   = $tppis * $cost->moneyreg;
+            $jltpas   = $ltpas * $cost->moneyreg;
+            $jltpis   = $ltpis * $cost->moneyreg;
+            $jsertoff = $sertoff * $cost->moneysertoff;
+            $jbook    = $book * $cost->moneydocbook;
 
-            $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis;
+            $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis + $jsertoff + $jbook;
 
             return View::make('costs.invoice')
                 ->with('runpas', $runpas)
@@ -229,6 +253,8 @@ class CostController extends BaseController
                 ->with('tppis', $tppis)
                 ->with('ltpas', $ltpas)
                 ->with('ltpis', $ltpis)
+                ->with('sertoff', $sertoff)
+                ->with('book', $book)
                 ->with('jrunpas', $jrunpas)
                 ->with('jrunpis', $jrunpis)
                 ->with('jljpas', $jljpas)
@@ -237,30 +263,36 @@ class CostController extends BaseController
                 ->with('jtppis', $jtppis)
                 ->with('jltpas', $jltpas)
                 ->with('jltpis', $jltpis)
+                ->with('jsertoff', $jsertoff)
+                ->with('jbook', $jbook)
                 ->with('jtotal', $jtotal)
                 ->with('cost', $cost)
                 ->with('school', $school)
                 ->with('payment', $payment);
         } elseif ($jenjang === 'SMP') {
-            $runpas = Contest::where('nocontest', 'Lari 60m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $runpis = Contest::where('nocontest', 'Lari 60m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ljpas  = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ljpis  = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $tppas  = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $tppis  = Contest::where('nocontest', 'Tolak Peluru pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ltpas  = Contest::where('nocontest', 'Lompat Tinggi pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ltpis  = Contest::where('nocontest', 'Lompat Tinggi pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $runpas  = Contest::where('nocontest', 'Lari 60m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $runpis  = Contest::where('nocontest', 'Lari 60m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ljpas   = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ljpis   = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $tppas   = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $tppis   = Contest::where('nocontest', 'Tolak Peluru pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ltpas   = Contest::where('nocontest', 'Lompat Tinggi pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ltpis   = Contest::where('nocontest', 'Lompat Tinggi pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $sertoff = Officer::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('sertifikat', 1)->count();
+            $book    = Docbook::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('docbook', 1)->count();
 
-            $jrunpas = $runpas * $cost->moneyreg;
-            $jrunpis = $runpis * $cost->moneyreg;
-            $jljpas  = $ljpas * $cost->moneyreg;
-            $jljpis  = $ljpis * $cost->moneyreg;
-            $jtppas  = $tppas * $cost->moneyreg;
-            $jtppis  = $tppis * $cost->moneyreg;
-            $jltpas  = $ltpas * $cost->moneyreg;
-            $jltpis  = $ltpis * $cost->moneyreg;
+            $jrunpas  = $runpas * $cost->moneyreg;
+            $jrunpis  = $runpis * $cost->moneyreg;
+            $jljpas   = $ljpas * $cost->moneyreg;
+            $jljpis   = $ljpis * $cost->moneyreg;
+            $jtppas   = $tppas * $cost->moneyreg;
+            $jtppis   = $tppis * $cost->moneyreg;
+            $jltpas   = $ltpas * $cost->moneyreg;
+            $jltpis   = $ltpis * $cost->moneyreg;
+            $jsertoff = $sertoff * $cost->moneysertoff;
+            $jbook    = $book * $cost->moneydocbook;
 
-            $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis;
+            $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis + $jsertoff + $jbook;
 
             return View::make('costs.invoice')
                 ->with('runpas', $runpas)
@@ -271,6 +303,8 @@ class CostController extends BaseController
                 ->with('tppis', $tppis)
                 ->with('ltpas', $ltpas)
                 ->with('ltpis', $ltpis)
+                ->with('sertoff', $sertoff)
+                ->with('book', $book)
                 ->with('jrunpas', $jrunpas)
                 ->with('jrunpis', $jrunpis)
                 ->with('jljpas', $jljpas)
@@ -279,19 +313,23 @@ class CostController extends BaseController
                 ->with('jtppis', $jtppis)
                 ->with('jltpas', $jltpas)
                 ->with('jltpis', $jltpis)
+                ->with('jsertoff', $jsertoff)
+                ->with('jbook', $jbook)
                 ->with('jtotal', $jtotal)
                 ->with('cost', $cost)
                 ->with('school', $school)
                 ->with('payment', $payment);
         } elseif ($jenjang === 'SD') {
-            $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $runpis = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ljpas  = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $ljpis  = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $lbpas  = Contest::where('nocontest', 'Lempar Bola pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $lbpis  = Contest::where('nocontest', 'Lempar Bola pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $lespa  = Contest::where('nocontest', 'Lari Estafet pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
-            $lespi  = Contest::where('nocontest', 'Lari Estafet pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $runpas  = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $runpis  = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ljpas   = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $ljpis   = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $lbpas   = Contest::where('nocontest', 'Lempar Bola pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $lbpis   = Contest::where('nocontest', 'Lempar Bola pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $lespa   = Contest::where('nocontest', 'Lari Estafet pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $lespi   = Contest::where('nocontest', 'Lari Estafet pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', 1)->count();
+            $sertoff = Officer::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('sertifikat', 1)->count();
+            $book    = Docbook::where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', date('Y'))->where('docbook', 1)->count();
 
             $jrunpas = $runpas * $cost->moneyreg;
             $jrunpis = $runpis * $cost->moneyreg;
@@ -314,7 +352,10 @@ class CostController extends BaseController
                 $jlespi = $lespi * $cost->moneyregest;
             }
 
-            $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jlbpas + $jlbpis + $jlespa + $jlespi;
+            $jsertoff = $sertoff * $cost->moneysertoff;
+            $jbook    = $book * $cost->moneydocbook;
+
+            $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jlbpas + $jlbpis + $jlespa + $jlespi + $jsertoff + $jbook;
 
             return View::make('costs.invoice2')
                 ->with('runpas', $runpas)
@@ -325,6 +366,8 @@ class CostController extends BaseController
                 ->with('lbpis', $lbpis)
                 ->with('lespa', $lespa)
                 ->with('lespi', $lespi)
+                ->with('sertoff', $sertoff)
+                ->with('book', $book)
                 ->with('jrunpas', $jrunpas)
                 ->with('jrunpis', $jrunpis)
                 ->with('jljpas', $jljpas)
@@ -333,6 +376,8 @@ class CostController extends BaseController
                 ->with('jlbpis', $jlbpis)
                 ->with('jlespa', $jlespa)
                 ->with('jlespi', $jlespi)
+                ->with('jsertoff', $jsertoff)
+                ->with('jbook', $jbook)
                 ->with('jtotal', $jtotal)
                 ->with('cost', $cost)
                 ->with('school', $school)

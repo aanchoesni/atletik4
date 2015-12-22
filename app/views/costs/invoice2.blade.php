@@ -257,15 +257,15 @@
                     <td>9</td>
                     <td>Sertifikat Pendamping</td>
                     <td class="">Rp {{number_format($cost->moneysertoff, 0)}}</td>
-                    <td class="">0</td>
-                    <td align="right">Rp {{number_format(0, 0)}}</td>
+                    <td class="">{{$sertoff}}</td>
+                    <td align="right">Rp {{number_format($jsertoff, 0)}}</td>
                 </tr>
                 <tr>
                     <td>10</td>
                     <td>Buku Hasil</td>
                     <td class="">Rp {{number_format($cost->moneydocbook, 0)}}</td>
-                    <td class="">0</td>
-                    <td align="right">Rp {{number_format(0, 0)}}</td>
+                    <td class="">{{$book}}</td>
+                    <td align="right">Rp {{number_format($jbook, 0)}}</td>
                 </tr>
                 </tbody>
             </table>
