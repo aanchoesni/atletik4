@@ -244,7 +244,7 @@ class CostController extends BaseController
 
             $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis + $jsertoff + $jbook;
 
-            return View::make('costs.invoice')
+            return View::make('costs.invoice2')
                 ->with('runpas', $runpas)
                 ->with('runpis', $runpis)
                 ->with('ljpas', $ljpas)
@@ -294,7 +294,7 @@ class CostController extends BaseController
 
             $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis + $jsertoff + $jbook;
 
-            return View::make('costs.invoice')
+            return View::make('costs.invoice2')
                 ->with('runpas', $runpas)
                 ->with('runpis', $runpis)
                 ->with('ljpas', $ljpas)

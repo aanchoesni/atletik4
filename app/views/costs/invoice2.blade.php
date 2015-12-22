@@ -38,6 +38,17 @@
     </tbody>
   </table>
   </div>
+  <div class="invoice__details">
+  <center><table>
+    <tbody>
+        <tr>
+        {{-- <td class="invoice__details-label">Via</td>
+        <td>:</td> --}}
+        <td class="invoice__details-label" style="text-transform: uppercase; font-size: 18px;">Pembayaran Kejuaraan Atletik UNESA</td>
+      </tr>
+    </tbody>
+  </table></center>
+  </div>
 
 <div class="invoice__details">
   <div class="invoice__column -span-50">
