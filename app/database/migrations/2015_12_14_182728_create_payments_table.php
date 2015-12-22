@@ -15,6 +15,7 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('noinvoice');
             $table->string('method');
             $table->date('paymentdate');
             $table->integer('amount');

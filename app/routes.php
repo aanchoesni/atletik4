@@ -44,6 +44,7 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('officer/create', array('as' => 'user.officer.create', 'uses' => 'officersController@create'));
         Route::resource('officers', 'OfficersController');
         Route::get('cost', 'CostController@index');
+        Route::get('invoice', 'CostController@invoice');
         Route::resource('payment', 'PaymentsController');
     });
 });

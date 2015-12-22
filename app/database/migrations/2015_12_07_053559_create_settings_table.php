@@ -29,6 +29,7 @@ class CreateSettingsTable extends Migration
             $table->string('contestplace');
             $table->string('moneyreg');
             $table->string('moneyregest');
+            $table->string('moneysertatl');
             $table->string('moneysertoff');
             $table->string('moneydocbook');
             $table->timestamps();

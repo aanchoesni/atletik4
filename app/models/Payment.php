@@ -13,6 +13,6 @@ class Payment extends \Eloquent
     ];
 
     // Don't forget to fill this array
-    protected $fillable = ['method', 'paymentdate', 'amount', 'message', 'school', 'year', 'attachment', 'verifikasi', 'user_id'];
+    protected $fillable = ['noinvoice', 'method', 'paymentdate', 'amount', 'message', 'school', 'year', 'attachment', 'verifikasi', 'user_id'];
 
 }

@@ -162,6 +162,12 @@
 							</div>
 						</div>
 						<div class="form-group">
+							{{ Form::label('moneysertatl', 'Biaya Sertifikat Atlit', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-2">
+								{{ Form::text('moneysertatl', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+						<div class="form-group">
 							{{ Form::label('moneysertoff', 'Biaya Sertifikat Petugas', array('class' => 'control-label col-lg-2')) }}
 							<div class="col-lg-2">
 								{{ Form::text('moneysertoff', null, array('class' => 'form-control form-control-inline')) }}

@@ -41,12 +41,15 @@ class PaymentsController extends \BaseController
         }
 
         if (Input::hasFile('attachment')) {
+            $no              = Payment::max('id') + 1;
+            $noinvoice       = 'AT' . date('Ymd') . $no;
             $uploaded_file   = Input::file('attachment');
             $extension       = $uploaded_file->getClientOriginalExtension();
             $filename        = Sentry::getUser()->first_name . '.' . $extension;
             $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/payments';
             $uploaded_file->move($destinationPath, $filename); // 25
 
+            $data['noinvoice']  = $noinvoice;
             $data['attachment'] = $filename;
             $data['school']     = Sentry::getUser()->first_name;
             $data['year']       = date('Y');
