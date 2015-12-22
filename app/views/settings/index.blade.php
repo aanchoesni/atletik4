@@ -94,7 +94,7 @@
 						<div class="form-group">
 							{{ Form::label('tmtime', 'Pukul', array('class' => 'control-label col-lg-2')) }}
 							<div class="col-lg-2">
-								{{ Form::text('tmtime', null, array('class' => 'form-control form-control-inline input-medium timepicker-24', 'readonly')) }}
+								{{ Form::text('tmtime', null, array('class' => 'form-control form-control-inline input-medium')) }}
 							</div>
 						</div>
 						<div class="form-group">
@@ -129,7 +129,7 @@
 						<div class="form-group">
 							{{ Form::label('contesttime', 'Pukul', array('class' => 'control-label col-lg-2')) }}
 							<div class="col-lg-2">
-								{{ Form::text('contesttime', null, array('class' => 'form-control form-control-inline input-medium timepicker-24', 'readonly')) }}
+								{{ Form::text('contesttime', null, array('class' => 'form-control form-control-inline input-medium')) }}
 							</div>
 						</div>
 						<div class="form-group">
