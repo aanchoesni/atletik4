@@ -246,24 +246,24 @@
                     <td align="right">Rp {{number_format($jlespi, 0)}}</td>
                 </tr>
                 @endif
-                <tr>
+                {{-- <tr>
                     <td>9</td>
                     <td>Sertifikat Atlit</td>
-                    <td class="">Rp {{number_format(0, 0)}}</td>
+                    <td class="">Rp {{number_format($cost->moneysertoff, 0)}}</td>
+                    <td class="">0</td>
+                    <td align="right">Rp {{number_format(0, 0)}}</td>
+                </tr> --}}
+                <tr>
+                    <td>9</td>
+                    <td>Sertifikat Pendamping</td>
+                    <td class="">Rp {{number_format($cost->moneysertoff, 0)}}</td>
                     <td class="">0</td>
                     <td align="right">Rp {{number_format(0, 0)}}</td>
                 </tr>
                 <tr>
                     <td>10</td>
-                    <td>Sertifikat Pendamping</td>
-                    <td class="">Rp {{number_format(0, 0)}}</td>
-                    <td class="">0</td>
-                    <td align="right">Rp {{number_format(0, 0)}}</td>
-                </tr>
-                <tr>
-                    <td>11</td>
                     <td>Buku Hasil</td>
-                    <td class="">Rp {{number_format(0, 0)}}</td>
+                    <td class="">Rp {{number_format($cost->moneydocbook, 0)}}</td>
                     <td class="">0</td>
                     <td align="right">Rp {{number_format(0, 0)}}</td>
                 </tr>

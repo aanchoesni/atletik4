@@ -46,5 +46,6 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('cost', 'CostController@index');
         Route::get('invoice', 'CostController@invoice');
         Route::resource('payment', 'PaymentsController');
+        Route::resource('docbook', 'DocbookController');
     });
 });

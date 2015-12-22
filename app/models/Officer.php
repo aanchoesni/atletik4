@@ -13,6 +13,6 @@ class Officer extends \Eloquent
     ];
 
     // Don't forget to fill this array
-    protected $fillable = ['name', 'notlp', 'nohp', 'type', 'user_id'];
+    protected $fillable = ['name', 'notlp', 'nohp', 'type', 'sertifikat', 'user_id'];
 
 }

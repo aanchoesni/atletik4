@@ -90,6 +90,7 @@
                   <th><i class="fa fa-question-circle"></i> No Telepon</th>
                   <th><i class="fa fa-question-circle"></i> No Handphone</th>
                   <th><i class="fa fa-bookmark"></i> Petugas</th>
+                  <th><i class="fa fa-bookmark"></i> Sertifikat</th>
                   <th></th>
               </tr>
               </thead>
@@ -100,6 +101,11 @@
                   <td>{{ $value->notlp }}</td>
                   <td>{{ $value->nohp }}</td>
                   <td>{{ $value->type }}</td>
+                  @if($value->sertifikat == 0)
+                  <td><span class="label label-danger label-mini"><i class="fa fa-times"></i></span></td>
+                  @else
+                  <td><span class="label label-success label-mini"><i class="fa fa-check"></i></span></td>
+                  @endif
                   <td>
                       <a href="{{ route('user.officers.edit', ['officers'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                       {{ Form::open(array('url'=>route('user.officers.destroy',['officers'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}

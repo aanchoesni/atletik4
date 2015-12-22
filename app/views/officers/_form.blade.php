@@ -32,10 +32,16 @@
 								'class'=>'form-control input-sm')) }}
 					</div>
 				</div>
+				<div class="form-group">
+					{{ Form::label('sertifikat', 'Cetak Sertifikat', array('class' => 'control-label col-lg-2') ) }}
+					<div class="col-lg-10">
+						{{ Form::checkbox('sertifikat', 1, true) }}
+					</div>
+				</div>
 				<div class="panel-body">
 					<div class="box-footer">
 						{{Form::submit('Simpan', array('class'=>'btn btn-danger'))}}
-						<a href="{{ URL::to('admin/admins') }}" class="btn btn-default" type="button">Batal</a>
+						<a href="{{ URL::to('user/officers') }}" class="btn btn-default" type="button">Batal</a>
 					</div>
 				</div>
 			</div>

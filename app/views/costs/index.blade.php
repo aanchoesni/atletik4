@@ -13,6 +13,18 @@
 <!-- invoice start-->
 <section>
     <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="form-group">
+                {{ Form::model($docbook, array('url' => route('user.docbook.update', [Sentry::getUser()->id]), 'method' => 'put', 'id' => 'docbook', 'class'=>'cmxform form-horizontal tasi-form' ))}}
+                {{ Form::label('docbook', 'Buku Dokumentasi', array('class' => 'control-label col-lg-2') ) }}
+                <div class="col-lg-10">
+                    {{ Form::checkbox('docbook', 1, true, array("onChange"=>"this.form.submit();")) }}
+                </div>
+                {{ Form::close() }}
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
         <!--<div class="panel-heading navyblue"> INVOICE</div>-->
         <div class="panel-body">
             <div class="text-center invoice-btn">
@@ -244,6 +256,27 @@
                     <td align="right">Rp {{number_format($jlespi, 0)}}</td>
                 </tr>
                 @endif
+                {{-- <tr>
+                    <td>9</td>
+                    <td>Sertifikat Atlit</td>
+                    <td class="">Rp {{number_format($cost->moneysertoff, 0)}}</td>
+                    <td class="">0</td>
+                    <td align="right">Rp {{number_format(0, 0)}}</td>
+                </tr> --}}
+                <tr>
+                    <td>9</td>
+                    <td>Sertifikat Pendamping</td>
+                    <td class="">Rp {{number_format($cost->moneysertoff, 0)}}</td>
+                    <td class="">{{$sertoff}}</td>
+                    <td align="right">Rp {{number_format($jsertoff, 0)}}</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Buku Hasil</td>
+                    <td class="">Rp {{number_format($cost->moneydocbook, 0)}}</td>
+                    <td class="">0</td>
+                    <td align="right">Rp {{number_format(0, 0)}}</td>
+                </tr>
                 </tbody>
             </table>
             <div class="row">

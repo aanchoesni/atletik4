@@ -75,7 +75,8 @@ class OfficersController extends \BaseController
                 return Redirect::back()->withErrors($validator)->withInput();
             }
 
-            $data['user_id'] = Sentry::getUser()->id;
+            $data['sertifikat'] = Input::has('sertifikat') ? true : false;
+            $data['user_id']    = Sentry::getUser()->id;
             Officer::create($data);
 
             return Redirect::route('user.officers.index')->with("successMessage", "Petugas berhasil disimpan");
@@ -125,23 +126,24 @@ class OfficersController extends \BaseController
         $thn  = date('Y');
         $menu = Menu::where('tipe', Sentry::getUser()->last_name)->get();
 
-        $officer = Officer::where('type', Input::get('type'))->where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', $thn)->count();
+        // $officer = Officer::where('type', Input::get('type'))->where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', $thn)->count();
 
-        if ($officer < 1) {
-            $officer = Officer::findOrFail($id);
+        // if ($officer < 1) {
+        $officer = Officer::findOrFail($id);
 
-            $validator = Validator::make($data = Input::all(), Officer::$rules);
+        $validator = Validator::make($data = Input::all(), Officer::$rules);
 
-            if ($validator->fails()) {
-                return Redirect::back()->withErrors($validator)->withInput();
-            }
-
-            $officer->update($data);
-
-            return Redirect::route('user.officers.index')->with("successMessage", "Data petugas berhasil diubah");
-        } else {
-            return Redirect::route('user.officers.index')->with('errorMessage', trans(Input::get('type') . ' sudah ada.'));
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->withInput();
         }
+
+        $data['sertifikat'] = Input::has('sertifikat') ? true : false;
+        $officer->update($data);
+
+        return Redirect::route('user.officers.index')->with("successMessage", "Data petugas berhasil diubah");
+        // } else {
+        //     return Redirect::route('user.officers.index')->with('errorMessage', trans(Input::get('type') . ' sudah ada.'));
+        // }
     }
 
     /**

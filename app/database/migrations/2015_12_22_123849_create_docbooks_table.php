@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateOfficersTable extends Migration
+class CreateDocbooksTable extends Migration
 {
 
     /**
@@ -13,13 +13,9 @@ class CreateOfficersTable extends Migration
      */
     public function up()
     {
-        Schema::create('officers', function (Blueprint $table) {
+        Schema::create('docbooks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('notlp');
-            $table->string('nohp');
-            $table->string('type');
-            $table->boolean('sertifikat')->default(0);
+            $table->boolean('docbook')->default(0);
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
@@ -32,7 +28,7 @@ class CreateOfficersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('officers');
+        Schema::drop('docbooks');
     }
 
 }
