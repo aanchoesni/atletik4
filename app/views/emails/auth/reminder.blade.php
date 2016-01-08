@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>Password Reset</h2>
+		<h2>Password Reset Atletik UNESA</h2>
 
 		<div>
-			To reset your password, complete this form: {{ URL::to('password/reset', array($token)) }}.<br/>
-			This link will expire in {{ Config::get('auth.reminder.expire', 60) }} minutes.
+			Untuk me-reset password akun Anda, silahkan klik link berikut: <br>
+			{{ link_to_route('guest.createnewpassword', null, ['email'=>$email, 'resetCode'=>$resetCode]) }}
 		</div>
 	</body>
 </html>

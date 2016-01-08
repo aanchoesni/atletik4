@@ -19,6 +19,10 @@ Route::get('logout', 'HomeController@logout');
 Route::get('activate', array('as' => 'activate', 'uses' => 'AdminsController@activate'));
 Route::get('registrasi', 'RegistrasiController@index');
 Route::post('register', 'RegistrasiController@store');
+Route::get('forgot', 'HomeController@forgot');
+Route::post('sendresetcode', array('as' => 'sendresetcode', 'uses' => 'HomeController@sendResetCode'));
+Route::get('reset', array('as' => 'guest.createnewpassword', 'uses' => 'HomeController@createNewPassword'));
+Route::post('reset', array('as' => 'guest.storenewpassword', 'uses' => 'HomeController@storeNewPassword'));
 
 Route::group(array('before' => 'auth'), function () {
     Route::get('dashboard', 'HomeController@index');

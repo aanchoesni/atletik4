@@ -32,7 +32,19 @@
 				<div class="form-group">
 					{{ Form::label('tgllhr', 'Tanggal Lahir', array('class' => 'control-label col-lg-2')) }}
 					<div class="col-lg-10">
-						{{ Form::text('tgllhr', null, array('class' => 'form-control form-control-inline input-medium default-date-picker','placeholder'=>'masukkan tanggal lahir')) }}
+						{{ Form::text('tgllhr', null, array('class' => 'form-control form-control-inline input-medium default-date-picker','placeholder'=>'masukkan tanggal lahir')) }}<br>
+						<span class="label label-danger">NOTE!</span>
+	                 	<span>
+		                 	@if(Sentry::getUser()->last_name == 'SMA')
+		                 	Batas usia maksimum berusia 17 tahun
+		                 	@endif
+		                 	@if(Sentry::getUser()->last_name == 'SMP')
+		                 	Batas usia maksimum berusia 14 tahun
+		                 	@endif
+		                 	@if(Sentry::getUser()->last_name == 'SD')
+		                 	Batas usia maksimum berusia 11 tahun
+		                 	@endif
+	                 	</span>
 					</div>
 				</div>
                 <div class="form-group">

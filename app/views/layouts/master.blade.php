@@ -69,41 +69,13 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-                  <li>
-                      <a href="{{ URL::to('dashboard') }}">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ URL::to('admin/positions') }}">
-                          <i class="fa fa-star"></i>
-                          <span>Master Jabatan</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="{{ URL::to('admin/admins') }}">
-                          <i class="fa fa-user-md"></i>
-                          <span>Master Admin</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-users"></i>
-                          <span>Pengolahan Peserta</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="{{ URL::to('admin/schools') }}">Daftar Sekolah</a></li>
-                          <li><a  href="#">Data Valid</a></li>
-                          <li><a  href="#">Validasi</a></li>
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="{{ URL::to('admin/settings') }}">
-                          <i class="fa fa-gears"></i>
-                          <span>Pengaturan</span>
-                      </a>
-                  </li>
+                  @if (Sentry::getUser()->hasPermission('admin'))
+                  @include('dashboard.navigations.admin')
+                  @endif
+
+                  @if (Sentry::getUser()->hasPermission('panitia'))
+                  @include('dashboard.navigations.panitia')
+                  @endif
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -123,7 +95,7 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2015 &copy; cyber campus unesa - inseo.
+              2015 &copy; Cyber Campus Unesa - inseo. ALL Rights Reserved.
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>

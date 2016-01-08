@@ -8,7 +8,7 @@
   <meta name="keyword" content="Inseo, Atletik, Unesa">
   <link rel="shortcut icon" href="img/fav.png">
 
-  <title>Login | Atletik Unesa</title>
+  <title>Reset Password | Atletik Unesa</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css')}}" />
@@ -28,22 +28,15 @@
 
 <body class="login-body">
   <div class="container">
-    {{ Form::open(array('url' => '/authenticate', 'class' => 'form-signin')) }}
-      <h2 class="form-signin-heading">Masuk Sekarang</h2>
+    {{ Form::open(array('url' => route('guest.storenewpassword'), 'method'=>'post', 'class' => 'form-signin')) }}
+      <h2 class="form-signin-heading">Password Baru</h2>
       @include('layouts.partials.alert')
       <div class="login-wrap">
-        {{ Form::text('email', null, array('class'=>'form-control','placeholder'=>'User ID', 'autofocus')) }}
-        {{-- <input type="text" name="email" class="form-control" placeholder="User ID" autofocus> --}}
         {{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')) }}
-        {{-- <input type="password" name="password" class="form-control" placeholder="Password"> --}}
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Tetap masuk
-          <span class="pull-right">
-              <a data-toggle="modal" href="{{URL::to('forgot')}}"> Lupa Password?</a>
-          </span>
-        </label>
-        {{ Form::submit('Masuk', array('class'=>'btn btn-lg btn-login btn-block')) }}
-        <a href="{{ URL::to('/') }}" class="btn btn-lg btn-login btn-block" type="button"><i class="fa fa-home"></i>Home</a>
+        {{ Form::password('password_confirmation', array('class'=>'form-control', 'placeholder'=>'Ulangi Password')) }}
+        {{ Form::hidden('email', $email) }}
+        {{ Form::hidden('resetCode', $resetCode) }}
+        {{ Form::submit('Reset', array('class'=>'btn btn-lg btn-login btn-block')) }}
       </div>
    {{ Form::close() }}
   </div>

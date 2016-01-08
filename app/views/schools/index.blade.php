@@ -110,7 +110,7 @@
            */
           var nCloneTh = document.createElement( 'th' );
           var nCloneTd = document.createElement( 'td' );
-          nCloneTd.innerHTML = '<img src="assets/advanced-datatable/examples/examples_support/details_open.png">';
+          nCloneTd.innerHTML = '{{ HTML::image("admin/assets/advanced-datatable/examples/examples_support/details_open.png") }}';
           nCloneTd.className = "center";
 
           $('#hidden-table-info thead tr').each( function () {
@@ -140,13 +140,13 @@
               if ( oTable.fnIsOpen(nTr) )
               {
                   /* This row is already open - close it */
-                  this.src = "assets/advanced-datatable/examples/examples_support/details_open.png";
+                  this.src = "../admin/assets/advanced-datatable/examples/examples_support/details_open.png";
                   oTable.fnClose( nTr );
               }
               else
               {
                   /* Open this row */
-                  this.src = "assets/advanced-datatable/examples/examples_support/details_close.png";
+                  this.src = "../admin/assets/advanced-datatable/examples/examples_support/details_close.png";
                   oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
               }
           } );

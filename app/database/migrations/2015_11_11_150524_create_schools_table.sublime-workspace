@@ -1,0 +1,796 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"strto",
+				"strtotime"
+			],
+			[
+				"tgl",
+				"tgllhr"
+			],
+			[
+				"me",
+				"method"
+			],
+			[
+				"money",
+				"moneydocbook	(index.blade.php)"
+			],
+			[
+				"ser",
+				"sertoff"
+			],
+			[
+				"Sent",
+				"Sentry::getUser	(OfficersController.php)"
+			],
+			[
+				"Re",
+				"Redirect	(OfficersController.php)"
+			],
+			[
+				"dock",
+				"docbooks"
+			],
+			[
+				"with",
+				"withTitle"
+			],
+			[
+				"print",
+				"printcard"
+			],
+			[
+				"inde",
+				"index"
+			],
+			[
+				"scho",
+				"school	(CostController.php)"
+			],
+			[
+				"use",
+				"user_id	(Officer.php)"
+			],
+			[
+				"pay",
+				"Payment"
+			],
+			[
+				"sdlb",
+				"sdlbpis	(indexuser.blade.php)"
+			],
+			[
+				"sd",
+				"sdlbpas	(indexuser.blade.php)"
+			],
+			[
+				"sdlj",
+				"sdljpas	(indexuser.blade.php)"
+			],
+			[
+				"sdrun",
+				"sdrunpas	(indexuser.blade.php)"
+			],
+			[
+				"payen",
+				"payment"
+			],
+			[
+				"offi",
+				"officers	(routes.php)"
+			],
+			[
+				"att",
+				"attachment"
+			],
+			[
+				"paymen",
+				"paymentdate	(create.blade.php)"
+			],
+			[
+				"limit",
+				"limitdtstart"
+			],
+			[
+				"jles",
+				"jlespi"
+			],
+			[
+				"jlbp",
+				"jlbpis"
+			],
+			[
+				"jljp",
+				"jljpis"
+			],
+			[
+				"jrunp",
+				"jrunpis"
+			],
+			[
+				"contes",
+				"contests"
+			],
+			[
+				"Se",
+				"Session::forget	Remove an Item from the Session"
+			],
+			[
+				"cont",
+				"contests"
+			],
+			[
+				"index",
+				"indexdetail	(SchoolsController.php)"
+			],
+			[
+				"ver",
+				"verifikasi	(SchoolsController.php)"
+			],
+			[
+				"conte",
+				"contests	(routes.php)"
+			],
+			[
+				"atl",
+				"atlits	(SchoolsController.php)"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"at",
+				"Atletik"
+			],
+			[
+				"lim",
+				"limitdate"
+			],
+			[
+				"limi",
+				"limitstart"
+			],
+			[
+				"date",
+				"date2"
+			],
+			[
+				"moneyreg",
+				"moneyregest"
+			],
+			[
+				"ass",
+				"asset	(index.blade.php)"
+			],
+			[
+				"jum",
+				"jumpi	(HomeController.php)"
+			],
+			[
+				"off",
+				"officers"
+			],
+			[
+				"no",
+				"notlp"
+			],
+			[
+				"IN",
+				"Input::get	Retrieve an Input value"
+			],
+			[
+				"of",
+				"officers"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"name",
+				"name"
+			],
+			[
+				"cre",
+				"created_at	(ContestsController.php)"
+			],
+			[
+				"des",
+				"destinationPath"
+			],
+			[
+				"foto",
+				"fotodel"
+			],
+			[
+				"con",
+				"contest"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"ex",
+				"except"
+			],
+			[
+				"max",
+				"maxsize"
+			],
+			[
+				"Conte",
+				"ContestsController@indexthn"
+			],
+			[
+				"in",
+				"indexthn"
+			],
+			[
+				"run",
+				"runpas	(ContestsController.php)"
+			],
+			[
+				"Senty",
+				"Sentry::getUser"
+			],
+			[
+				"hi",
+				"height	Attr"
+			],
+			[
+				"crea",
+				"created_at	(KinerjasController.php)"
+			],
+			[
+				"publ",
+				"public_path"
+			],
+			[
+				"upload",
+				"uploaded_file"
+			],
+			[
+				"form",
+				"formulir	(create.blade.php)"
+			],
+			[
+				"tmpt",
+				"tmptlhr"
+			],
+			[
+				"Rou",
+				"Route::get	Basic Route with Closure"
+			],
+			[
+				"las",
+				"last_name"
+			],
+			[
+				"min",
+				"minlength"
+			],
+			[
+				"tre",
+				"true"
+			],
+			[
+				"hm",
+				"hmphone	(index.blade.php)"
+			],
+			[
+				"stor",
+				"store	(RegistrasiController.php)"
+			],
+			[
+				"adp",
+				"adpostalcode"
+			],
+			[
+				"Regis",
+				"Registrasi	(Registrasi.php)"
+			],
+			[
+				"req",
+				"required"
+			],
+			[
+				"ad",
+				"adcity	(index.blade.php)"
+			],
+			[
+				"re",
+				"required"
+			],
+			[
+				"rout",
+				"route	(SchoolsController.php)"
+			],
+			[
+				"nem",
+				"name	Attr"
+			],
+			[
+				"do",
+				"document	(index.blade.php)"
+			],
+			[
+				"aa",
+				"aan_choesni@ymail"
+			],
+			[
+				"MEme",
+				"MemberController	(MemberController.php)"
+			],
+			[
+				"Mem",
+				"MemberController	(MemberController.php)"
+			],
+			[
+				"password",
+				"password_confirmation"
+			],
+			[
+				"position",
+				"position_id"
+			],
+			[
+				"po",
+				"position_id"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"dashboard",
+				"dashboard-admin"
+			],
+			[
+				"pat",
+				"paths"
+			],
+			[
+				"nama",
+				"namabulan"
+			],
+			[
+				"noh",
+				"nohportu"
+			],
+			[
+				"nohp",
+				"nohpteman"
+			],
+			[
+				"tmp",
+				"tmptlahir"
+			],
+			[
+				"tg",
+				"tglawal"
+			],
+			[
+				"pendaf",
+				"pendaftaran"
+			],
+			[
+				"ala",
+				"alamatortu"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"packlis",
+				"Package Control: List Packages"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"phpfmt",
+				"phpfmt: toggle format on save"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packi",
+				"Package Control: Install Package"
+			],
+			[
+				"packconins",
+				"Package Control: Install Package"
+			],
+			[
+				"package control li",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"con",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = ‘7183a2d3e96f11eeadd761d777e62404′ + ‘e330c659d4bb41d3bdf022e94cab3cd0′; pf = ‘Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( ‘http://packagecontrol.io/’ + pf.replace(‘ ‘, ‘%20′)).read(); dh = hashlib.sha256(by).hexdigest(); print(‘Error validating download (got %s instead of %s), please try manual install’ % (dh, h)) if dh != h else open(os.path.join( ipp, pf), ‘wb’ ).write(by)",
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"Laravel Blade Highlighter"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/xampp/htdocs/epl/app/config/database.php",
+		"/D/xampp/htdocs/epl/app/config/app.php",
+		"/D/xampp/htdocs/atletik4/app/views/contests/_forme.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/contests/_form.blade.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/ContestsController.php",
+		"/D/xampp/htdocs/atletik4/app/routes.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/CostController.php",
+		"/D/xampp/htdocs/atletik4/app/views/costs/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/costs/invoice2.blade.php",
+		"/D/xampp/htdocs/atletik4/.gitignore",
+		"/D/xampp/htdocs/atletik4/app/controllers/OfficersController.php",
+		"/D/xampp/htdocs/atletik4/app/models/Officer.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/DocbookController.php",
+		"/D/xampp/htdocs/atletik4/app/views/officers/_form.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/officers/edit.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/officers/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/PaymentsController.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/SettingsController.php",
+		"/D/xampp/htdocs/atletik4/app/models/Docbook.php",
+		"/D/xampp/htdocs/atletik4/app/views/officers/create.blade.php",
+		"/D/xampp/htdocs/atletik4/app/database/migrations/2015_12_07_053559_create_settings_table.php",
+		"/D/xampp/htdocs/atletik4/app/database/migrations/2015_12_02_204004_create_officers_table.php",
+		"/D/xampp/htdocs/atletik4/app/database/migrations/2015_12_22_123849_create_docbooks_table.php",
+		"/D/xampp/htdocs/atletik4/app/database/migrations/2015_12_14_182728_create_payments_table.php",
+		"/D/xampp/htdocs/atletik4/app/views/contests/edit.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/contests/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/models/Setting.php",
+		"/D/xampp/htdocs/atletik4/app/views/settings/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/costs/invoice.blade.php",
+		"/D/xampp/htdocs/atletik4/app/models/Payment.php",
+		"/D/xampp/htdocs/atletik4/app/views/layouts/masteruser.blade.php",
+		"/D/xampp/htdocs/atletik4/app/config/local/app.php",
+		"/D/xampp/htdocs/atletik4/composer.json",
+		"/D/Sublime/Atletik4.sublime-project",
+		"/D/xampp/htdocs/suratmahasiswa/app/controllers/SuratIjinStudiLapanganGroupsController.php",
+		"/D/xampp/htdocs/suratmahasiswa/app/views/suratkunjunganindvs/_form.blade.php",
+		"/D/xampp/htdocs/suratmahasiswa/app/routes.php",
+		"/D/xampp/htdocs/suratmahasiswa/app/views/suratkunjunganindvs/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/payments/create.blade.php",
+		"/D/xampp/htdocs/atletik4/public/admin/js/all-chartjs.js",
+		"/D/xampp/htdocs/atletik4/app/views/dashboard/indexuser.blade.php",
+		"/D/xampp/htdocs/atletik4/public/admin/js/count.js",
+		"/D/xampp/htdocs/atletik4/app/config/database.php",
+		"/D/xampp/htdocs/atletikunesa5/public/admin/js/count.js",
+		"/D/xampp/htdocs/atletik4/app/views/contests/create.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/admins/create.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/positions/create.blade.php",
+		"/D/xampp/htdocs/atletik4/public/admin/js/form-validation-script.js",
+		"/D/xampp/htdocs/atletik4/app/views/registrasi/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/schools/indexdetail.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/layouts/master.blade.php",
+		"/D/xampp/htdocs/atletik4/public/admin/js/pulstate.js",
+		"/D/xampp/htdocs/atletik4/public/admin/js/jquery.pulsate.min.js",
+		"/D/xampp/htdocs/simkinerja/app/views/kinerjas/_form.blade.php",
+		"/D/xampp/htdocs/atletik4/public/admin/js/advanced-form-components.js",
+		"/D/xampp/htdocs/atletik4/app/views/settings/create.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/front/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/helpers/frontend.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/FrontController.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/RegistrasiController.php",
+		"/D/xampp/htdocs/atletik4/app/views/schools/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/SchoolsController.php",
+		"/D/xampp/htdocs/simkinerja/app/config/app.php",
+		"/D/xampp/htdocs/atletik4/app/config/app.php",
+		"/D/xampp/htdocs/simkinerja/composer.json",
+		"/D/xampp/htdocs/atletik4/app/views/admins/index.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/controllers/KerjasController.php",
+		"/D/xampp/htdocs/simkinerja/app/views/kerjas/index.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/routes.php",
+		"/D/xampp/htdocs/simkinerja/app/views/kinerjas/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/HomeController.php",
+		"/D/xampp/htdocs/atletik4/app/filters.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/LoginController.php",
+		"/D/xampp/htdocs/simkinerja/app/views/karyawans/_form.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/positions/index.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/dashboard/indexadmin.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/dashboard/index.blade.php",
+		"/D/xampp/htdocs/atletik4/public/admin/js/jquery.dcjqaccordion.2.7.js",
+		"/D/xampp/htdocs/simkinerja/app/controllers/KinerjasController.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/PositionsController.php",
+		"/D/xampp/htdocs/atletik4/app/controllers/AdminsController.php",
+		"/D/xampp/htdocs/atletik4/app/views/admins/edit.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/admins/_form.blade.php",
+		"/D/xampp/htdocs/atletik4/app/database/seeds/SettingsTableSeeder.php",
+		"/D/xampp/htdocs/atletik4/app/database/seeds/AdminsTableSeeder.php",
+		"/D/xampp/htdocs/atletik4/app/database/seeds/OfficersTableSeeder.php",
+		"/D/xampp/htdocs/atletik4/app/views/schools/create.blade.php",
+		"/D/xampp/htdocs/atletik4/public/admin/js/form-component.js",
+		"/D/xampp/htdocs/simkinerja/app/views/profiles/_formedit.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/views/karyawans/_form2.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/views/kerjas/_form.blade.php",
+		"/D/xampp/htdocs/suratmahasiswa/app/views/suratmaganggroups/_form.blade.php",
+		"/D/xampp/htdocs/suratmahasiswa/app/views/suratmagangindvs/_form.blade.php",
+		"/D/xampp/htdocs/suratmahasiswa/app/views/suratambildatas/_form.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/controllers/TujabsController.php",
+		"/D/xampp/htdocs/atletik4/app/models/Contest.php",
+		"/D/xampp/htdocs/simkinerja/app/models/Kinerja.php",
+		"/D/xampp/htdocs/atletik4/app/views/admins/_forme.blade.php",
+		"/D/xampp/htdocs/suratmahasiswa/app/views/suratijinstudilapangangroups/_form.blade.php",
+		"/D/xampp/htdocs/suratmahasiswa/app/views/suratkartuanggotas/_form.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/views/layouts/master.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/controllers/JabatansController.php",
+		"/D/xampp/htdocs/atletik4/app/models/Admin.php",
+		"/D/xampp/htdocs/simkinerja/app/views/kinerjas/create.blade.php",
+		"/D/xampp/htdocs/atletik4/public/admin/js/common-scripts.js",
+		"/D/xampp/htdocs/atletik4/app/database/migrations/2015_11_19_140027_create_contests_table.php",
+		"/D/xampp/htdocs/atletik4/app/models/Menu.php",
+		"/D/xampp/htdocs/atletik4/app/database/migrations/2015_11_24_191215_table_menu.php",
+		"/D/xampp/htdocs/atletik4/app/models/User.php",
+		"/D/xampp/htdocs/simkinerja/app/views/jabatans/edit.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/views/karyawans/index.blade.php",
+		"/D/xampp/htdocs/simkinerja/app/controllers/KaryawansController.php",
+		"/D/xampp/htdocs/atletik4/app/database/migrations/2015_11_11_150524_create_schools_table.php",
+		"/D/xampp/htdocs/atletik4/app/views/layouts/masterpanitia.blade.php",
+		"/D/xampp/htdocs/atletik4/app/views/dashboard/indexpanitia.blade.php",
+		"/D/xampp/htdocs/atletik4/app/models/Registrasi.php",
+		"/D/xampp/htdocs/simkinerja/app/filters.php",
+		"/D/xampp/htdocs/atletik4/app/models/School.php",
+		"/D/xampp/htdocs/atletik4/app/models/Position.php",
+		"/D/xampp/htdocs/atletik4/vendor/greggilbert/recaptcha/src/views/captchav2.blade.php",
+		"/D/xampp/htdocs/atletik4/vendor/greggilbert/recaptcha/src/config/config.php",
+		"/D/xampp/htdocs/atletik4/app/config/packages/greggilbert/recaptcha/config.php",
+		"/D/xampp/htdocs/atletik4/vendor/greggilbert/recaptcha/src/Greggilbert/Recaptcha/RecaptchaServiceProvider.php",
+		"/D/xampp/htdocs/atletik4/vendor/greggilbert/recaptcha/src/Greggilbert/Recaptcha/CheckRecaptcha.php",
+		"/D/xampp/htdocs/atletik4/vendor/greggilbert/recaptcha/src/views/captcha.blade.php",
+		"/D/xampp/htdocs/atletik4/app/lang/id/validation.php",
+		"/D/xampp/htdocs/atletik4/vendor/cartalyst/sentry/src/config/config.php",
+		"/D/xampp/htdocs/atletik4/app/config/packages/cartalyst/sentry/config.php"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"D:\\xampp\\htdocs\\atletik4",
+			"D:\\xampp\\htdocs\\simkinerja"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"tahun",
+			"');\n",
+			");\n",
+			"Status",
+			"status",
+			"s",
+			"regular",
+			";\">",
+			");\n",
+			"Estafet",
+			"slider.html",
+			"widget.html",
+			"buttons.html",
+			"general.html",
+			"dashboard",
+			"panitia",
+			"admin",
+			"password",
+			"numeric",
+			"\",\n",
+			"',\n",
+			"required",
+			"ny('",
+			"document",
+			"fillable",
+			"admins",
+			"SentrySeeder",
+			"user",
+			"                                \n",
+			"')->"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Model"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "2015_11_11_150524_create_schools_table.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"app",
+				"app\\config\\app.php"
+			],
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				"paymen",
+				"app\\database\\migrations\\2015_12_14_182728_create_payments_table.php"
+			],
+			[
+				"route",
+				"app\\routes.php"
+			],
+			[
+				"cost",
+				"app\\controllers\\CostController.php"
+			],
+			[
+				"count",
+				"atletikunesa5\\public\\admin\\js\\count.js"
+			],
+			[
+				"formbuilder",
+				"atletik4\\vendor\\laravel\\framework\\src\\Illuminate\\Html\\FormBuilder.php"
+			],
+			[
+				"belongstomany",
+				"zero\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany.php"
+			],
+			[
+				"illumodel",
+				"atletikunesa5\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php"
+			],
+			[
+				"create_member",
+				"test-laravel\\database\\migrations\\2015_11_13_023420_create_member.php"
+			],
+			[
+				"routes",
+				"test-laravel\\app\\Http\\routes.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Project\\test-laravel5.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

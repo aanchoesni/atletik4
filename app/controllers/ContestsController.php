@@ -223,8 +223,22 @@ class ContestsController extends \BaseController
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
         } else {
-            $date  = new \DateTime;
-            $tahun = \Carbon\Carbon::now();
+            $date    = new \DateTime;
+            $jenjang = Sentry::getUser()->last_name;
+            $age     = date('Y') - date('Y', strtotime(input::get('tgllhr')));
+            // $tahun = \Carbon\Carbon::now();
+
+            if ($jenjang == 'SMA' and $age > 17) {
+                return Redirect::back()->withErrors('Umur melebihi batas maksimal')->withInput();
+            }
+
+            if ($jenjang == 'SMP' and $age > 14) {
+                return Redirect::back()->withErrors('Umur melebihi batas maksimal')->withInput();
+            }
+
+            if ($jenjang == 'SD' and $age > 11) {
+                return Redirect::back()->withErrors('Umur melebihi batas maksimal')->withInput();
+            }
 
             // isi field cover jika ada cover yang diupload
             if (Input::hasFile('foto') and Input::hasFile('rapor')) {
@@ -312,6 +326,21 @@ class ContestsController extends \BaseController
 
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();
+        }
+
+        $age     = date('Y') - date('Y', strtotime(input::get('tgllhr')));
+        $jenjang = Sentry::getUser()->last_name;
+
+        if ($jenjang == 'SMA' and $age > 17) {
+            return Redirect::back()->withErrors('Batas usia maksimum berusia 17 tahun')->withInput();
+        }
+
+        if ($jenjang == 'SMP' and $age > 14) {
+            return Redirect::back()->withErrors('Batas usia maksimum berusia 14 tahun')->withInput();
+        }
+
+        if ($jenjang == 'SD' and $age > 11) {
+            return Redirect::back()->withErrors('Batas usia maksimum berusia 11 tahun')->withInput();
         }
 
         if (Input::hasFile('foto')) {
