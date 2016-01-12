@@ -15,4 +15,14 @@ class Payment extends \Eloquent
     // Don't forget to fill this array
     protected $fillable = ['noinvoice', 'method', 'paymentdate', 'amount', 'message', 'school', 'year', 'attachment', 'verifikasi', 'user_id'];
 
+    public function akun()
+    {
+        return $this->belongsTo('User', 'user_id');
+    }
+
+    public function schoolpay()
+    {
+        return $this->belongsTo('School', 'user_id');
+    }
+
 }

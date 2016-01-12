@@ -12,6 +12,7 @@
 @section('content')
 <!-- invoice start-->
 <section>
+    @if(!$payment)
     <div class="panel panel-primary">
         <div class="panel-body">
             <div class="form-group">
@@ -24,6 +25,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="panel panel-primary">
         <!--<div class="panel-heading navyblue"> INVOICE</div>-->
         <div class="panel-body">

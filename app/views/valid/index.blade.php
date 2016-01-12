@@ -8,6 +8,7 @@
   {{HTML::style("admin/assets/advanced-datatable/media/css/demo_page.css")}}
   {{HTML::style("admin/assets/advanced-datatable/media/css/demo_table.css")}}
   {{HTML::style("admin/assets/data-tables/DT_bootstrap.css")}}
+  {{HTML::style("admin/assets/fancybox/source/jquery.fancybox.css")}}
 @stop
 
 @section('content')
@@ -25,48 +26,44 @@
                           <tr>
                               <th style="text-align:center;">No</th>
                               <th style="text-align:center;" >Sekolah</th>
-                              <th style="text-align:center;">Kota</th>
-                              <th style="text-align:center;">Telepon</th>
+                              <th style="text-align:center;">No Invoice</th>
+                              <th style="text-align:center;">Jumlah Bayar</th>
+                              <th style="text-align:center;">Validasi</th>
                               <th style="text-align:center;">Aksi</th>
-                              <th style="display:none;">Jalan</th>
-                              <th style="display:none;">Desa</th>
-                              <th style="display:none;">Kecamatan</th>
-                              <th style="display:none;">Kabupaten/Kota</th>
-                              <th style="display:none;">Kode Pos</th>
-                              <th style="display:none;">Nama Kepala Sekolah</th>
-                              <th style="display:none;">No Telepon Kepala Selolah</th>
-                              <th style="display:none;">No HP Kepala Selolah</th>
+                              <th style="display:none;">Metode</th>
+                              <th style="display:none;">Tanggal Pembayaran</th>
+                              <th style="display:none;">Pesan</th>
+                              <th style="display:none;">Bukti</th>
                           </tr>
                           </thead>
                           <tbody>
                           <?php $no = 1;?>
-                          @foreach($schools as $value)
+                          @foreach($payments as $value)
                             <tr>
                                 <td style="text-align:center;"><?php echo $no ?></td>
-                                <td>{{{ $value->name }}}</td>
-                                <td>{{{ $value->adcity }}}</td>
-                                <td>{{{ $value->adphone }}}</td>
+                                <td>{{{ $value->school }}}</td>
+                                <td style="text-align:center;">{{{ $value->noinvoice }}}</td>
+                                <td style="text-align:right;">Rp {{number_format($value->amount, 0)}}</td>
+                                <td style="text-align:center;">@if($value->verifikasi==1)<span class="label label-success label-mini"><i class="fa fa-check"></i></span>@endif
+                                @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                                 <td style="text-align:center;">
                                   <div class="btn-group">
                                     <span style="display:inline;">
-                                    <a href="{{URL::to('admin/schools/indexdetail/' . Crypt::encrypt($value->user_id)) }}" class="btn btn-primary btn-xs"><i class="fa fa-laptop"></i></a>
-                                    </span>
-                                    {{-- {{ Form::open(array('url'=>route('admin.positions.destroy',['positions'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }} --}}
-                                    {{-- {{ Form::button('<i class="fa fa-thumbs-up"></i>', array('type'=>'submit','class'=>'btn btn-success btn-xs')) }} --}}
-                                    {{-- {{ Form::close() }} --}}
-                                    {{-- {{ Form::open(array('url'=>route('admin.positions.destroy',['positions'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }} --}}
-                                    {{-- {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }} --}}
-                                    {{-- {{ Form::close() }} --}}
+                                    @if($value->verifikasi==1)
+                                    <a href="{{URL::to('admin/notvalidasi/' . $value->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-thumbs-down"></i></a>
+                                    </span>@endif
+                                    @if($value->verifikasi==0)
+                                    <a href="{{URL::to('admin/validasi/' . $value->id) }}" class="btn btn-success btn-xs"><i class="fa fa-thumbs-up"></i></a>
+                                    </span>@endif
                                   </div>
                                 </td>
-                                <td style="display:none;">{{{ $value->adstreet }}}</td>
-                                <td style="display:none;">{{{ $value->advillage }}}</td>
-                                <td style="display:none;">{{{ $value->addistricts }}}</td>
-                                <td style="display:none;">{{{ $value->adcity }}}</td>
-                                <td style="display:none;">{{{ $value->adpostalcode }}}</td>
-                                <td style="display:none;">{{{ $value->hmname }}}</td>
-                                <td style="display:none;">{{{ $value->hmphone }}}</td>
-                                <td style="display:none;">{{{ $value->hmmobile }}}</td>
+                                <td style="display:none;">{{{ $value->method }}}</td>
+                                <td style="display:none;">{{{ $value->paymentdate }}}</td>
+                                <td style="display:none;">{{{ $value->message }}}</td>
+                                <td style="display:none;">
+                                <a id="pay" href="../uploads/payments/{{ $value->attachment }}">Lihat Bukti Pembayaran
+                                </a>
+                                </td>
                             <?php $no++;?>
                             </tr>
                             @endforeach
@@ -84,6 +81,7 @@
   {{HTML::script('admin/assets/advanced-datatable/media/js/jquery.js')}}
   {{HTML::script('admin/assets/advanced-datatable/media/js/jquery.dataTables.js')}}
   {{HTML::script('admin/assets/data-tables/DT_bootstrap.js')}}
+  {{HTML::script('admin/assets/fancybox/source/jquery.fancybox.js')}}
   {{--<script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         $('#tbadmin').dataTable();
@@ -95,14 +93,10 @@
       {
           var aData = oTable.fnGetData( nTr );
           var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-          sOut += '<tr><td>Jalan:</td><td>'+aData[6]+'</td></tr>';
-          sOut += '<tr><td>Desa/Kelurahan:</td><td>'+aData[7]+'</td></tr>';
-          sOut += '<tr><td>Kecamatan:</td><td>'+aData[8]+'</td></tr>';
-          sOut += '<tr><td>Kabupaten/Kota:</td><td>'+aData[9]+'</td></tr>';
-          sOut += '<tr><td>Kode Pos:</td><td>'+aData[10]+'</td></tr>';
-          sOut += '<tr><td>Nama Kepsek:</td><td>'+aData[11]+'</td></tr>';
-          sOut += '<tr><td>No Telepon Kepsek:</td><td>'+aData[12]+'</td></tr>';
-          sOut += '<tr><td>No HP Kepsek:</td><td>'+aData[13]+'</td></tr>';
+          sOut += '<tr><td>Metode Pembayaran:</td><td>'+aData[7]+'</td></tr>';
+          sOut += '<tr><td>Tanggal Pembayaran:</td><td>'+aData[8]+'</td></tr>';
+          sOut += '<tr><td>Pesan:</td><td>'+aData[9]+'</td></tr>';
+          sOut += '<tr><td>Bukti Pembayaran:</td><td>'+aData[10]+'</td></tr>';
           sOut += '</table>';
 
           return sOut;
@@ -154,6 +148,16 @@
                   oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
               }
           } );
+          $("#pay").fancybox({
+            openEffect  : 'elastic',
+            closeEffect : 'elastic',
+
+            helpers : {
+              title : {
+                type : 'inside'
+              }
+            }
+          });
       } );
   </script>
 @stop

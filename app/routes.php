@@ -34,6 +34,9 @@ Route::group(array('before' => 'auth'), function () {
         Route::resource('settings', 'SettingsController');
         Route::put('schools/notverifikasi/{id}', array('as' => 'admin.schools.notverifikasi', 'uses' => 'SchoolsController@notverifikasi'));
         Route::put('schools/verifikasi/{id}', array('as' => 'admin.schools.verifikasi', 'uses' => 'SchoolsController@verifikasi'));
+        Route::get('valid', 'ValidController@index');
+        Route::get('validasi/{id}', array('as' => 'admin.validasi', 'uses' => 'ValidController@validasi'));
+        Route::get('notvalidasi/{id}', array('as' => 'admin.notvalidasi', 'uses' => 'ValidController@notvalidasi'));
     });
     Route::group(array('prefix' => 'panitia', 'before' => 'panitia'), function () {
         Route::resource('positions', 'PositionsController');

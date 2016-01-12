@@ -19,4 +19,14 @@ class User extends BaseModel
     {
         return $this->hasOne('Admin');
     }
+
+    public function valid()
+    {
+        return $this->hasMany('Payment', 'user_id');
+    }
+
+    public function school()
+    {
+        return $this->hasOne('School', 'user_id');
+    }
 }

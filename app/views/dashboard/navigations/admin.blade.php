@@ -22,9 +22,8 @@
         <span>Pengolahan Peserta</span>
     </a>
     <ul class="sub">
-        <li><a  href="{{ URL::to('admin/schools') }}">Daftar Sekolah</a></li>
-        <li><a  href="#">Data Valid</a></li>
-        <li><a  href="#">Validasi</a></li>
+        <li><a  href="{{ URL::to('admin/schools') }}"><i class="fa fa-hospital-o"></i>Verifikasi</i></a></li>
+        <li><a  href="{{ URL::to('admin/valid') }}"><i class="fa fa-thumbs-up"></i>Validasi</i></a></li>
     </ul>
 </li>
 <li>

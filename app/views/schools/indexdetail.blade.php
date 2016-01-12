@@ -14,6 +14,11 @@
 
 @section('content')
 <!-- page start-->
+<div class="alert alert-danger fade in">
+  <h4>PERINGATAN!!!</h4>
+  1. Icon <span class="label label-success label-mini"><i class="fa fa-check"></i></span> pada kolom Status Verifikasi menandakan bahwa peserta <b>sudah</b> diverifikasi<br><br>
+  2. Icon <span class="label label-danger label-mini"><i class="fa fa-times"></i></span> pada kolom Status Verifikasi menandakan bahwa peserta <b>belum</b> diverifikasi
+</div>
 <div class="row">
     <div class="col-lg-12">
       <section class="panel">
@@ -23,7 +28,7 @@
                       {{-- {{ Form::label('jenjang', 'Jenjang', array('class' => 'control-label')) }} --}}
                       {{ Form::select('nocontest', array(''=>'')+Menu::where('tipe',$jenjang)->lists('menu','menu'), $vcontests, array(
                         'id'=>'nocontest',
-                        'placeholder' => "Pilih Jenjang",
+                        'placeholder' => "Pilih nomor lomba",
                         'class'=>'form-control input-sm',
                         "onChange"=>"this.form.submit();")) }}
                   </div>
@@ -51,7 +56,7 @@
                               <th style="text-align:center;">Tempat Lahir</th>
                               <th style="text-align:center;">Tanggal Lahir</th>
                               <th style="text-align:center;">No Lomba</th>
-                              <th style="text-align:center;">Status</th>
+                              <th style="text-align:center;">Status Verifikasi</th>
                               <th style="text-align:center;">Aksi</th>
                           </tr>
                           </thead>
