@@ -29,4 +29,9 @@ class User extends BaseModel
     {
         return $this->hasOne('School', 'user_id');
     }
+
+    public function atlit()
+    {
+        return $this->hasMany('Contest', 'user_id');
+    }
 }

@@ -37,6 +37,22 @@ class SchoolsController extends \BaseController
             ->with('vcontests', $vcontests);
     }
 
+    public function atlit()
+    {
+        $atlits = Contest::where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', '0')->with('akun')->get();
+
+        return View::make('schools.atlit', compact('atlits'))
+            ->withTitle('Belum Verifikasi');
+    }
+
+    public function atlitok()
+    {
+        $atlits = Contest::where(DB::raw('tahun'), '=', date('Y'))->where('verifikasi', '1')->with('akun')->get();
+
+        return View::make('schools.atlit', compact('atlits'))
+            ->withTitle('Belum Verifikasi');
+    }
+
     /**
      * Show the form for creating a new school
      *

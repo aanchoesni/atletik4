@@ -22,42 +22,23 @@
 </div>
 <div class="row">
     <div class="col-lg-12">
-      <section class="panel">
-          <div class="panel-body" id="pulsate-regular">
-              {{ Form::open(array('url' => route('admin.schools.indexdetail',[Crypt::encrypt(Session::get('nocontest'))]), 'method' => 'get','class'=>'form-inline')) }}
-                  <div class="form-group">
-                      {{-- {{ Form::label('jenjang', 'Jenjang', array('class' => 'control-label')) }} --}}
-                      {{ Form::select('nocontest', array(''=>'')+Menu::where('tipe',$jenjang)->lists('menu','menu'), $vcontests, array(
-                        'id'=>'nocontest',
-                        'placeholder' => "Pilih nomor lomba",
-                        'class'=>'form-control input-sm',
-                        "onChange"=>"this.form.submit();")) }}
-                  </div>
-                  {{-- {{Form::submit('Cari', array('class'=>'btn btn-success'))}} --}}
-              {{ Form::close() }}
-          </div>
-      </section>
-    </div>
-    <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                Daftar Atlit dari <strong> {{$school->name}} </strong>
-                <span class="pull-right">
-                  <a href="{{ URL::to('admin/schools') }}"><i class="fa fa-times "></i></a>
-                </span>
+                Daftar Atlit
             </header>
             <div class="panel-body" style="overflow: scroll;">
                   <div class="adv-table">
-                      <table  class="display table table-bordered table-striped" id="atlit">
+                      <table  class="display table table-bordered table-striped" id="hidden-table-info">
                         <thead>
                           <tr>
                               <th style="text-align:center;">No</th>
                               <th style="text-align:center;">Foto</th>
+                              <th style="text-align:center;">Sekolah</th>
                               <th style="text-align:center;">Nama</th>
                               <th style="text-align:center;">NIS</th>
-                              <th style="text-align:center;">Tempat Lahir</th>
-                              <th style="text-align:center;">Tanggal Lahir</th>
-                              <th style="text-align:center;">Rapor</th>
+                              <th style="display:none;">Tempat Lahir</th>
+                              <th style="display:none;">Tanggal Lahir</th>
+                              <th style="display:none;">Rapor</th>
                               <th style="text-align:center;">No Lomba</th>
                               <th style="text-align:center;">No Dada</th>
                               <th style="text-align:center;">Status Verifikasi</th>
@@ -70,12 +51,13 @@
                             <tr>
                                 <td style="text-align:center;"><?php echo $no ?></td>
                                 <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
+                                <td>{{{ $value->akun->first_name }}}</td>
                                 <td>{{{ $value->name }}}</td>
                                 <td>{{{ $value->nis }}}</td>
-                                <td>{{{ $value->tmptlhr }}}</td>
-                                <td>{{{ $value->tgllhr }}}</td>
-                                <td>
-                                  <a id="rapor" href="../../../uploads/rapor/{{ $value->rapor }}">Lihat Rapor</a>
+                                <td style="display:none;">{{{ $value->tmptlhr }}}</td>
+                                <td style="display:none;">{{{ $value->tgllhr }}}</td>
+                                <td style="display:none;">
+                                  <a id="rapor" href="../uploads/rapor/{{ $value->rapor }}">Lihat Rapor</a>
                                 </td>
                                 <td>{{{ $value->nocontest }}}</td>
                                 <td></td>
@@ -116,10 +98,72 @@
   {{HTML::script('admin/js/jquery.pulsate.min.js')}}
   {{HTML::script('admin/assets/fancybox/source/jquery.fancybox.js')}}
   {{HTML::script('admin/js/pulstate.js')}}
-  <script type="text/javascript" charset="utf-8">
+  <!--script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         $('#atlit').dataTable();
     } );
+  </script-->
+  <script type="text/javascript">
+      /* Formating function for row details */
+      function fnFormatDetails ( oTable, nTr )
+      {
+          var aData = oTable.fnGetData( nTr );
+          var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+          sOut += '<tr><td>Tempat Lahir:</td><td>'+aData[6]+'</td></tr>';
+          sOut += '<tr><td>Tanggal Lahir:</td><td>'+aData[7]+'</td></tr>';
+          sOut += '<tr><td>Rapor:</td><td>'+aData[8]+'</td></tr>';
+          sOut += '</table>';
+
+          return sOut;
+      }
+
+      $(document).ready(function() {
+          /*
+           * Insert a 'details' column to the table
+           */
+          var nCloneTh = document.createElement( 'th' );
+          var nCloneTd = document.createElement( 'td' );
+          nCloneTd.innerHTML = '{{ HTML::image("admin/assets/advanced-datatable/examples/examples_support/details_open.png") }}';
+          nCloneTd.className = "center";
+
+          $('#hidden-table-info thead tr').each( function () {
+              this.insertBefore( nCloneTh, this.childNodes[0] );
+          } );
+
+          $('#hidden-table-info tbody tr').each( function () {
+              this.insertBefore(  nCloneTd.cloneNode( true ), this.childNodes[0] );
+          } );
+
+          /*
+           * Initialse DataTables, with no sorting on the 'details' column
+           */
+          var oTable = $('#hidden-table-info').dataTable( {
+              "aoColumnDefs": [
+                  { "bSortable": false, "aTargets": [ 0 ] }
+              ],
+              "aaSorting": [[1, 'asc']]
+          });
+
+          /* Add event listener for opening and closing details
+           * Note that the indicator for showing which row is open is not controlled by DataTables,
+           * rather it is done here
+           */
+          $('#hidden-table-info tbody td img').live('click', function () {
+              var nTr = $(this).parents('tr')[0];
+              if ( oTable.fnIsOpen(nTr) )
+              {
+                  /* This row is already open - close it */
+                  this.src = "../admin/assets/advanced-datatable/examples/examples_support/details_open.png";
+                  oTable.fnClose( nTr );
+              }
+              else
+              {
+                  /* Open this row */
+                  this.src = "../admin/assets/advanced-datatable/examples/examples_support/details_close.png";
+                  oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
+              }
+          } );
+      } );
   </script>
   <script type="text/javascript">
       $(document).ready(function() {
@@ -138,6 +182,6 @@
   <script src="{{ asset('packages/select2/select2.min.js')}}"></script>
   <script src="{{ asset('packages/select2/select2_locale_id.js')}}"></script>
   <script type="text/javascript">
-      $(document).ready(function() { $("#nocontest").select2(); });
+      $(document).ready(function() { $("#nocontest").select2({width: '200px'}); });
   </script>
 @stop

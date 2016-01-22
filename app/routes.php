@@ -31,12 +31,16 @@ Route::group(array('before' => 'auth'), function () {
         Route::resource('admins', 'AdminsController');
         Route::resource('schools', 'SchoolsController');
         Route::get('schools/indexdetail/{id}', array('as' => 'admin.schools.indexdetail', 'uses' => 'SchoolsController@indexdetail'));
+        Route::get('atlit', array('as' => 'admin.atlit', 'uses' => 'SchoolsController@atlit'));
+        Route::get('atlitok', array('as' => 'admin.atlitok', 'uses' => 'SchoolsController@atlitok'));
         Route::resource('settings', 'SettingsController');
         Route::put('schools/notverifikasi/{id}', array('as' => 'admin.schools.notverifikasi', 'uses' => 'SchoolsController@notverifikasi'));
         Route::put('schools/verifikasi/{id}', array('as' => 'admin.schools.verifikasi', 'uses' => 'SchoolsController@verifikasi'));
-        Route::get('valid', 'ValidController@index');
+        Route::get('valid', array('as' => 'admin.valid', 'uses' => 'ValidController@index'));
         Route::get('validasi/{id}', array('as' => 'admin.validasi', 'uses' => 'ValidController@validasi'));
         Route::get('notvalidasi/{id}', array('as' => 'admin.notvalidasi', 'uses' => 'ValidController@notvalidasi'));
+        Route::resource('sequents', 'SequentsController');
+
     });
     Route::group(array('prefix' => 'panitia', 'before' => 'panitia'), function () {
         Route::resource('positions', 'PositionsController');

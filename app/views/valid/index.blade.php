@@ -9,17 +9,34 @@
   {{HTML::style("admin/assets/advanced-datatable/media/css/demo_table.css")}}
   {{HTML::style("admin/assets/data-tables/DT_bootstrap.css")}}
   {{HTML::style("admin/assets/fancybox/source/jquery.fancybox.css")}}
+  {{HTML::style("select2/select2-bootstrap.css")}}
+  <link rel="stylesheet" href="{{ asset('packages/select2/select2.css')}}" />
 @stop
 
 @section('content')
 <!-- page start-->
 <div class="row">
     <div class="col-lg-12">
+      <section class="panel">
+          <div class="panel-body" id="pulsate-regular">
+              {{ Form::open(array('url' => route('admin.valid'), 'method' => 'get','class'=>'form-inline')) }}
+                  <div class="form-group">
+                      {{ Form::select('statvalid', array(''=>'','1'=>'Sudah Validasi','0'=>'Belum Validasi'), $stat, array(
+                                      'id'=>'statvalid',
+                                      'placeholder' => "Pilih Status Validasi",
+                                      'class'=>'form-control input-sm',
+                                      "onChange"=>"this.form.submit();")) }}
+                  </div>
+              {{ Form::close() }}
+          </div>
+      </section>
+    </div>
+    <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
                 Daftar Sekolah
             </header>
-            <div class="panel-body"  style:"overflow: scroll;">
+            <div class="panel-body" style="overflow: scroll;">
                   <div class="adv-table">
                       <table  class="display table table-bordered table-striped" id="hidden-table-info">
                         <thead>
@@ -82,6 +99,8 @@
   {{HTML::script('admin/assets/advanced-datatable/media/js/jquery.dataTables.js')}}
   {{HTML::script('admin/assets/data-tables/DT_bootstrap.js')}}
   {{HTML::script('admin/assets/fancybox/source/jquery.fancybox.js')}}
+  {{HTML::script('admin/js/jquery.pulsate.min.js')}}
+  {{HTML::script('admin/js/pulstate.js')}}
   {{--<script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         $('#tbadmin').dataTable();
@@ -159,5 +178,10 @@
             }
           });
       } );
+  </script>
+  <script src="{{ asset('packages/select2/select2.min.js')}}"></script>
+  <script src="{{ asset('packages/select2/select2_locale_id.js')}}"></script>
+  <script type="text/javascript">
+      $(document).ready(function() { $("#statvalid").select2(); });
   </script>
 @stop

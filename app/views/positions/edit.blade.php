@@ -20,3 +20,7 @@
     </div>
 </div>
 @stop
+
+@section('script')
+    {{HTML::script('admin/js/jquery.js')}}
+@stop

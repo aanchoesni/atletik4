@@ -18,17 +18,38 @@
 </li>
 <li class="sub-menu">
     <a href="javascript:;" >
-        <i class="fa fa-users"></i>
-        <span>Pengolahan Peserta</span>
+        <i class="fa fa-check"></i>
+        <span>Verifikasi</span>
     </a>
     <ul class="sub">
-        <li><a  href="{{ URL::to('admin/schools') }}"><i class="fa fa-hospital-o"></i>Verifikasi</i></a></li>
-        <li><a  href="{{ URL::to('admin/valid') }}"><i class="fa fa-thumbs-up"></i>Validasi</i></a></li>
+        <li><a  href="{{ URL::to('admin/atlit') }}"><i class="fa fa-users"></i>Belum Verifikasi</i></a></li>
+        <li><a  href="{{ URL::to('admin/atlitok') }}"><i class="fa fa-users"></i>Sudah Verifikasi</i></a></li>
+        <li><a  href="{{ URL::to('admin/schools') }}"><i class="fa fa-hospital-o"></i>Verifikasi Per Sekolah</i></a></li>
     </ul>
 </li>
 <li>
-    <a href="{{ URL::to('admin/settings') }}">
+    <a href="{{ URL::to('admin/valid') }}">
+        <i class="fa fa-user-md"></i>
+        <span>Validasi</span>
+    </a>
+</li>
+<li class="sub-menu">
+    <a href="javascript:;" >
         <i class="fa fa-gears"></i>
         <span>Pengaturan</span>
     </a>
+    <ul class="sub">
+        <li>
+            <a href="{{ URL::to('admin/settings') }}">
+                <i class="fa fa-gears"></i>
+                <span>Pengaturan</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ URL::to('admin/sequents') }}">
+                <i class="fa fa-gears"></i>
+                <span>Pengaturan No Dada</span>
+            </a>
+        </li>
+    </ul>
 </li>

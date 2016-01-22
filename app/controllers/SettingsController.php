@@ -13,7 +13,7 @@ class SettingsController extends \BaseController
         // $settings = Setting::all();
         $settings = Setting::find('1');
 
-        return View::make('settings.index', compact('settings'))->withTitle('Settings');
+        return View::make('settings.index', compact('settings'))->withTitle('Settings')->with('sequent');
     }
 
     /**
