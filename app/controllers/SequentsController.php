@@ -87,7 +87,7 @@ class SequentsController extends \BaseController
 
         $sequent->update($data);
 
-        return Redirect::route('admin.sequents.index')->with("successMessage", "Pengaturan Nomor Dada Berhasil di Update");
+        return Redirect::route('admin.settings.index')->withTitle('Settings')->with("successMessage", "Pengaturan Nomer Dada Berhasil Diubah");
     }
 
     /**

@@ -19,7 +19,7 @@
 				</div>
 				<div class="box-footer">
 					{{Form::submit('Simpan', array('class'=>'btn btn-danger'))}}
-					<a href="{{ URL::to('admin/sequents') }}" class="btn btn-default" type="button">Batal</a>
+					<a href="{{ URL::to('admin/settings') }}" class="btn btn-default" type="button">Batal</a>
 				</div>
 			</div>
         </section>

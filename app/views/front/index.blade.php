@@ -212,11 +212,9 @@
                  <div class="row">
                      <div class="col-lg-12 text-center">
                          <ul class="list-unstyled">
-                             <li><a href="#"><img src="front/img/clients/logo1.png" alt=""></a></li>
-                             <li><a href="#"><img src="front/img/clients/logo2.png" alt=""></a></li>
-                             <li><a href="#"><img src="front/img/clients/logo3.png" alt=""></a></li>
-                             <li><a href="#"><img src="front/img/clients/logo4.png" alt=""></a></li>
-                             <li><a href="#"><img src="front/img/clients/logo5.png" alt=""></a></li>
+                          @foreach($sponsors as $value)
+                             <li><a href="http://{{ $value->url }}" target="blank">{{ HTML::image('uploads/sponsor/' . $value->logo,$value->name, array( 'width' => 120, 'height' => 'auto', 'title' => $value->name) ) }}</a></li>
+                          @endforeach
                          </ul>
                      </div>
                  </div>

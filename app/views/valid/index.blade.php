@@ -44,6 +44,7 @@
                               <th style="text-align:center;">No</th>
                               <th style="text-align:center;" >Sekolah</th>
                               <th style="text-align:center;">No Invoice</th>
+                              <th style="text-align:center;">Harus Dibayarkan</th>
                               <th style="text-align:center;">Jumlah Bayar</th>
                               <th style="text-align:center;">Validasi</th>
                               <th style="text-align:center;">Aksi</th>
@@ -60,6 +61,7 @@
                                 <td style="text-align:center;"><?php echo $no ?></td>
                                 <td>{{{ $value->school }}}</td>
                                 <td style="text-align:center;">{{{ $value->noinvoice }}}</td>
+                                <td style="text-align:right;">Rp {{number_format($value->mamount, 0)}}</td>
                                 <td style="text-align:right;">Rp {{number_format($value->amount, 0)}}</td>
                                 <td style="text-align:center;">@if($value->verifikasi==1)<span class="label label-success label-mini"><i class="fa fa-check"></i></span>@endif
                                 @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>

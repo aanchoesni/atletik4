@@ -41,7 +41,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label('amount', 'Jumlah uang', array('class' => 'control-label col-lg-2')) }}
+                            {{ Form::label('mamount', 'Jumlah uang yang harus dibayarkan', array('class' => 'control-label col-lg-2')) }}
+                            <div class="col-lg-10">
+                                {{ Form::text('mamount', $jstotal, array('class' => 'form-control', 'readonly')) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label('amount', 'Jumlah uang yang dibayarkan', array('class' => 'control-label col-lg-2')) }}
                             <div class="col-lg-10">
                                 {{ Form::text('amount', null, array('class' => 'form-control','placeholder'=>'masukkan jumlah uang')) }}
                             </div>

@@ -35,6 +35,28 @@
 </li>
 <li class="sub-menu">
     <a href="javascript:;" >
+        <i class="fa fa-check"></i>
+        <span>Skema</span>
+    </a>
+    <ul class="sub">
+        <li><a  href="{{ URL::to('admin/skema') }}"><i class="fa fa-archive"></i>Kelola Skema</i></a></li>
+        <li><a  href="{{ URL::to('admin/indexcetakskema') }}"><i class="fa fa-print"></i>Print Skema</i></a></li>
+    </ul>
+</li>
+<li>
+    <a href="{{ URL::to('admin/sponsors') }}">
+        <i class="fa fa-ticket"></i>
+        <span>Sponsor</span>
+    </a>
+</li>
+<li>
+    <a href="{{ URL::to('admin/settings') }}">
+        <i class="fa fa-gears"></i>
+        <span>Pengaturan</span>
+    </a>
+</li>
+{{-- <li class="sub-menu">
+    <a href="javascript:;" >
         <i class="fa fa-gears"></i>
         <span>Pengaturan</span>
     </a>
@@ -53,3 +75,4 @@
         </li>
     </ul>
 </li>
+ --}}

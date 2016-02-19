@@ -22,4 +22,9 @@ class Contest extends BaseModel
     {
         return $this->belongsTo('User', 'user_id');
     }
+
+    public function skema()
+    {
+        return $this->hasOne('Skema', 'nodada');
+    }
 }

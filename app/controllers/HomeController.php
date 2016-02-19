@@ -242,4 +242,35 @@ class HomeController extends BaseController
         }
     }
 
+    public function editPassword()
+    {
+        //code
+        $menu = Menu::where('tipe', Sentry::getUser()->last_name)->get();
+
+        return View::make('dashboard.editpassword')->withTitle('Ubah Password')->with('menu', $menu);
+    }
+
+    public function updatepassword()
+    {
+        //code
+        $user = Sentry::getUser();
+        // validasi password lama
+        if (!$user->checkPassword(Input::get('oldpassword'))) {
+            return Redirect::back()->with('errorMessage', 'Password Lama Anda salah.');
+        }
+        // validasi konfirmasi password baru
+        $rules     = array('newpassword' => 'confirmed|required|min:5');
+        $validator = Validator::make($data = Input::all(), $rules);
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->withInput();
+        }
+        // Simpan password baru
+        $user->password = Input::get('newpassword');
+        $user->save();
+        Sentry::logout();
+        // Redirect ke halaman sebelumnya
+        return Redirect::to('login')->with('successMessage', 'Password berhasil diubah.');
+
+    }
+
 }

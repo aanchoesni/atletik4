@@ -17,17 +17,28 @@ class FrontController extends \BaseController
         $limitstart   = $limitdtstart->diff($tgl)->format('%R%a');
         $limitend     = $limitdtend->diff($tgl)->format('%R%a');
 
+        $sponsors = Sponsor::all();
+
         if ($limitstart < 0) {
             $stat = 0;
-            return View::make('front.index')->with('stat', $stat)->with('limit', $limit);
+            return View::make('front.index')
+                ->with('stat', $stat)
+                ->with('limit', $limit)
+                ->with('sponsors', $sponsors);
         }
 
         if ($limitend > 0) {
             $stat = 0;
-            return View::make('front.index')->with('stat', $stat)->with('limit', $limit);
+            return View::make('front.index')
+                ->with('stat', $stat)
+                ->with('limit', $limit)
+                ->with('sponsors', $sponsors);
         }
 
-        return View::make('front.index')->with('stat', 1)->with('limit', $limit);
+        return View::make('front.index')
+            ->with('stat', 1)
+            ->with('limit', $limit)
+            ->with('sponsors', $sponsors);
     }
 
     /**

@@ -59,22 +59,20 @@
     </div>
 
     <div class="col-lg-9">
-        <section class="panel">
-            <div class="panel-body">
-                {{ Form::open(array('url' => route('user.officer.indexthn'), 'method' => 'get','class'=>'form-inline')) }}
-                    <div class="form-group">
-                        {{ Form::label('tahun', 'Tahun', array('class' => 'control-label')) }}
-                        {{ Form::selectyear('tahun', 2015, 2020, $thn, array(
-                        'id'=>'tahun',
-                        'placeholder' => "Tahun",
-                        'class' => 'form-control input-sm',
-                        "onChange"=>"this.form.submit();")) }}
-                    </div>
-                    {{-- {{Form::submit('Cari', array('class'=>'btn btn-success'))}} --}}
-                {{ Form::close() }}
-            </div>
-        </section>
-
+      <section class="panel">
+        <div class="panel-body">
+            {{ Form::open(array('url' => route('user.officer.indexthn'), 'method' => 'get','class'=>'form-inline')) }}
+              <div class="form-group">
+                  {{ Form::label('tahun', 'Tahun', array('class' => 'control-label')) }}
+                  {{ Form::selectyear('tahun', 2015, 2020, $thn, array(
+                  'id'=>'tahun',
+                  'placeholder' => "Tahun",
+                  'class' => 'form-control input-sm',
+                  "onChange"=>"this.form.submit();")) }}
+              </div>
+            {{ Form::close() }}
+        </div>
+      </section>
     </div>
   <!-- page end-->
   <div class="col-lg-9">

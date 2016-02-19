@@ -22,9 +22,19 @@ class PaymentsController extends \BaseController
      */
     public function create()
     {
-        $menu = Menu::where('tipe', Sentry::getUser()->last_name)->get();
+        $tgl        = new DateTime(date('Y-m-d'));
+        $limit      = Setting::first();
+        $limitdtend = new DateTime($limit->enddaypay);
+        $limitend   = $limitdtend->diff($tgl)->format('%R%a');
 
-        return View::make('payments.create')->withTitle('Payment')->with('menu', $menu);
+        $menu    = Menu::where('tipe', Sentry::getUser()->last_name)->get();
+        $jstotal = Session::get('jstotal');
+
+        if ($limitend >= 0) {
+            return Redirect::to('user/cost')->with('errorMessage', trans('Pembayaran Sudah Ditutup.'));
+        }
+
+        return View::make('payments.create')->withTitle('Payment')->with('menu', $menu)->with('jstotal', $jstotal);
     }
 
     /**

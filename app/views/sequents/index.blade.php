@@ -62,5 +62,5 @@
         $(document).ready(function() {
             $('#seq').dataTable();
         } );
-    </script>
+  </script>
 @stop

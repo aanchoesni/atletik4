@@ -40,7 +40,13 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('validasi/{id}', array('as' => 'admin.validasi', 'uses' => 'ValidController@validasi'));
         Route::get('notvalidasi/{id}', array('as' => 'admin.notvalidasi', 'uses' => 'ValidController@notvalidasi'));
         Route::resource('sequents', 'SequentsController');
-
+        Route::resource('sponsors', 'SponsorsController');
+        Route::resource('seris', 'SerisController');
+        Route::resource('skema', 'SkemasController');
+        Route::get('kelolaskema', array('as' => 'admin.kelolaskema', 'uses' => 'SkemasController@kelolaskema'));
+        Route::post('nocontestdata', array('as' => 'admin.nocontestdata', 'uses' => 'SkemasController@postdata'));
+        Route::get('indexcetakskema', array('as' => 'admin.indexcetakskema', 'uses' => 'SkemasController@indexcetak'));
+        Route::get('cetakskema', array('as' => 'admin.cetakskema', 'uses' => 'SkemasController@exportskema'));
     });
     Route::group(array('prefix' => 'panitia', 'before' => 'panitia'), function () {
         Route::resource('positions', 'PositionsController');
@@ -58,5 +64,9 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('invoice', 'CostController@invoice');
         Route::resource('payment', 'PaymentsController');
         Route::resource('docbook', 'DocbookController');
+        Route::get('profile', array('as' => 'user.profile.index', 'uses' => 'ProfileController@index'));
+        Route::put('profile/update/{id}', array('as' => 'user.profile.update', 'uses' => 'ProfileController@update'));
+        Route::get('editpassword', array('as' => 'editpassword', 'uses' => 'HomeController@editPassword'));
+        Route::post('updatepassword', array('as' => 'updatepassword', 'uses' => 'HomeController@updatePassword'));
     });
 });

@@ -12,8 +12,13 @@ class SettingsController extends \BaseController
     {
         // $settings = Setting::all();
         $settings = Setting::find('1');
+        $sequents = Sequent::all();
+        $seris    = Seri::all();
 
-        return View::make('settings.index', compact('settings'))->withTitle('Settings');
+        return View::make('settings.index', compact('settings'))
+            ->with('sequents', $sequents)
+            ->with('seris', $seris)
+            ->withTitle('Settings');
     }
 
     /**

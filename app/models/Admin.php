@@ -18,7 +18,7 @@ class Admin extends \BaseModel
     public function position()
     {
         // return $this->belongsTo('Position', 'position_id');
-        return $this->belongsTo('position', 'position_id', 'id');
+        return $this->belongsTo('Position', 'position_id', 'id');
     }
 
     public function user()

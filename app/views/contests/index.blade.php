@@ -43,6 +43,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -55,6 +56,7 @@
               <tbody>
               @foreach($runpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -73,7 +75,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -95,6 +97,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -107,6 +110,7 @@
               <tbody>
               @foreach($runpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -125,7 +129,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -147,6 +151,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -159,6 +164,7 @@
               <tbody>
               @foreach($ljpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -177,7 +183,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -199,6 +205,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -211,6 +218,7 @@
               <tbody>
               @foreach($ljpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -229,7 +237,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -251,6 +259,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -263,6 +272,7 @@
               <tbody>
               @foreach($tppas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -281,7 +291,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -303,6 +313,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -315,6 +326,7 @@
               <tbody>
               @foreach($tppis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -333,7 +345,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -355,6 +367,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -367,6 +380,7 @@
               <tbody>
               @foreach($ltpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -385,7 +399,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -406,6 +420,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -418,6 +433,7 @@
               <tbody>
               @foreach($ltpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -436,7 +452,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -460,6 +476,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -472,6 +489,7 @@
               <tbody>
               @foreach($runpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -490,7 +508,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -512,6 +530,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -524,6 +543,7 @@
               <tbody>
               @foreach($runpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -542,7 +562,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -564,6 +584,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -576,6 +597,7 @@
               <tbody>
               @foreach($ljpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -594,7 +616,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -616,6 +638,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -628,6 +651,7 @@
               <tbody>
               @foreach($ljpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -646,7 +670,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -668,6 +692,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -680,6 +705,7 @@
               <tbody>
               @foreach($tppas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -698,7 +724,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -720,6 +746,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -732,6 +759,7 @@
               <tbody>
               @foreach($tppis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -750,7 +778,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -772,6 +800,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -784,6 +813,7 @@
               <tbody>
               @foreach($ltpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -802,7 +832,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -823,6 +853,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -835,6 +866,7 @@
               <tbody>
               @foreach($ltpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -853,7 +885,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -876,6 +908,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -888,6 +921,7 @@
               <tbody>
               @foreach($runpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -906,7 +940,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -928,6 +962,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -940,6 +975,7 @@
               <tbody>
               @foreach($runpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -958,7 +994,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -980,6 +1016,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -992,6 +1029,7 @@
               <tbody>
               @foreach($ljpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -1010,7 +1048,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -1032,6 +1070,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -1044,6 +1083,7 @@
               <tbody>
               @foreach($ljpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -1062,7 +1102,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -1084,6 +1124,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -1096,6 +1137,7 @@
               <tbody>
               @foreach($lbpas as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -1114,7 +1156,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -1136,6 +1178,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -1148,6 +1191,7 @@
               <tbody>
               @foreach($lbpis as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -1166,7 +1210,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -1188,6 +1232,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
               	  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -1200,6 +1245,7 @@
               <tbody>
               @foreach($lespa as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -1218,7 +1264,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>
@@ -1240,6 +1286,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th style="width: 100px"><i class="fa fa-bullhorn"></i> No Dada</th>
                   <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th class="hidden-phone"><i class="fa fa-question-circle"></i> NIS</th>
@@ -1252,6 +1299,7 @@
               <tbody>
               @foreach($lespi as $value)
               <tr>
+                  <td style="text-align: center">{{ $value->nodada }}</td>
                   <td height="75" width="50">{{ HTML::image('uploads/foto/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->nis }}</td>
@@ -1270,7 +1318,7 @@
                       <a href="#myStatus" class="btn btn-default btn-xs" data-toggle="modal", title='Tidak bisa diubah'><i class="fa fa-pencil"></i></a>
                       <a href="#myStatusDel" class="btn btn-default btn-xs" data-toggle="modal", title="Tidak bisa dihapus"><i class="fa fa-trash-o"></i></a>
                       @endif
-                      @if($spay)
+                      @if($spay && $value->nodada)
                       <a href="{{ route('user.contests.show', ['contests'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs" title="Print"><i class="fa fa-print"></i></a>
                       @endif
                   </td>

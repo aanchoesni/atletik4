@@ -37,8 +37,10 @@
                     <a class="btn btn-danger btn-lg"><i class="fa fa-check"></i> Tidak Ada Pembayaran </a>
                     @endif
                 @endif
-                @if($payment)
+                @if($payment && $payment->verifikasi==1)
                 <a href="{{ URL::to('user/invoice') }}" class="btn btn-info btn-lg" target="blank"><i class="fa fa-print"></i> Download </a>
+                @elseif($payment && $payment->verifikasi==0)
+                <a class="btn btn-danger btn-lg" target="blank"><i class="fa fa-check"></i> Tunggu Validasi Pembayaran </a>
                 @endif
             </div>
             <div class="row invoice-list">
@@ -65,8 +67,10 @@
                         <li>_____________________</li>
                         @endif
                         <li>Batas Pembayaran      : {{date('d-m-Y', strtotime($cost->enddaypay))}}</li>
-                        @if($payment)
+                        @if($payment && $payment->verifikasi==1)
                         <li>Status Invoice    : <span style="color:ForestGreen; font-weight: bold;">Sudah Dibayar</span></li>
+                        @elseif($payment && $payment->verifikasi==0)
+                        <li>Status Invoice    : <span style="color:GoldenRod; font-weight: bold;">Menunggu Validasi</span></li>
                         @else
                         <li>Status Invoice    : <span style="color:red; font-weight: bold;">Belum Dibayar</span></li>
                         @endif

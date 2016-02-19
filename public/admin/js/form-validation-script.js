@@ -268,6 +268,62 @@ var Script = function () {
             }
         });
 
+        $("#sponsor").validate({
+            rules: {
+                name: "required",
+                logo: "required",
+            },
+            messages: {
+                name: "Masukkan nama sponsor",
+                logo: "Upload logo",
+            }
+        });
+
+        $("#skema").validate({
+            rules: {
+                seri: "required",
+                nodada: "required",
+                nolint: "required",
+            },
+            messages: {
+                seri: "Pilih seri lomba",
+                nodada: "Pilih nomor dada",
+                nolint: "Pilih no.lint/no urut",
+            }
+        });
+
+        $("#skemai").validate({
+            rules: {
+                tahun: "required",
+                jenjang: "required",
+                nocontest: "required",
+            },
+            messages: {
+                tahun: "Pilih tahun",
+                jenjang: "Pilih jenjang",
+                nocontest: "Pilih lomba",
+            }
+        });
+
+        $("#cetakskema").validate({
+            rules: {
+                tahun: "required",
+                jenjang: "required",
+                nocontest: "required",
+                seri: "required",
+                tipe: "required",
+                output: "required",
+            },
+            messages: {
+                tahun: "Pilih tahun",
+                jenjang: "Pilih jenjang",
+                nocontest: "Pilih lomba",
+                seri: "Pilih seri",
+                tipe: "Pilih tipe",
+                output: "Pilih output file",
+            }
+        });
+
         // propose username by combining first- and lastname
         $("#username").focus(function() {
             var firstname = $("#firstname").val();

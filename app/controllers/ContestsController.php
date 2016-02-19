@@ -14,7 +14,7 @@ class ContestsController extends \BaseController
         $menu    = Menu::where('tipe', Sentry::getUser()->last_name)->get();
         $jenjang = Sentry::getUser()->last_name;
         $thn     = date('Y');
-        $spay    = Payment::where('user_id', Sentry::getUser()->id)->where(DB::raw('year'), '=', date('Y'))->first();
+        $spay    = Payment::where('user_id', Sentry::getUser()->id)->where(DB::raw('year'), '=', date('Y'))->where('verifikasi', '1')->first();
 
         if ($jenjang === 'SMA') {
             $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
@@ -185,7 +185,7 @@ class ContestsController extends \BaseController
             return Redirect::route('user.contests.index')->with('errorMessage', trans('Pendaftaran Lomba Belum Dibuka.'));
         }
 
-        if ($limitend > 0) {
+        if ($limitend >= 0) {
             return Redirect::route('user.contests.index')->with('errorMessage', trans('Pendaftaran Lomba Sudah Ditutup.'));
         }
 
@@ -401,5 +401,4 @@ class ContestsController extends \BaseController
 
         return Redirect::route('user.contests.index')->with("successMessage", "Data formulir berhasil dihapus");
     }
-
 }

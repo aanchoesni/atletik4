@@ -125,6 +125,7 @@ return array(
         'Way\Generators\GeneratorsServiceProvider',
         'Greggilbert\Recaptcha\RecaptchaServiceProvider',
         'Barryvdh\DomPDF\ServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
 
     ),
 
@@ -194,6 +195,7 @@ return array(
         'View'              => 'Illuminate\Support\Facades\View',
         'Sentry'            => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
         'PDF'               => 'Barryvdh\DomPDF\Facade',
+        'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
 
     ),
 

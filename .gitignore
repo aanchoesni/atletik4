@@ -2,6 +2,7 @@
 /vendor
 /public/uploads/foto/*
 /public/uploads/rapor/*
+/public/uploads/payment/*
 composer.phar
 composer.lock
 .env.*.php

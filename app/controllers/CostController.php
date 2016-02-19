@@ -65,6 +65,8 @@ class CostController extends BaseController
 
                 $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis + $jsertoff + $jbook;
 
+                Session::put('jstotal', $jtotal);
+
                 return View::make('costs.index', compact('docbook'))
                     ->withtitle("Dashboard User")
                     ->with('menu', $menu)
@@ -116,6 +118,8 @@ class CostController extends BaseController
                 $jbook    = $book * $cost->moneydocbook;
 
                 $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jtppas + $jtppis + $jltpas + $jltpis + $jsertoff + $jbook;
+
+                Session::put('jstotal', $jtotal);
 
                 return View::make('costs.index', compact('docbook'))
                     ->withtitle("Biaya")
@@ -180,6 +184,8 @@ class CostController extends BaseController
                 $jbook    = $book * $cost->moneydocbook;
 
                 $jtotal = $jrunpas + $jrunpis + $jljpas + $jljpis + $jlbpas + $jlbpis + $jlespa + $jlespi + $jsertoff + $jbook;
+
+                Session::put('jstotal', $jtotal);
 
                 return View::make('costs.index', compact('docbook'))
                     ->withtitle("Biaya")
