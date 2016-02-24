@@ -294,12 +294,12 @@
     </script>
     {{HTML::script('admin/js/advanced-form-components.js')}}
     {{HTML::script('admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js')}}
-    {{HTML::script('admin/assets/advanced-datatable/media/js/jquery.js')}}
-    {{HTML::script('admin/assets/advanced-datatable/media/js/jquery.dataTables.js')}}
-    {{HTML::script('admin/assets/data-tables/DT_bootstrap.js')}}
-    <script type="text/javascript" charset="utf-8">
+    {{-- {{HTML::script('admin/assets/advanced-datatable/media/js/jquery.js')}} --}}
+    {{-- {{HTML::script('admin/assets/advanced-datatable/media/js/jquery.dataTables.js')}} --}}
+    {{-- {{HTML::script('admin/assets/data-tables/DT_bootstrap.js')}} --}}
+    <!--script type="text/javascript" charset="utf-8">
           $(document).ready(function() {
               $('#seq').dataTable();
           } );
-    </script>
+    </script-->
 @stop
