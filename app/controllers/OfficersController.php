@@ -66,23 +66,23 @@ class OfficersController extends \BaseController
         $date = \Carbon\Carbon::now();
         $thn  = date('Y');
 
-        $officer = Officer::where('type', Input::get('type'))->where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', $thn)->count();
+        // $officer = Officer::where('type', Input::get('type'))->where('user_id', Sentry::getUser()->id)->where(DB::raw('YEAR(created_at)'), '=', $thn)->count();
 
-        if ($officer < 1) {
-            $validator = Validator::make($data = Input::all(), Officer::$rules);
+        // if ($officer < 1) {
+        $validator = Validator::make($data = Input::all(), Officer::$rules);
 
-            if ($validator->fails()) {
-                return Redirect::back()->withErrors($validator)->withInput();
-            }
-
-            $data['sertifikat'] = Input::has('sertifikat') ? true : false;
-            $data['user_id']    = Sentry::getUser()->id;
-            Officer::create($data);
-
-            return Redirect::route('user.officers.index')->with("successMessage", "Petugas berhasil disimpan");
-        } else {
-            return Redirect::route('user.officers.index')->with('errorMessage', trans(Input::get('type') . ' sudah ada.'));
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->withInput();
         }
+
+        $data['sertifikat'] = Input::has('sertifikat') ? true : false;
+        $data['user_id']    = Sentry::getUser()->id;
+        Officer::create($data);
+
+        return Redirect::route('user.officers.index')->with("successMessage", "Petugas berhasil disimpan");
+        // } else {
+        // return Redirect::route('user.officers.index')->with('errorMessage', trans(Input::get('type') . ' sudah ada.'));
+        // }
     }
 
     /**

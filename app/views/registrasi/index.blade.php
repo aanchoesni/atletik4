@@ -45,10 +45,15 @@
             <br>
           {{ Form::text('name', null, array('class'=>'form-control','placeholder'=>'Nama Sekolah', 'autofocus')) }}
           <br><label for="alamat">Alamat</label>
-          {{ Form::text('adstreet', null, array('class'=>'form-control','placeholder'=>'Nama Jalan', 'autofocus')) }}
-          {{ Form::text('advillage', null, array('class'=>'form-control','placeholder'=>'Nama Desa', 'autofocus')) }}
-          {{ Form::text('addistricts', null, array('class'=>'form-control','placeholder'=>'Nama Kecamatan', 'autofocus')) }}
-          {{ Form::text('adcity', null, array('class'=>'form-control','placeholder'=>'Nama Kota', 'autofocus')) }}
+          {{ Form::text('adstreet', null, array('class'=>'form-control','placeholder'=>'Nama Jalan/Dusun', 'autofocus')) }}
+          {{ Form::text('advillage', null, array('class'=>'form-control','placeholder'=>'Nama Desa/Kelurahan', 'autofocus')) }}
+          {{ Form::text('addistricts', null, array('class'=>'form-control','placeholder'=>'Nama Kabupaten', 'autofocus')) }}
+          {{ Form::select('adcity', array(''=>'')+Kabupaten::lists('name','name'), null, array(
+                  'id'=>'adcity',
+                  'placeholder' => "Pilih Kabupaten",
+                  'class'=>'form-control input-sm')) }}
+          <br>
+          {{-- {{ Form::text('adcity', null, array('class'=>'form-control','placeholder'=>'Nama Kota/Kabupaten', 'autofocus')) }} --}}
           {{ Form::text('adpostalcode', null, array('class'=>'form-control','placeholder'=>'Kode Pos', 'autofocus')) }}
           {{ Form::text('adphone', null, array('class'=>'form-control','placeholder'=>'Nomor Telepon', 'autofocus')) }}
             <label for="alamat">Informasi Kepala Sekolah</label>
@@ -94,6 +99,7 @@
   <script src="{{ asset('packages/select2/select2_locale_id.js')}}"></script>
   <script type="text/javascript">
       $(document).ready(function() { $("#jenjang").select2(); });
+      $(document).ready(function() { $("#adcity").select2(); });
   </script>
 </body>
 </html>

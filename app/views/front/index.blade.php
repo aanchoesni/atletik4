@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="cyber campus-inseo">
     <meta name="keyword" content="atletik">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="front/img/fav.png">
 
     <title>Pendaftaran Atletik Unesa</title>
 
@@ -86,39 +86,42 @@
                           data-speed="400"
                           data-start="1000"
                           data-easing="easeOutExpo">
-                         Official Website SIM
+                          ATLETIK UNESA {{$limit->kejuaraan_ke . ' ' . date('Y')}}
                      </div>
 
-                     <div class="caption lfr slide_subtitle dark-text"
+                     <!--div class="caption lfr slide_subtitle dark-text"
                           data-x="670"
                           data-y="190"
                           data-speed="400"
                           data-start="2000"
                           data-easing="easeOutExpo">
-                         Kejuaraan Atletik Universitas Negeri Surabaya 2016
-                     </div>
+
+                     </div-->
                      <div class="caption lfr slide_desc"
                           data-x="670"
-                          data-y="260"
+                          {{-- data-y="250" --}}
+                          data-y="190"
                           data-speed="400"
                           data-start="2500"
                           data-easing="easeOutExpo">
-                         Acara tahunan yang diselenggarakan oleh Universitas Negeri Surabaya yaitu <br>
-                         "Kejuaraan Atletik Unesa XI 2015" yang terdiri dari 3 sesi <br>
-                         (sesi I tingkat SMA, sesi II tingkat SMP, sesi III tingkat SD) <br>
+                         Sejak tahun 2006 kejuaraan ini diselenggarakan untuk: <br>
+                         1. Antar SMA/MA/SMK se Jawa Timur (Sesi I) Sabtu, 14 Mei 2016 Pagi<br>
+                         2. Antar SMP/MTs se Jawa Timur (Sesi II) Sabtu, 14 Mei 2016 Sore<br>
+                         3. Antar SD/MI se Jawa Timur (Sesi III) Minggu, 15 Mei 2016 Pagi<br>
                      </div>
                      <div class="caption lfr slide_desc"
                           data-x="670"
-                          data-y="360"
+                          {{-- data-y="380" --}}
+                          data-y="330"
                           data-speed="400"
                           data-start="3000"
                           data-easing="easeOutExpo">
-                         <b>Tanggal Pendaftaran {{date("d F Y", strtotime($limit->startdayreg)) .' s/d ' . date("d F Y", strtotime($limit->enddayreg))}}</b>
+                         <b>Pendaftaran {{date("d F Y", strtotime($limit->startdayreg)) .' s/d ' . date("d F Y", strtotime($limit->enddayreg))}}</b>
                      </div>
                      @if($stat==1)
                      <a class="caption lfr btn yellow slide_btn" href="{{ URL::to('registrasi') }}"
                         data-x="670"
-                        data-y="420"
+                        data-y="400"
                         data-speed="400"
                         data-start="3500"
                         data-easing="easeOutExpo">
@@ -128,7 +131,7 @@
                      @if($stat==0)
                      <a class="caption lfr btn yellow slide_btn"
                         data-x="670"
-                        data-y="420"
+                        data-y="400"
                         data-speed="400"
                         data-start="3500"
                         data-easing="easeOutExpo">
@@ -147,7 +150,7 @@
         <div class="row">
             <!--feature start-->
             <div class="text-center feature-head">
-                <h1>Selamat Datang di Official Wesite SIM</h1>
+                <h1>Selamat Datang di Official Wesite & SIM</h1>
                 <p>Kejuaraan Atletik Unesa XI 2016</p>
             </div>
             <div class="col-lg-4 col-sm-4">
@@ -213,7 +216,7 @@
                      <div class="col-lg-12 text-center">
                          <ul class="list-unstyled">
                           @foreach($sponsors as $value)
-                             <li><a href="http://{{ $value->url }}" target="blank">{{ HTML::image('uploads/sponsor/' . $value->logo,$value->name, array( 'width' => 120, 'height' => 'auto', 'title' => $value->name) ) }}</a></li>
+                             <li><a href="{{ $value->url }}" target="blank">{{ HTML::image('uploads/sponsor/' . $value->logo,$value->name, array( 'height' => 120, 'width' => 'auto', 'title' => $value->name) ) }}</a></li>
                           @endforeach
                          </ul>
                      </div>
@@ -228,15 +231,29 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-sm-3">
+                <div class="col-lg-4 col-sm-4">
                     <h1>contact info</h1>
                     <address>
                         <p>Kampus Lidah Wetan<br>
                         Gedung U2 Lt.1 FIK<br>
                         Universitas Negeri Surabaya</p>
 
-                        <p>Phone : 081331573321<br>
                         Email : <a href="javascript:;">atletikunesa5@gmail.com</a></p>
+                    </address>
+                </div>
+                <div class="col-lg-3 col-sm-3">
+                    <address>
+                        <p>
+                          <b>Pembimbing</b><br>
+                          {{$limit->nmpembimbing . ' ( ' . $limit->nopembimbing . ' )'}}</p>
+                        <p>
+                          <b>Ketua</b><br>
+                          {{$limit->nmketua . ' ( ' . $limit->noketua . ' )'}}<br>
+                          <b>Kesekretariatan</b><br>
+                          {{$limit->nmsek . ' ( ' . $limit->nosek . ' )'}}<br>
+                          <b>Bendahara</b><br>
+                          {{$limit->nmben . ' ( ' . $limit->noben . ' )'}}<br>
+                        </p>
                     </address>
                 </div>
                 <div class="col-lg-5 col-sm-5">
@@ -247,17 +264,17 @@
                     </div> --}}
                 </div>
                 <div class="col-lg-3 col-sm-3 col-lg-offset-1">
-                    {{-- <h1>stay connected</h1> --}}
-                    {{-- <ul class="social-link-footer list-unstyled"> --}}
-                        {{-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                        <li><a href="#"><i class="fa fa-github"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li> --}}
-                    {{-- </ul> --}}
+                    <h1>stay connected</h1>
+                    <ul class="social-link-footer list-unstyled">
+                        <li><a href="http://facebook.com/{{$limit->facebook}}" target="blank"><i class="fa fa-facebook"></i></a></li>
+                        {{-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> --}}
+                        {{-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li> --}}
+                        {{-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li> --}}
+                        <li><a href="http://twitter.com/{{$limit->twitter}}" target="blank"><i class="fa fa-twitter"></i></a></li>
+                        {{-- <li><a href="#"><i class="fa fa-skype"></i></a></li> --}}
+                        {{-- <li><a href="#"><i class="fa fa-github"></i></a></li> --}}
+                        {{-- <li><a href="#"><i class="fa fa-youtube"></i></a></li> --}}
+                    </ul>
                 </div>
             </div>
         </div>

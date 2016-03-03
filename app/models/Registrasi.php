@@ -14,7 +14,7 @@ class Registrasi extends BaseModel
         'adpostalcode'         => 'required',
         'adphone'              => 'required',
         'hmname'               => 'required',
-        'hmphone'              => 'required',
+        // 'hmphone'              => 'required',
         'hmmobile'             => 'required',
         'syarat'               => 'required',
         'g-recaptcha-response' => 'required|recaptcha',

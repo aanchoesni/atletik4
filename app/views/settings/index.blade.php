@@ -109,6 +109,91 @@
 		    <div class="col-lg-12">
 		        <section class="panel">
 					<header class="panel-heading">
+					    Pengaturan Umum
+					</header>
+					<div class="panel-body">
+						<div class="form-group">
+							{{ Form::label('kejuaraan_ke', 'Kejuaraan ke', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-2">
+								{{ Form::text('kejuaraan_ke', null, array('class' => 'form-control form-control-inline input-medium')) }}
+							</div>
+						</div>
+					</div>
+					<header class="panel-heading">
+					    Pengaturan Umum
+					</header>
+					<div class="panel-body">
+						<div class="form-group">
+							{{ Form::label('nmpembimbing', 'Pembimbing', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nmpembimbing', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('nopembimbing', 'HP', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nopembimbing', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ Form::label('nmketua', 'Ketua Panitia', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nmketua', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('noketua', 'HP', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('noketua', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ Form::label('nmsek', 'Kesekretariatan', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nmsek', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('nosek', 'HP', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nosek', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ Form::label('nmben', 'Bendahara', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nmben', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('noben', 'HP', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('noben', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+					</div>
+				</section>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-lg-12">
+		        <section class="panel">
+					<header class="panel-heading">
+					    Pengaturan Sosial Media
+					</header>
+					<div class="panel-body">
+						<div class="form-group">
+							{{ Form::label('facebook', 'Facebook', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-2">
+								{{ Form::text('facebook', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ Form::label('twitter', 'Twitter', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-2">
+								{{ Form::text('twitter', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+					</div>
+				</section>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="col-lg-12">
+		        <section class="panel">
+					<header class="panel-heading">
 					    Pengaturan Tanggal Pendaftaran
 					</header>
 					<div class="panel-body">

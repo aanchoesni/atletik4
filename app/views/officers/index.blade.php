@@ -87,7 +87,7 @@
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th><i class="fa fa-question-circle"></i> No Telepon</th>
                   <th><i class="fa fa-question-circle"></i> No Handphone</th>
-                  <th><i class="fa fa-bookmark"></i> Petugas</th>
+                  <th><i class="fa fa-bookmark"></i> Tugas</th>
                   <th><i class="fa fa-bookmark"></i> Sertifikat</th>
                   <th></th>
               </tr>
