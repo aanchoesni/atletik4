@@ -151,7 +151,7 @@
                     <a href="#mySMA" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
                         <i class=" fa fa-trophy"></i>
                         <h2>Tingkat SMA</h2>
-                    </div>
+                    </div></a>
                 </section>
             </div>
             <div class="col-lg-4 col-sm-4">
@@ -160,15 +160,15 @@
                     <a href="#mySMP" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
                         <i class=" fa fa-trophy"></i>
                         <h2>Tingkat SMP</h2>
-                    </div>
+                    </div></a>
                 </section>
             </div>
             <div class="col-lg-4 col-sm-4">
                 <section>
                     <a href="#mySD" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
-                        <i class="fa fa-trophy"></i>
-                        <h2>Tingakt SD</h2>
-                    </div>
+                        <i class=" fa fa-trophy"></i>
+                        <h2>Tingkat SMA</h2>
+                    </div></a>
                 </section>
             </div>
             <!--feature end-->
@@ -200,7 +200,7 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-sm-4">
+                <div class="col-lg-3 col-sm-3">
                     <h1>contact info</h1>
                     <address>
                         <p>Kampus Lidah Wetan<br>
@@ -211,10 +211,18 @@
                     </address>
                 </div>
                 <div class="col-lg-3 col-sm-3">
+                    <h1>Pembimbing</h1>
                     <address>
                         <p>
-                          <b>Pembimbing</b><br>
-                          {{$limit->nmpembimbing . ' ( ' . $limit->nopembimbing . ' )'}}</p>
+                          1. {{$limit->nmpembimbing . ' ( ' . $limit->nopembimbing . ' )'}}<br>
+                          2. {{$limit->nmpembimbing1 . ' ( ' . $limit->nopembimbing1 . ' )'}}<br>
+                          3. {{$limit->nmpembimbing2 . ' ( ' . $limit->nopembimbing2 . ' )'}}
+                        </p>
+                    </address>
+                </div>
+                <div class="col-lg-3 col-sm-2">
+                    <h1>Panitia</h1>
+                    <address>
                         <p>
                           <b>Ketua</b><br>
                           {{$limit->nmketua . ' ( ' . $limit->noketua . ' )'}}<br>
@@ -225,24 +233,11 @@
                         </p>
                     </address>
                 </div>
-                <div class="col-lg-5 col-sm-5">
-                    {{-- <h1>latest tweet</h1>
-                    <div class="tweet-box">
-                        <i class="fa fa-twitter"></i>
-                        <em>Please follow <a href="javascript:;">@nettus</a> for all future updates of us! <a href="javascript:;">twitter.com/vectorlab</a></em>
-                    </div> --}}
-                </div>
-                <div class="col-lg-3 col-sm-3 col-lg-offset-1">
+                <div class="col-lg-2 col-sm-2 col-lg-offset-1">
                     <h1>stay connected</h1>
                     <ul class="social-link-footer list-unstyled">
                         <li><a href="http://facebook.com/{{$limit->facebook}}" target="blank"><i class="fa fa-facebook"></i></a></li>
-                        {{-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> --}}
-                        {{-- <li><a href="#"><i class="fa fa-dribbble"></i></a></li> --}}
-                        {{-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li> --}}
                         <li><a href="http://twitter.com/{{$limit->twitter}}" target="blank"><i class="fa fa-twitter"></i></a></li>
-                        {{-- <li><a href="#"><i class="fa fa-skype"></i></a></li> --}}
-                        {{-- <li><a href="#"><i class="fa fa-github"></i></a></li> --}}
-                        {{-- <li><a href="#"><i class="fa fa-youtube"></i></a></li> --}}
                     </ul>
                 </div>
             </div>

@@ -118,19 +118,49 @@
 								{{ Form::text('kejuaraan_ke', null, array('class' => 'form-control form-control-inline input-medium')) }}
 							</div>
 						</div>
+						<div class="form-group">
+							{{ Form::label('bank', 'Nama Bank', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-2">
+								{{ Form::text('bank', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('norek', 'Nomor Rekening', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('norek', null, array('class' => 'form-control form-control-inline input-medium')) }}
+							</div>
+						</div>
 					</div>
 					<header class="panel-heading">
 					    Pengaturan Person
 					</header>
 					<div class="panel-body">
 						<div class="form-group">
-							{{ Form::label('nmpembimbing', 'Pembimbing', array('class' => 'control-label col-lg-2')) }}
+							{{ Form::label('nmpembimbing', 'Pembimbing 1', array('class' => 'control-label col-lg-2')) }}
 							<div class="col-lg-4">
 								{{ Form::text('nmpembimbing', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 							{{ Form::label('nopembimbing', 'HP', array('class' => 'control-label col-lg-2')) }}
 							<div class="col-lg-4">
 								{{ Form::text('nopembimbing', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ Form::label('nmpembimbing1', 'Pembimbing 2', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nmpembimbing1', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('nopembimbing1', 'HP', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nopembimbing1', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+						</div>
+						<div class="form-group">
+							{{ Form::label('nmpembimbing2', 'Pembimbing 3', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nmpembimbing2', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('nopembimbing2', 'HP', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('nopembimbing2', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
 						<div class="form-group">
