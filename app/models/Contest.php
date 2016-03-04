@@ -16,7 +16,7 @@ class Contest extends BaseModel
     ];
 
     // Don't forget to fill this array
-    protected $fillable = ['nocontest', 'verifikasi', 'name', 'nis', 'tmptlhr', 'tgllhr', 'nodada', 'juara', 'jenjang', 'foto', 'rapor', 'user_id'];
+    protected $fillable = ['nocontest', 'verifikasi', 'name', 'nis', 'tmptlhr', 'tgllhr', 'nodada', 'juara', 'jenjang', 'foto', 'rapor', 'user_id', 'sertifikat'];
 
     public function akun()
     {

@@ -76,6 +76,13 @@
                         @endif
                     </ul>
                 </div>
+                <div class="col-lg-4 col-sm-4">
+                    <h4>Nomor Rekening Pembayaran</h4>
+                    <p>
+                        <b><h4>Nama Bank      : {{$cost->bank}}</b><br>
+                        <b>Nomor Rekening      : {{$cost->norek}}</h3></b>
+                    </p>
+                </div>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
