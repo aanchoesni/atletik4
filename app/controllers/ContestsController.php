@@ -264,7 +264,7 @@ class ContestsController extends \BaseController
                 $contest->tmptlhr    = input::get('tmptlhr');
                 $contest->tgllhr     = input::get('tgllhr');
                 $contest->tahun      = date('Y');
-                $contest->nodada     = '-';
+                $contest->nodada     = '';
                 $contest->juara      = '-';
                 $contest->jenjang    = Sentry::getUser()->last_name;
                 $contest->foto       = $filename;
