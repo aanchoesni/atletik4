@@ -120,7 +120,7 @@
 						</div>
 					</div>
 					<header class="panel-heading">
-					    Pengaturan Umum
+					    Pengaturan Person
 					</header>
 					<div class="panel-body">
 						<div class="form-group">

@@ -49,14 +49,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ URL::to('/') }}">Home</a></li>
                         <li><a href="{{ URL::to('login') }}">Login</a></li>
-                        <li class="dropdown ">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Pengumuman <b class=" fa fa-angle-down"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">SMA</a></li>
-                                <li><a href="#">SMP</a></li>
-                                <li><a href="#">SD</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#">Download</a></li>
                         <li><a href="#">Bantuan</a></li>
                         <li><input type="text" placeholder=" Search" class="form-control search"></li>
                     </ul>
@@ -155,50 +148,26 @@
             </div>
             <div class="col-lg-4 col-sm-4">
                 <section>
-                    <div class="f-box">
+                    <a href="#mySMA" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
                         <i class=" fa fa-trophy"></i>
                         <h2>Tingkat SMA</h2>
-                    </div>
-                    <div class="col-lg-8 col-sm-6">
-                        <ol>
-                            <li>Lari 100m pa dan pi</li>
-                            <li>Lompat Jauh pa dan pi</li>
-                            <li>Tolak Peluru pa dan pi</li>
-                            <li>Lompat Tinggi pa dan pi</li>
-                        </ol>
                     </div>
                 </section>
             </div>
             <div class="col-lg-4 col-sm-4">
                 <section>
                   {{-- active --}}
-                    <div class="f-box">
+                    <a href="#mySMP" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
                         <i class=" fa fa-trophy"></i>
                         <h2>Tingkat SMP</h2>
-                    </div>
-                    <div class="col-lg-8 col-sm-6">
-                        <ol>
-                            <li>Lari 60m pa dan pi</li>
-                            <li>Lompat Jauh pa dan pi</li>
-                            <li>Tolak Peluru pa dan pi</li>
-                            <li>Lompat Tinggi pa dan pi</li>
-                        </ol>
                     </div>
                 </section>
             </div>
             <div class="col-lg-4 col-sm-4">
                 <section>
-                    <div class="f-box">
+                    <a href="#mySD" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
                         <i class="fa fa-trophy"></i>
                         <h2>Tingakt SD</h2>
-                    </div>
-                    <div class="col-lg-8 col-sm-6">
-                        <ol>
-                            <li>Lari 50m pa dan pi</li>
-                            <li>Lompat Jauh pa dan pi</li>
-                            <li>Lempar Bola pa dan pi</li>
-                            <li>Lari Estafet pa dan pi</li>
-                        </ol>
                     </div>
                 </section>
             </div>
@@ -280,6 +249,66 @@
         </div>
     </footer>
     <!--footer end-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="mySMA" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Perlombaan Tingkat SMA</h4>
+                </div>
+                <div class="modal-body">
+                    <b><li>Lari 100m pa dan pi</li>
+                    <li>Lompat Jauh pa dan pi</li>
+                    <li>Tolak Peluru pa dan pi</li>
+                    <li>Lompat Tinggi pa dan pi</li></b>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-danger" type="button"> Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mySMP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Perlombaan Tingkat SMP</h4>
+                </div>
+                <div class="modal-body">
+                    <b><li>Lari 60m pa dan pi</li>
+                    <li>Lompat Jauh pa dan pi</li>
+                    <li>Tolak Peluru pa dan pi</li>
+                    <li>Lompat Tinggi pa dan pi</li></b>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-danger" type="button"> Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mySD" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Perlombaan Tingkat SD</h4>
+                </div>
+                <div class="modal-body">
+                    <b><li>Lari 50m pa dan pi</li>
+                    <li>Lompat Jauh pa dan pi</li>
+                    <li>Lempar Bola pa dan pi</li>
+                    <li>Lari Estafet pa dan pi</li></b>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-danger" type="button"> Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal -->
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="front/js/jquery.js"></script>
