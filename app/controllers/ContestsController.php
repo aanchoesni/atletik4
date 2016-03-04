@@ -270,6 +270,7 @@ class ContestsController extends \BaseController
                 $contest->foto       = $filename;
                 $contest->rapor      = $filename_rapor;
                 $contest->user_id    = Sentry::getUser()->id;
+                $contest->sertifikat = Input::has('sertifikat') ? true : false;
                 $contest->created_at = $date;
                 $contest->updated_at = $date;
                 $contest->save();
@@ -371,7 +372,8 @@ class ContestsController extends \BaseController
             $contest->rapor = $filename_rapor;
         }
 
-        if (!$contest->update(Input::except('foto', 'rapor'))) {
+        $contest['sertifikat'] = Input::has('sertifikat') ? true : false;
+        if (!$contest->update(Input::except('foto', 'rapor')) && $contest['sertifikat'] = Input::has('sertifikat') ? true : false) {
             return Redirect::back();
         }
         // $contest->update($data);

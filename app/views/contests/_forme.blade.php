@@ -47,6 +47,12 @@
 	                 	</span>
 					</div>
 				</div>
+				<div class="form-group">
+					{{ Form::label('sertifikat', 'Cetak Sertifikat', array('class' => 'control-label col-lg-2')) }}
+					<div class="col-lg-10">
+						{{ Form::checkbox('sertifikat', 1, null) }}
+					</div>
+				</div>
                 <div class="form-group">
                  	{{ Form::label('foto', 'Foto', array('class' => 'control-label col-lg-2')) }}
 	              	<div class="col-lg-10">
