@@ -12,7 +12,7 @@
 </li>
 <li>
     <a href="{{ URL::to('admin/admins') }}">
-        <i class="fa fa-user-md"></i>
+        <i class="fa fa-user"></i>
         <span>Master Admin</span>
     </a>
 </li>
@@ -50,29 +50,14 @@
     </a>
 </li>
 <li>
+    <a href="{{ URL::to('admin/documents') }}">
+        <i class="fa fa-file"></i>
+        <span>Documents</span>
+    </a>
+</li>
+<li>
     <a href="{{ URL::to('admin/settings') }}">
         <i class="fa fa-gears"></i>
         <span>Pengaturan</span>
     </a>
 </li>
-{{-- <li class="sub-menu">
-    <a href="javascript:;" >
-        <i class="fa fa-gears"></i>
-        <span>Pengaturan</span>
-    </a>
-    <ul class="sub">
-        <li>
-            <a href="{{ URL::to('admin/settings') }}">
-                <i class="fa fa-gears"></i>
-                <span>Pengaturan</span>
-            </a>
-        </li>
-        <li>
-            <a href="{{ URL::to('admin/sequents') }}">
-                <i class="fa fa-gears"></i>
-                <span>Pengaturan No Dada</span>
-            </a>
-        </li>
-    </ul>
-</li>
- --}}

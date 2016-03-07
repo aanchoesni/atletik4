@@ -47,6 +47,7 @@ Route::group(array('before' => 'auth'), function () {
         Route::post('nocontestdata', array('as' => 'admin.nocontestdata', 'uses' => 'SkemasController@postdata'));
         Route::get('indexcetakskema', array('as' => 'admin.indexcetakskema', 'uses' => 'SkemasController@indexcetak'));
         Route::get('cetakskema', array('as' => 'admin.cetakskema', 'uses' => 'SkemasController@exportskema'));
+        Route::resource('documents', 'DocumentsController');
     });
     Route::group(array('prefix' => 'panitia', 'before' => 'panitia'), function () {
         Route::resource('positions', 'PositionsController');

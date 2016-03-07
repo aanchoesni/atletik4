@@ -324,6 +324,17 @@ var Script = function () {
             }
         });
 
+        $("#document").validate({
+            rules: {
+                name: "required",
+                file: "required",
+            },
+            messages: {
+                name: "Masukkan nama dokumen",
+                file: "Pilih file",
+            }
+        });
+
         // propose username by combining first- and lastname
         $("#username").focus(function() {
             var firstname = $("#firstname").val();
