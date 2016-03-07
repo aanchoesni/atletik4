@@ -79,8 +79,10 @@
                 <div class="col-lg-4 col-sm-4">
                     <h4>Nomor Rekening Pembayaran</h4>
                     <p>
-                        <b><h4>Nama Bank      : {{$cost->bank}}</b><br>
-                        <b>Nomor Rekening      : {{$cost->norek}}</h3></b>
+                        <b><h4>Kode Bank      : {{$cost->kodebank}}</b><br>
+                        <b>Nama Bank      : {{$cost->bank}}</b><br>
+                        <b> Atas Nama      : {{$cost->an}}</b><br>
+                        <b>Nomor Rekening      : {{$cost->norek}}</h4></b>
                     </p>
                 </div>
             </div>

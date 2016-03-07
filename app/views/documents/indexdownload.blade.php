@@ -47,9 +47,9 @@
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ URL::to('/') }}">Home</a></li>
+                        <li><a href="{{ URL::to('/') }}">Home</a></li>
                         <li><a href="{{ URL::to('login') }}">Login</a></li>
-                        <li><a href="{{ URL::to('download') }}">Download</a></li>
+                        <li class="active"><a href="#">Download</a></li>
                         <li><a href="#">Bantuan</a></li>
                         <li><input type="text" placeholder=" Search" class="form-control search"></li>
                     </ul>
@@ -59,221 +59,41 @@
     </header>
     <!--header end-->
 
-     <!-- revolution slider start -->
-     <div class="fullwidthbanner-container main-slider">
-         <div class="fullwidthabnner">
-             <ul id="revolutionul" style="display:none;">
-                 <!-- 1st slide -->
-                 <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="">
-                     <div class="caption lfl slide_item_left"
-                          data-x="10"
-                          data-y="70"
-                          data-speed="400"
-                          data-start="1500"
-                          data-easing="easeOutBack">
-                         <img src="front/img/banner/ban2.png" alt="Image 1">
-                     </div>
-                     <div class="caption lfr slide_title"
-                          data-x="670"
-                          data-y="120"
-                          data-speed="400"
-                          data-start="1000"
-                          data-easing="easeOutExpo">
-                          ATLETIK UNESA {{$limit->kejuaraan_ke . ' ' . date('Y')}}
-                     </div>
-
-                     <!--div class="caption lfr slide_subtitle dark-text"
-                          data-x="670"
-                          data-y="190"
-                          data-speed="400"
-                          data-start="2000"
-                          data-easing="easeOutExpo">
-
-                     </div-->
-                     <div class="caption lfr slide_desc"
-                          data-x="670"
-                          {{-- data-y="250" --}}
-                          data-y="190"
-                          data-speed="400"
-                          data-start="2500"
-                          data-easing="easeOutExpo">
-                         Kejuaraan ini diselenggarakan untuk: <br>
-                         1. Antar SMA/MA/SMK se Jawa Timur (Sesi I) Sabtu, 14 Mei 2016 Pagi<br>
-                         2. Antar SMP/MTs se Jawa Timur (Sesi II) Sabtu, 14 Mei 2016 Sore<br>
-                         3. Antar SD/MI se Jawa Timur (Sesi III) Minggu, 15 Mei 2016 Pagi<br>
-                     </div>
-                     <div class="caption lfr slide_desc"
-                          data-x="670"
-                          {{-- data-y="380" --}}
-                          data-y="330"
-                          data-speed="400"
-                          data-start="3000"
-                          data-easing="easeOutExpo">
-                         <b>Pendaftaran {{date("d F Y", strtotime($limit->startdayreg)) .' s/d ' . date("d F Y", strtotime($limit->enddayreg))}}</b>
-                     </div>
-                     @if($stat==1)
-                     <a class="caption lfr btn yellow slide_btn" href="{{ URL::to('registrasi') }}"
-                        data-x="670"
-                        data-y="400"
-                        data-speed="400"
-                        data-start="3500"
-                        data-easing="easeOutExpo">
-                         PENDAFTARAN
-                     </a>
-                     @endif
-                     @if($stat==0)
-                     <a class="caption lfr btn yellow slide_btn"
-                        data-x="670"
-                        data-y="400"
-                        data-speed="400"
-                        data-start="3500"
-                        data-easing="easeOutExpo">
-                         PENDAFTARAN DITUTUP
-                     </a>
-                     @endif
-                 </li>
-             </ul>
-            <div class="tp-bannertimer tp-top"></div>
-         </div>
-     </div>
-     <!-- revolution slider end -->
-
     <!--container start-->
     <div class="container">
-        <div class="row">
-            <!--feature start-->
+        <div class="row mbot50">
             <div class="text-center feature-head">
-                <h1>Selamat Datang di Official Wesite & SIM</h1>
+                <h1>Download Dokumen</h1>
                 <p>Kejuaraan Atletik Unesa {{$limit->kejuaraan_ke . ' ' . date('Y')}}</p>
             </div>
-            <div class="col-lg-4 col-sm-4">
-                <section>
-                    <a href="#mySMA" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
-                        <i class=" fa fa-trophy"></i>
-                        <h2>Tingkat SMA</h2>
-                    </div></a>
-                </section>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-                <section>
-                  {{-- active --}}
-                    <a href="#mySMP" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
-                        <i class=" fa fa-trophy"></i>
-                        <h2>Tingkat SMP</h2>
-                    </div></a>
-                </section>
-            </div>
-            <div class="col-lg-4 col-sm-4">
-                <section>
-                    <a href="#mySD" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
-                        <i class=" fa fa-trophy"></i>
-                        <h2>Tingkat SMA</h2>
-                    </div></a>
-                </section>
-            </div>
-            <!--feature end-->
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <!--feature start-->
-            <div class="text-center feature-head">
-                <h1>PEMEGANG REKOR</h1>
-                <p>KEJUARAAN ATLETIK UNESA SE JAWA TIMUR</p>
-            </div>
-            <div class="col-lg-12">
-                <!--tab start-->
-                <section class="panel tab">
-                    <header class="panel-heading tab-bg-dark-navy-blue">
-                        <ul class="nav nav-tabs nav-justified ">
-                            <li class="active">
-                                <a data-toggle="tab" href="#sma">
-                                    Tingkat SMA
-                                </a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#smp">
-                                    Tingkat SMP
-                                </a>
-                            </li>
-                            <li class="">
-                                <a data-toggle="tab" href="#sd">
-                                    Tingkat SD
-                                </a>
-                            </li>
-                        </ul>
-                    </header>
-                    <div class="panel-body">
-                        <div class="tab-content tasi-tab">
-                            <div id="sma" class="tab-pane active">
-                              <table class="table table-striped table-advance table-hover">
-                                  <thead>
-                                  <tr>
-                                      <th>No</th>
-                                      <th>Nomor Lomba</th>
-                                      <th>Nama</th>
-                                      <th>Satuan Pendidikan</th>
-                                      <th>Prestasi</th>
-                                      <th>Tahun</th>
-                                  </tr>
-                                  </thead>
-                                  <tbody>
-                                  <tr>
-                                      <td>1. </td>
-                                      <td>Lari 100m Putra</td>
-                                      <td>Laurenzo Andreas</td>
-                                      <td>SMAN 2 Surabaya</td>
-                                      <td>11,2 Detik</td>
-                                      <td>III/2008</td>
-                                  </tr>
-                                  <tr>
-                                      <td>2. </td>
-                                      <td>Lari 100m Putri</td>
-                                      <td>Anggita Arcitanti Dewi</td>
-                                      <td>SMAN Waru Kab. Sidoarjo</td>
-                                      <td>12,7 Detik</td>
-                                      <td>VIII/2013</td>
-                                  </tr>
-                                  </tbody>
-                              </table>
-                            </div>
-                            <div id="smp" class="tab-pane">
-                              SMP
-                            </div>
-                            <div id="sd" class="tab-pane ">
-                              SD
-                            </div>
-                        </div>
+            <table class="table table-striped table-advance table-hover">
+              <thead>
+              <tr>
+                  <th width="10%">No</th>
+                  <th width="80%">Nama File</th>
+                  <th width="10%">Download</th>
+              </tr>
+              </thead>
+              <tbody>
+              <?php $no = 1;?>
+              @foreach($documents as $value)
+              <tr>
+                  <td><?php echo $no ?></td>
+                  <td>{{ $value->name }}</td>
+                  <td>
+                    <div class="btn-group">
+                        {{ Form::open(array('url'=>route('download',[$value->file]),'method'=>'get', 'class'=>'col-md-1')) }}
+                        {{ Form::submit('Download', array('class'=>'btn btn-success')) }}
+                        {{ Form::close() }}
                     </div>
-                </section>
-                <!--tab end-->
-            </div>
-            </div>
-            <!--feature end-->
+                  </td>
+                  <?php $no++;?>
+              </tr>
+              @endforeach
+              </tbody>
+          </table>
         </div>
     </div>
-
-     <div class="container">
-        <div class="container">
-         <!--clients start-->
-         <div class="clients">
-            <center><h2 class="r-work">Didukung oleh:</h2></center>
-             <div class="container">
-                 <div class="row">
-                     <div class="col-lg-12 text-center">
-                         <ul class="list-unstyled">
-                          @foreach($sponsors as $value)
-                             <li><a href="{{ $value->url }}" target="blank">{{ HTML::image('uploads/sponsor/' . $value->logo,$value->name, array( 'height' => 120, 'width' => 'auto', 'title' => $value->name) ) }}</a></li>
-                          @endforeach
-                         </ul>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <!--clients end-->
-        </div>
-     </div>
 
     <!--footer start-->
     <footer class="footer">

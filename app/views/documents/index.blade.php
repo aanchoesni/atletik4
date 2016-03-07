@@ -34,7 +34,7 @@
                           @foreach($documents as $value)
                             <tr>
                                 <td><?php echo $no ?></td>
-                                <td>{{ $value->name }}</td>
+                                <td><a href="http://{{public_path().'/uploads/templates/'.$value->file}}" target="blank">{{ $value->name }}</td>
                                 <td style="text-align:center;">
                                     <div class="btn-group">
                                       {{ Form::open(array('url'=>route('admin.documents.destroy',['documents'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}

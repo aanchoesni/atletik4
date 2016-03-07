@@ -108,7 +108,7 @@ class SponsorsController extends \BaseController
      */
     public function destroy($id)
     {
-        $sponsor         = sponsor::findOrFail($id);
+        $sponsor         = Sponsor::findOrFail($id);
         $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/sponsor' . DIRECTORY_SEPARATOR . $sponsor->logo;
         try {
             File::delete($destinationPath);

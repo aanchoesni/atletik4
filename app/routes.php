@@ -23,6 +23,8 @@ Route::get('forgot', 'HomeController@forgot');
 Route::post('sendresetcode', array('as' => 'sendresetcode', 'uses' => 'HomeController@sendResetCode'));
 Route::get('reset', array('as' => 'guest.createnewpassword', 'uses' => 'HomeController@createNewPassword'));
 Route::post('reset', array('as' => 'guest.storenewpassword', 'uses' => 'HomeController@storeNewPassword'));
+Route::get('download', 'DocumentsController@downloadindex');
+Route::get('download/{data}', array('as' => 'download', 'uses' => 'DocumentsController@downloaddocument'));
 
 Route::group(array('before' => 'auth'), function () {
     Route::get('dashboard', 'HomeController@index');

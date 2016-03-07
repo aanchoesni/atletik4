@@ -119,4 +119,23 @@ class DocumentsController extends \BaseController
         return Redirect::route('admin.documents.index')->with('successMessage', 'Dokumen berhasil dihapus');
     }
 
+    public function downloadindex()
+    {
+        $limit     = Setting::first();
+        $documents = Document::orderBy('name')->get();
+
+        return View::make('documents.indexdownload', compact('documents', 'limit'));
+    }
+
+    public function downloaddocument($data)
+    {
+        $file = public_path() . '/uploads/documents/' . $data;
+
+        if (file_exists($file)) {
+            return Response::download($file);
+        } else {
+            return Redirect::route('download')->with("errorMessage", "Maaf file tidak ada.");
+        }
+    }
+
 }

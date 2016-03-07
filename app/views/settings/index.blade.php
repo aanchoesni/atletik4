@@ -128,6 +128,16 @@
 								{{ Form::text('norek', null, array('class' => 'form-control form-control-inline input-medium')) }}
 							</div>
 						</div>
+						<div class="form-group">
+							{{ Form::label('kodebank', 'Kode Bank', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-2">
+								{{ Form::text('kodebank', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('an', 'Atas Nama', array('class' => 'control-label col-lg-2')) }}
+							<div class="col-lg-4">
+								{{ Form::text('an', null, array('class' => 'form-control form-control-inline input-medium')) }}
+							</div>
+						</div>
 					</div>
 					<header class="panel-heading">
 					    Pengaturan Person
