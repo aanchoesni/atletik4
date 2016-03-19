@@ -17,6 +17,10 @@ class FrontController extends \BaseController
         $limitstart   = $limitdtstart->diff($tgl)->format('%R%a');
         $limitend     = $limitdtend->diff($tgl)->format('%R%a');
 
+        $sma = Rekor::where('tingkat', 'SMA')->orderBy('urut', 'ASC')->get();
+        $smp = Rekor::where('tingkat', 'SMP')->orderBy('urut', 'ASC')->get();
+        $sd  = Rekor::where('tingkat', 'SD')->orderBy('urut', 'ASC')->get();
+
         $sponsors = Sponsor::all();
 
         if ($limitstart < 0) {
@@ -38,7 +42,10 @@ class FrontController extends \BaseController
         return View::make('front.index')
             ->with('stat', 1)
             ->with('limit', $limit)
-            ->with('sponsors', $sponsors);
+            ->with('sponsors', $sponsors)
+            ->with('sma', $sma)
+            ->with('smp', $smp)
+            ->with('sd', $sd);
     }
 
     /**

@@ -75,11 +75,25 @@ class OfficersController extends \BaseController
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
-        $data['sertifikat'] = Input::has('sertifikat') ? true : false;
-        $data['user_id']    = Sentry::getUser()->id;
-        Officer::create($data);
+        if (Input::hasFile('foto')) {
+            $uploaded_file = Input::file('foto');
+            // mengambil extension file
+            $extension = $uploaded_file->getClientOriginalExtension();
+            // membuat nama file random dengan extension
+            $filename        = Input::get('nohp') . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/fotopetugas';
+            // memindahkan file ke folder public/img
+            $uploaded_file->move($destinationPath, $filename); // 25
 
-        return Redirect::route('user.officers.index')->with("successMessage", "Petugas berhasil disimpan");
+            $data['sertifikat'] = Input::has('sertifikat') ? true : false;
+            $data['foto']       = $filename;
+            $data['user_id']    = Sentry::getUser()->id;
+            Officer::create($data);
+
+            return Redirect::route('user.officers.index')->with("successMessage", "Petugas berhasil disimpan");
+        } else {
+            return Redirect::back()->withErrors('File foto tidak ada')->withInput();
+        }
         // } else {
         // return Redirect::route('user.officers.index')->with('errorMessage', trans(Input::get('type') . ' sudah ada.'));
         // }
@@ -137,8 +151,25 @@ class OfficersController extends \BaseController
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
-        $data['sertifikat'] = Input::has('sertifikat') ? true : false;
-        $officer->update($data);
+        if (Input::hasFile('foto')) {
+            $uploaded_file = Input::file('foto');
+            // mengambil extension file
+            $extension = $uploaded_file->getClientOriginalExtension();
+            // membuat nama file random dengan extension
+            $filename        = Input::get('nohp') . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/fotopetugas';
+            // memindahkan file ke folder public/img
+            $uploaded_file->move($destinationPath, $filename); // 25
+            // ganti field cover dengan cover yang baru
+
+            $officer->foto = $filename;
+        }
+
+        $officer['sertifikat'] = Input::has('sertifikat') ? true : false;
+        if (!$officer->update(Input::except('foto')) && $data['sertifikat'] = Input::has('sertifikat') ? true : false) {
+            return Redirect::back();
+        }
+        // $officer->update($data);
 
         return Redirect::route('user.officers.index')->with("successMessage", "Data petugas berhasil diubah");
         // } else {
@@ -154,6 +185,14 @@ class OfficersController extends \BaseController
      */
     public function destroy($id)
     {
+        $officer         = Officer::findOrFail($id);
+        $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/fotopetugas' . DIRECTORY_SEPARATOR . $officer->foto;
+        try {
+            File::delete($destinationPath);
+        } catch (FileNotFound $e) {
+            // File sudah dihapus/tidak ada
+        }
+
         Officer::destroy($id);
 
         return Redirect::route('user.officers.index')->with("successMessage", "Data petugas berhasil dihapus");

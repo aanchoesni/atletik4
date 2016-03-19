@@ -41,12 +41,13 @@
 				<div class="form-group">
                  	{{ Form::label('foto', 'Foto', array('class' => 'control-label col-lg-2')) }}
 	              	<div class="col-lg-10">
-	                	<div class="fileupload fileupload-new" data-provides="fileupload">
-	                    	<div class="fileupload-new thumbnail" style="width: 200px; height: 275px;">
-	                    		{{ HTML::image('http://www.placehold.it/200x275/EFEFEF/AAAAAA&amp;text=no+image','alt') }}
+	                	<div class="fileupload fileupload-exists" data-provides="fileupload">
+	                    	<div class="fileupload-preview fileupload-exists thumbnail" style="width: 170px; height: 250px;">
+	                        	{{ HTML::image('uploads/fotopetugas/' . $officer->foto,'alt') }}
 	                      	</div>
-	                      	<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 40%; max-height: 40%; line-height: 20px;"></div>
-	                      	<div>
+	                      	<br>
+	                      	{{-- <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 275px; line-height: 20px;"></div>
+	                      	<div> --}}
 	                       		<span class="btn btn-white btn-file">
 	                       		<span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
 	                       		<span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
@@ -55,10 +56,6 @@
 	                        	{{-- <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a> --}}
 	                    	</div>
 	                	</div>
-	                	<span class="label label-danger">NOTE!</span>
-	                 	<span>
-	                 	Ukuran file maksimal 512 Kb
-	                 	</span>
 	              	</div>
 	          	</div>
 				<div class="panel-body">

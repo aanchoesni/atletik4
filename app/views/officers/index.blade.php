@@ -84,6 +84,7 @@
           <table class="table table-striped table-advance table-hover">
               <thead>
               <tr>
+                  <th><i class="fa fa-bullhorn"></i> Foto</th>
                   <th><i class="fa fa-bullhorn"></i> Nama</th>
                   <th><i class="fa fa-question-circle"></i> No Telepon</th>
                   <th><i class="fa fa-question-circle"></i> No Handphone</th>
@@ -95,6 +96,7 @@
               <tbody>
               @foreach($officers as $value)
               <tr>
+                  <td height="75" width="50">{{ HTML::image('uploads/fotopetugas/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
                   <td class="hidden-phone">{{ $value->name }}</td>
                   <td>{{ $value->notlp }}</td>
                   <td>{{ $value->nohp }}</td>

@@ -131,14 +131,14 @@ var Script = function () {
                 },
                 adphone: {
                     required: "Masukkan Nomor Telepon Sekolah",
-                    minlength: "Nomor Telepon Minimal 6 Digit",
+                    minlength: "Nomor Telepon Minimal 7 Digit",
                     maxlength: "Nomor Telepon Maksimal 10 Digit",
                     digits: "Nomor Telepon Harus Angka"
                 },
                 hmname: "Masukkan Nama Kepala Sekolah",
                 hmphone: {
                     required: "Masukkan Nomor Telepon",
-                    minlength: "Nomor Telepon Minimal 6 Digit",
+                    minlength: "Nomor Telepon Minimal 7 Digit",
                     maxlength: "Nomor Telepon Maksimal 10 Digit",
                     digits: "Nomor Telepon Harus Angka"
                 },
@@ -240,12 +240,13 @@ var Script = function () {
                     digits: true
                 },
                 type: "required",
+                foto: "required",
             },
             messages: {
                 name: "Masukkan nama lengkap",
                 notlp: {
                     required: "Masukkan Nomor Telepon",
-                    minlength: "Nomor Telepon Minimal 6 Digit",
+                    minlength: "Nomor Telepon Minimal 7 Digit",
                     maxlength: "Nomor Telepon Maksimal 10 Digit",
                     digits: "Nomor Telepon Harus Angka"
                 },
@@ -256,6 +257,7 @@ var Script = function () {
                     digits: "Nomor Handphone Harus Angka"
                 },
                 type: "Pilih Petugas",
+                foto: "Masukkan Foto",
             }
         });
 
@@ -332,6 +334,23 @@ var Script = function () {
             messages: {
                 name: "Masukkan nama dokumen",
                 file: "Pilih file",
+            }
+        });
+
+        $("#rekor").validate({
+            rules: {
+                nolomba: "required",
+                nama: "required",
+                pendidikan: "required",
+                prestasi: "required",
+                tahun: "required",
+            },
+            messages: {
+                nolomba: "Masukkan nomor lomba",
+                nama: "Masukkan nama atlit",
+                pendidikan: "Masukkan asal sekolah",
+                prestasi: "Masukkan prestasi yang diraih",
+                tahun: "Masukkan tahun",
             }
         });
 

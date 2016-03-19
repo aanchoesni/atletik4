@@ -52,7 +52,13 @@
 <li>
     <a href="{{ URL::to('admin/documents') }}">
         <i class="fa fa-file"></i>
-        <span>Documents</span>
+        <span>Dokumen</span>
+    </a>
+</li>
+<li>
+    <a href="{{ URL::to('admin/rekors') }}">
+        <i class="fa fa-trophy"></i>
+        <span>Rekor</span>
     </a>
 </li>
 <li>

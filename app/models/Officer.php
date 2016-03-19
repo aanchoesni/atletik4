@@ -10,9 +10,10 @@ class Officer extends \Eloquent
         // 'notlp'=>'required',
         'nohp' => 'required',
         'type' => 'required',
+        'foto' => 'image|max:512',
     ];
 
     // Don't forget to fill this array
-    protected $fillable = ['name', 'notlp', 'nohp', 'type', 'sertifikat', 'user_id'];
+    protected $fillable = ['name', 'notlp', 'nohp', 'type', 'sertifikat', 'foto', 'user_id'];
 
 }

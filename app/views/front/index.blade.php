@@ -167,7 +167,7 @@
                 <section>
                     <a href="#mySD" data-toggle="modal", title='Lomba tingkat SMA'><div class="f-box">
                         <i class=" fa fa-trophy"></i>
-                        <h2>Tingkat SMA</h2>
+                        <h2>Tingkat SD</h2>
                     </div></a>
                 </section>
             </div>
@@ -219,30 +219,76 @@
                                   </tr>
                                   </thead>
                                   <tbody>
+                                  <?php $no = 1;?>
+                                  @foreach($sma as $value)
                                   <tr>
-                                      <td>1. </td>
-                                      <td>Lari 100m Putra</td>
-                                      <td>Laurenzo Andreas</td>
-                                      <td>SMAN 2 Surabaya</td>
-                                      <td>11,2 Detik</td>
-                                      <td>III/2008</td>
+                                      <td><?php echo $no ?></td>
+                                      <td>{{$value->nolomba}}</td>
+                                      <td>{{$value->nama}}</td>
+                                      <td>{{$value->pendidikan}}</td>
+                                      <td>{{$value->prestasi}}</td>
+                                      <td>{{$value->tahun}}</td>
+                                  <?php $no++;?>
                                   </tr>
-                                  <tr>
-                                      <td>2. </td>
-                                      <td>Lari 100m Putri</td>
-                                      <td>Anggita Arcitanti Dewi</td>
-                                      <td>SMAN Waru Kab. Sidoarjo</td>
-                                      <td>12,7 Detik</td>
-                                      <td>VIII/2013</td>
-                                  </tr>
+                                  @endforeach
                                   </tbody>
                               </table>
                             </div>
                             <div id="smp" class="tab-pane">
-                              SMP
+                              <table class="table table-striped table-advance table-hover">
+                                  <thead>
+                                  <tr>
+                                      <th>No</th>
+                                      <th>Nomor Lomba</th>
+                                      <th>Nama</th>
+                                      <th>Satuan Pendidikan</th>
+                                      <th>Prestasi</th>
+                                      <th>Tahun</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <?php $no = 1;?>
+                                  @foreach($smp as $value)
+                                  <tr>
+                                      <td><?php echo $no ?></td>
+                                      <td>{{$value->nolomba}}</td>
+                                      <td>{{$value->nama}}</td>
+                                      <td>{{$value->pendidikan}}</td>
+                                      <td>{{$value->prestasi}}</td>
+                                      <td>{{$value->tahun}}</td>
+                                  <?php $no++;?>
+                                  </tr>
+                                  @endforeach
+                                  </tbody>
+                              </table>
                             </div>
                             <div id="sd" class="tab-pane ">
-                              SD
+                              <table class="table table-striped table-advance table-hover">
+                                  <thead>
+                                  <tr>
+                                      <th>No</th>
+                                      <th>Nomor Lomba</th>
+                                      <th>Nama</th>
+                                      <th>Satuan Pendidikan</th>
+                                      <th>Prestasi</th>
+                                      <th>Tahun</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <?php $no = 1;?>
+                                  @foreach($sd as $value)
+                                  <tr>
+                                      <td><?php echo $no ?></td>
+                                      <td>{{$value->nolomba}}</td>
+                                      <td>{{$value->nama}}</td>
+                                      <td>{{$value->pendidikan}}</td>
+                                      <td>{{$value->prestasi}}</td>
+                                      <td>{{$value->tahun}}</td>
+                                  <?php $no++;?>
+                                  </tr>
+                                  @endforeach
+                                  </tbody>
+                              </table>
                             </div>
                         </div>
                     </div>
@@ -318,6 +364,13 @@
                         <li><a href="http://facebook.com/{{$limit->facebook}}" target="blank"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="http://twitter.com/{{$limit->twitter}}" target="blank"><i class="fa fa-twitter"></i></a></li>
                     </ul>
+                    <address>
+                      <p><!-- Histats.com  START (html only)-->
+                        <a href="http://www.histats.com" alt="page hit counter" target="_blank" >
+                        <embed src="http://s10.histats.com/335.swf"  flashvars="jver=1&acsid=3385459&domi=4"  quality="high"  width="112" height="62"name="335.swf"  align="middle" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"wmode="transparent" /></a>
+                        <img  src="http://sstatic1.histats.com/0.gif?3385459&101" alt="" border="0">
+                        <!-- Histats.com  END  --></p>
+                    </address>
                 </div>
             </div>
         </div>

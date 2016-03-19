@@ -24,22 +24,28 @@
                       <table  class="display table table-bordered table-striped" id="tbdocuments">
                         <thead>
                           <tr>
-                              <th width="30">No</th>
-                              <th style="text-align:center;">Nama Dokumen</th>
-                              <th width="10%">Aksi</th>
+                              <th>No</th>
+                              <th>Nomor Lomba</th>
+                              <th>Nama</th>
+                              <th>Satuan Pendidikan</th>
+                              <th>Prestasi</th>
+                              <th>Tahun</th>
+                              <th>Aksi</th>
                           </tr>
                           </thead>
                           <tbody>
                           <?php $no = 1;?>
-                          @foreach($documents as $value)
+                          @foreach($rekors as $value)
                             <tr>
                                 <td><?php echo $no ?></td>
-                                <td><a href="http://{{public_path().'/uploads/templates/'.$value->file}}" target="blank">{{ $value->name }}</td>
+                                <td>{{$value->nolomba}}</td>
+                                <td>{{$value->nama}}</td>
+                                <td>{{$value->pendidikan}}</td>
+                                <td>{{$value->prestasi}}</td>
+                                <td>{{$value->tahun}}</td>
                                 <td style="text-align:center;">
                                     <div class="btn-group">
-                                      {{ Form::open(array('url'=>route('admin.documents.destroy',['documents'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
-                                      {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
-                                      {{ Form::close() }}
+                                      <a href="{{ route('admin.rekors.edit', ['rekors`'=>Crypt::encrypt($value->id)]) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                     </div>
                                 </td>
                                 <?php $no++;?>

@@ -50,6 +50,7 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('indexcetakskema', array('as' => 'admin.indexcetakskema', 'uses' => 'SkemasController@indexcetak'));
         Route::get('cetakskema', array('as' => 'admin.cetakskema', 'uses' => 'SkemasController@exportskema'));
         Route::resource('documents', 'DocumentsController');
+        Route::resource('rekors', 'RekorsController');
     });
     Route::group(array('prefix' => 'panitia', 'before' => 'panitia'), function () {
         Route::resource('positions', 'PositionsController');
