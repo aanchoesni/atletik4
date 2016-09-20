@@ -148,8 +148,8 @@
 							<div class="col-lg-4">
 								{{ Form::text('nmpembimbing', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
-							{{ Form::label('nopembimbing', 'HP', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-4">
+							{{ Form::label('nopembimbing', 'HP', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-5">
 								{{ Form::text('nopembimbing', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
@@ -158,8 +158,8 @@
 							<div class="col-lg-4">
 								{{ Form::text('nmpembimbing1', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
-							{{ Form::label('nopembimbing1', 'HP', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-4">
+							{{ Form::label('nopembimbing1', 'HP', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-5">
 								{{ Form::text('nopembimbing1', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
@@ -168,8 +168,8 @@
 							<div class="col-lg-4">
 								{{ Form::text('nmpembimbing2', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
-							{{ Form::label('nopembimbing2', 'HP', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-4">
+							{{ Form::label('nopembimbing2', 'HP', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-5">
 								{{ Form::text('nopembimbing2', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
@@ -178,8 +178,8 @@
 							<div class="col-lg-4">
 								{{ Form::text('nmketua', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
-							{{ Form::label('noketua', 'HP', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-4">
+							{{ Form::label('noketua', 'HP', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-5">
 								{{ Form::text('noketua', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
@@ -188,8 +188,8 @@
 							<div class="col-lg-4">
 								{{ Form::text('nmsek', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
-							{{ Form::label('nosek', 'HP', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-4">
+							{{ Form::label('nosek', 'HP', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-5">
 								{{ Form::text('nosek', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
@@ -198,8 +198,8 @@
 							<div class="col-lg-4">
 								{{ Form::text('nmben', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
-							{{ Form::label('noben', 'HP', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-4">
+							{{ Form::label('noben', 'HP', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-5">
 								{{ Form::text('noben', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
@@ -319,27 +319,66 @@
 					</header>
 					<div class="panel-body">
 						<div class="form-group">
-							{{ Form::label('contestday', 'Hari', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-2">
-								{{ Form::text('contestday', null, array('class' => 'form-control form-control-inline')) }}
+							<center>
+							{{ Form::label('contestsmaday', 'SMA', array('class' => 'col-lg-4')) }}
+							{{ Form::label('contestsmpday', 'SMP', array('class' => 'col-lg-4')) }}
+							{{ Form::label('contestsdday', 'SD', array('class' => 'col-lg-4')) }}
+							</center>
+						</div>
+						<div class="form-group">
+							{{ Form::label('contestsmaday', 'Hari', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsmaday', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('contestsmpday', 'Hari', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsmpday', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('contestsdday', 'Hari', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsdday', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
 						<div class="form-group">
-							{{ Form::label('contestdate', 'Tanggal', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-2">
-								{{ Form::text('contestdate', null, array('class' => 'form-control form-control-inline input-medium default-date-inseo', 'readonly')) }}
+							{{ Form::label('contestsmadate', 'Tanggal', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsmadate', null, array('class' => 'form-control form-control-inline input-medium default-date-inseo', 'readonly')) }}
+							</div>
+							{{ Form::label('contestsmpdate', 'Tanggal', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsmpdate', null, array('class' => 'form-control form-control-inline input-medium default-date-inseo', 'readonly')) }}
+							</div>
+							{{ Form::label('contestsddate', 'Tanggal', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsddate', null, array('class' => 'form-control form-control-inline input-medium default-date-inseo', 'readonly')) }}
 							</div>
 						</div>
 						<div class="form-group">
-							{{ Form::label('contesttime', 'Pukul', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-2">
-								{{ Form::text('contesttime', null, array('class' => 'form-control form-control-inline input-medium')) }}
+							{{ Form::label('contestsmatime', 'Pukul', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsmatime', null, array('class' => 'form-control form-control-inline input-medium')) }}
+							</div>
+							{{ Form::label('contestsmptime', 'Pukul', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsmptime', null, array('class' => 'form-control form-control-inline input-medium')) }}
+							</div>
+							{{ Form::label('contestsdtime', 'Pukul', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsdtime', null, array('class' => 'form-control form-control-inline input-medium')) }}
 							</div>
 						</div>
 						<div class="form-group">
-							{{ Form::label('contestplace', 'Tempat', array('class' => 'control-label col-lg-2')) }}
-							<div class="col-lg-8">
-								{{ Form::text('contestplace', null, array('class' => 'form-control form-control-inline')) }}
+							{{ Form::label('contestsmaplace', 'Tempat', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsmaplace', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('contestsmpplace', 'Tempat', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsmpplace', null, array('class' => 'form-control form-control-inline')) }}
+							</div>
+							{{ Form::label('contestsdplace', 'Tempat', array('class' => 'control-label col-lg-1')) }}
+							<div class="col-lg-3">
+								{{ Form::text('contestsdplace', null, array('class' => 'form-control form-control-inline')) }}
 							</div>
 						</div>
 					</div>

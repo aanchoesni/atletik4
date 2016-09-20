@@ -107,9 +107,9 @@ class OfficersController extends \BaseController
      */
     public function show($id)
     {
-        $officer = Officer::findOrFail($id);
+        $officer = Officer::findOrFail(Crypt::decrypt($id));
 
-        return View::make('officers.show', compact('officer'));
+        return View::make('officers.show', compact('officer'))->withTitle('Cetak');
     }
 
     /**
@@ -198,4 +198,156 @@ class OfficersController extends \BaseController
         return Redirect::route('user.officers.index')->with("successMessage", "Data petugas berhasil dihapus");
     }
 
+    public function rekappendamping()
+    {
+        return View::make('officers.rekap')->withTitle('Rekap Pendamping');
+    }
+
+    public function exportrekappendamping()
+    {
+        Session::put('softahun', Input::get('tahun'));
+        // Session::put('sofjenjang', Input::get('jenjang'));
+        $pilihan = Input::get('pilihan');
+        if ($pilihan == 'Daftar') {
+            $officers = Officer::where(DB::raw('YEAR(created_at)'), '=', Session::get('softahun'))->orderBy('user_id', 'asc')->get();
+        } else if ($pilihan == 'Sertifikat') {
+            $officers = Officer::where(DB::raw('YEAR(created_at)'), '=', Session::get('softahun'))->where('sertifikat', '1')->orderBy('user_id', 'asc')->get();
+        }
+
+        return $this->exportExcelseratlet($officers, $pilihan);
+    }
+
+    private function exportExcelseratlet($officers, $pilihan)
+    {
+        if ($pilihan == 'Daftar') {
+            $name = 'Daftar Rekap Pendamping_' . date('Y');
+            Excel::create($name, function ($excel) use ($officers) {
+                // Set the properties
+                $name = 'Daftar Pendamping_' . date('Y');
+                $excel->setTitle($name)
+                    ->setCreator('Atletik Unesa ' . date('Y')); $excel->sheet($name, function ($sheet) use ($officers) {
+
+                    // if (Session::get('sofjenjang') == 'SD') {
+                    //     $jenjang = 'SD SEDERAJAT';
+                    // } elseif (Session::get('sofjenjang') == 'SMP') {
+                    //     $jenjang = 'SMP SEDERAJAT';
+                    // } elseif (Session::get('sofjenjang') == 'SMA') {
+                    //     $jenjang = 'SMA SEDERAJAT';
+                    // }
+
+                    $sheet->mergeCells('A1:D1')
+                        ->row(1, array('REKAP PENDAMPING '));
+                    $sheet->mergeCells('A2:D2')
+                        ->row(2, array('KEJUARAAN ATLETIK UNESA TAHUN ' . Session::get('softahun')));
+                    $row = 4;
+
+                    $sheet->row($row, array(
+                        'Nama',
+                        'No. HP',
+                        'Jenis Pendamping',
+                        'Asal Sekolah',
+                        'Jenjang',
+                    ));
+                    foreach ($officers as $value) {
+                        $sheet->row(++$row, array(
+                            $value->name,
+                            $value->nohp,
+                            $value->type,
+                            $value->akun->first_name,
+                            $value->akun->last_name,
+                        ));
+                    }
+                });
+            })->export('xls');
+        } else if ($pilihan == 'Sertifikat') {
+            $name = 'Daftar Sert Pendamping_' . date('Y');
+            Excel::create($name, function ($excel) use ($officers) {
+                // Set the properties
+                $name = 'Daftar Sert. Pendamping_' . date('Y');
+                $excel->setTitle($name)
+                    ->setCreator('Atletik Unesa ' . date('Y')); $excel->sheet($name, function ($sheet) use ($officers) {
+
+                    // if (Session::get('sofjenjang') == 'SD') {
+                    //     $jenjang = 'SD SEDERAJAT';
+                    // } elseif (Session::get('sofjenjang') == 'SMP') {
+                    //     $jenjang = 'SMP SEDERAJAT';
+                    // } elseif (Session::get('sofjenjang') == 'SMA') {
+                    //     $jenjang = 'SMA SEDERAJAT';
+                    // }
+
+                    $sheet->mergeCells('A1:D1')
+                        ->row(1, array('REKAP SERTIFIKAT PENDAMPING '));
+                    $sheet->mergeCells('A2:D2')
+                        ->row(2, array('KEJUARAAN ATLETIK UNESA TAHUN ' . Session::get('softahun')));
+                    $row = 4;
+
+                    $sheet->row($row, array(
+                        'Nama',
+                        'No. HP',
+                        'Jenis Pendamping',
+                        'Asal Sekolah',
+                        'Jenjang',
+                    ));
+                    foreach ($officers as $value) {
+                        $sheet->row(++$row, array(
+                            $value->name,
+                            $value->nohp,
+                            $value->type,
+                            $value->akun->first_name,
+                            $value->akun->last_name,
+                        ));
+                    }
+                });
+            })->export('xls');
+        }
+    }
+
+    public function bukudokumentasi()
+    {
+        return View::make('docbooks.rekap')->withTitle('Rekap Buku Dokumentasi');
+    }
+
+    public function exportdocbook()
+    {
+        Session::put('dtahun', Input::get('tahun'));
+
+        $docbooks = Docbook::rightJoin('payments', function ($join) {
+            $join->on('docbooks.user_id', '=', 'payments.user_id');
+        })->rightJoin('schools', function ($join) {
+            $join->on('schools.user_id', '=', 'docbooks.user_id');
+        })->where('payments.year', Session::get('dtahun'))->where('payments.verifikasi', '1')->orderBy('payments.user_id', 'asc')->where('docbooks.docbook', '1')->get();
+        // dd($docbooks);
+        // $docbooks = Docbook::where(DB::raw('YEAR(created_at)'), '=', Session::get('dtahun'))->where('docbook', '1')->orderBy('user_id', 'asc')->get();
+
+        return $this->exportExceldocbook($docbooks);
+    }
+
+    private function exportExceldocbook($docbooks)
+    {
+        $name = 'Daftar Cetak Buku_' . date('Y');
+        Excel::create($name, function ($excel) use ($docbooks) {
+            // Set the properties
+            $name = 'Daftar Cetak Buku_' . date('Y');
+            $excel->setTitle($name)
+                ->setCreator('Atletik Unesa ' . date('Y')); $excel->sheet($name, function ($sheet) use ($docbooks) {
+
+                $sheet->mergeCells('A1:D1')
+                    ->row(1, array('REKAP CETAK BUKU DOKUMENTASI '));
+                $sheet->mergeCells('A2:D2')
+                    ->row(2, array('KEJUARAAN ATLETIK UNESA TAHUN ' . Session::get('dtahun')));
+                $row = 4;
+
+                $sheet->row($row, array(
+                    'Sekolah',
+                    'Kota/Kabupaten',
+                ));
+                foreach ($docbooks as $value) {
+                    $sheet->row(++$row, array(
+                        $value->name,
+                        $value->adcity,
+                    ));
+                }
+            });
+        })->export('xls');
+    }
 }

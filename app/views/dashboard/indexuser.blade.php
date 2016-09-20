@@ -451,7 +451,7 @@
             <h1 class="sdlbpas">
                 0
             </h1>
-            <p>Tolak Peluru pa</p>
+            <p>Lempar Bola pa</p>
           </div>
       </section>
   </div>
@@ -471,7 +471,7 @@
             <h1 class="sdlbpis">
                 0
             </h1>
-            <p>Tolak Peluru pi</p>
+            <p>Lempar Bola pi</p>
           </div>
       </section>
   </div>

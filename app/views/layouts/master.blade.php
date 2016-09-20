@@ -53,9 +53,14 @@
                       </a>
                       <ul class="dropdown-menu extended logout">
                           <div class="log-arrow-up"></div>
-                          <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                          <li><a href="{{ URL::to('admin/profile') }}"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                          @if (Sentry::getUser()->hasPermission('admin'))
                           <li><a href="{{ URL::to('admin/settings') }}"><i class="fa fa-cog"></i> Settings</a></li>
-                          <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
+                          @endif
+                          @if (Sentry::getUser()->hasPermission('panitia'))
+                          <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                          @endif
+                          <li><a href="{{ URL::to('admin/logs') }}"><i class="fa fa-bell-o"></i> Log Book</a></li>
                           <li><a href="{{ URL::to('logout') }}"><i class="fa fa-key"></i> Log Out</a></li>
                       </ul>
                   </li>
@@ -74,7 +79,7 @@
                   @endif
 
                   @if (Sentry::getUser()->hasPermission('panitia'))
-                  @include('dashboard.navigations.panitia')
+                  @include('dashboard.navigations.admin')
                   @endif
               </ul>
               <!-- sidebar menu end-->

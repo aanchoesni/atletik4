@@ -56,7 +56,7 @@
                       </ul>
                   </li>
                   <li><a href="{{ URL::to('user/contests') }}">Lihat Rekap</a></li>
-                  <li><a href="{{ URL::to('user/officers') }}">Pendamping Atlet</a></li>
+                  <li><a href="{{ URL::to('user/officers') }}">Guru/ Pendamping Atlet</a></li>
                   <li><a href="{{ URL::to('user/cost') }}">Biaya</a></li>
                 </ul>
               </div>

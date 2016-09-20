@@ -34,9 +34,10 @@ var Script = function () {
                     required: true,
                     email: true
                 },
-                topic: {
-                    required: "#newsletter:checked",
-                    minlength: 2
+                nohp: {
+                    minlength: 10,
+                    maxlength: 12,
+                    digits: true
                 },
                 agree: "required"
             },
@@ -59,6 +60,11 @@ var Script = function () {
                     required: "Masukkan Password",
                     minlength: "Password minimal 6 digit",
                     equalTo: "Masukkan Password yang sama"
+                },
+                nohp: {
+                    minlength: "Nomor Telepon Minimal 7 Digit",
+                    maxlength: "Nomor Telepon Maksimal 10 Digit",
+                    digits: "Nomor Telepon Harus Angka"
                 },
                 email: "Masukkan email yang benar",
                 agree: "Setujui persyaratan dengan mencentang"
@@ -169,7 +175,10 @@ var Script = function () {
         $("#formulir").validate({
             rules: {
                 name: "required",
-                nis : "required",
+                nis : {
+                    required: true,
+                    digits: true
+                },
                 tmptlhr : "required",
                 tgllhr: "required",
                 jenjang: "required",
@@ -178,7 +187,10 @@ var Script = function () {
             },
             messages: {
                 name: "Masukkan nama lengkap",
-                nis : "Masukkan nomor induk siswa",
+                nis : {
+                    required: "Masukkan nomor induk siswa",
+                    digits: "NIS harus angka"
+                },
                 tmptlhr : "Masukkan tempat lahir",
                 tgllhr: "Masukkan tanggal lahir",
                 jenjang: "Pilih salah satu jenjang",
@@ -190,14 +202,20 @@ var Script = function () {
         $("#formulire").validate({
             rules: {
                 name: "required",
-                nis : "required",
+                nis : {
+                    required: true,
+                    digits: true
+                },
                 tmptlhr : "required",
                 tgllhr: "required",
                 jenjang: "required"
             },
             messages: {
                 name: "Masukkan nama lengkap",
-                nis : "Masukkan nomor induk siswa",
+                nis : {
+                    required: "Masukkan nomor induk siswa",
+                    digits: "NIS harus angka"
+                },
                 tmptlhr : "Masukkan tempat lahir",
                 tgllhr: "Masukkan tanggal lahir",
                 jenjang: "Pilih salah satu jenjang"
@@ -351,6 +369,21 @@ var Script = function () {
                 pendidikan: "Masukkan asal sekolah",
                 prestasi: "Masukkan prestasi yang diraih",
                 tahun: "Masukkan tahun",
+            }
+        });
+
+        $("#logbook").validate({
+            rules: {
+                tgl: "required",
+                tempat: "required",
+                kegiatan: "required",
+                hasil: "required",
+            },
+            messages: {
+                tgl: "Pilih tanggal",
+                tempat: "Masukkan tempat kegiatan",
+                kegiatan: "Masukkan kegiatan",
+                hasil: "Masukkan Hasil",
             }
         });
 

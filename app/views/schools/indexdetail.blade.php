@@ -78,7 +78,7 @@
                                   <a id="rapor" href="../../../uploads/rapor/{{ $value->rapor }}">Lihat Rapor</a>
                                 </td>
                                 <td>{{{ $value->nocontest }}}</td>
-                                <td></td>
+                                <td>{{$value->nodada}}</td>
                                 <td style="text-align:center;">
                                 @if($value->verifikasi==1)<span class="label label-success label-mini"><i class="fa fa-check"></i></span>@endif
                                 @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
@@ -93,6 +93,9 @@
                                       {{ Form::open(array('url'=>route('admin.schools.verifikasi',['contests'=>$value->id]),'method'=>'put', 'class'=>'col-md-1')) }}
                                       {{ Form::button('<i class="fa fa-check "></i>', array('type'=>'submit','class'=>'btn btn-primary btn-xs')) }}
                                       {{ Form::close() }}
+
+                                      <span style="display:inline;" class="col-md-1"><a href="{{ URL::to('admin/contest/delete',[$value->id]) }}" class="btn btn-danger btn-xs" title="Hapus"><i class="fa fa-trash-o"></i></a>
+                                      <a href=""></a></span>
                                     @endif
                                   </div>
                                 </td>

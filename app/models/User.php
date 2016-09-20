@@ -34,4 +34,14 @@ class User extends BaseModel
     {
         return $this->hasMany('Contest', 'user_id');
     }
+
+    public function officer()
+    {
+        return $this->hasMany('Officer', 'user_id');
+    }
+
+    public function docbook()
+    {
+        return $this->hasMany('Docbook', 'user_id');
+    }
 }

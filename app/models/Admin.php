@@ -13,7 +13,7 @@ class Admin extends \BaseModel
     ];
 
     // Don't forget to fill this arrayp
-    protected $fillable = ['noi', 'name', 'position_id', 'tahun', 'user_id'];
+    protected $fillable = ['noi', 'name', 'position_id', 'tahun', 'user_id', 'foto', 'nohp', 'sekolah'];
 
     public function position()
     {

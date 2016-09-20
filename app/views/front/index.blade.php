@@ -386,7 +386,7 @@
                     <h4 class="modal-title">Perlombaan Tingkat SMA</h4>
                 </div>
                 <div class="modal-body">
-                    <b><li>Lari 100m pa dan pi</li>
+                    <b><li><a href="#myvideo">Lari 100m pa dan pi</a></li>
                     <li>Lompat Jauh pa dan pi</li>
                     <li>Tolak Peluru pa dan pi</li>
                     <li>Lompat Tinggi pa dan pi</li></b>
@@ -428,6 +428,24 @@
                     <li>Lompat Jauh pa dan pi</li>
                     <li>Lempar Bola pa dan pi</li>
                     <li>Lari Estafet pa dan pi</li></b>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-danger" type="button"> Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myvideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Contoh Video</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe width="420" height="345"
+                    src="http://www.youtube.com/embed/XGSy3_Czz8k">
+                    </iframe>
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal" class="btn btn-danger" type="button"> Ok</button>

@@ -78,8 +78,9 @@ Route::filter('csrf', function () {
 Route::filter('admin', function () {
     $user = Sentry::getUser();
     //Cari grup admin
-    $admin = Sentry::findGroupByName('admin');
-    if (!$user->inGroup($admin)) {
+    $admin   = Sentry::findGroupByName('admin');
+    $panitia = Sentry::findGroupByName('panitia');
+    if (!$user->inGroup($admin) and !$user->inGroup($panitia)) {
         return Redirect::to('dashboard')->with("errorMessage", "Ooopppsss... Anda tidak diizinkan untuk mengakses halaman itu.");
     }
 });

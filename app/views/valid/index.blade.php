@@ -67,13 +67,17 @@
                                 @if($value->verifikasi==0)<span class="label label-danger label-mini"><i class="fa fa-times"></i></span>@endif</td>
                                 <td style="text-align:center;">
                                   <div class="btn-group">
-                                    <span style="display:inline;">
                                     @if($value->verifikasi==1)
+                                    <span style="display:inline;">
                                     <a href="{{URL::to('admin/notvalidasi/' . $value->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-thumbs-down"></i></a>
                                     </span>@endif
                                     @if($value->verifikasi==0)
+                                    <span style="display:inline;">
                                     <a href="{{URL::to('admin/validasi/' . $value->id) }}" class="btn btn-success btn-xs"><i class="fa fa-thumbs-up"></i></a>
-                                    </span>@endif
+                                    </span>
+                                    <span style="display:inline;">
+                                    <a href="{{ URL::to('admin/delpayment/delete',[$value->id]) }}" class="btn btn-danger btn-xs" title="Hapus"><i class="fa fa-trash-o"></i></a></span>
+                                    @endif
                                   </div>
                                 </td>
                                 <td style="display:none;">{{{ $value->method }}}</td>

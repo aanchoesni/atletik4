@@ -31,10 +31,10 @@
         <div class="panel-body">
             <div class="text-center invoice-btn">
                 @if(!$payment)
-                    @if($jtotal>0)
+                    @if($jbatlit>0)
                     <a href="{{ Route('user.payment.create') }}" class="btn btn-danger btn-lg"><i class="fa fa-check"></i> Konfirmasi Pembayaran </a>
                     @else
-                    <a class="btn btn-danger btn-lg"><i class="fa fa-check"></i> Tidak Ada Pembayaran </a>
+                    <a class="btn btn-danger btn-lg"><i class="fa fa-check"></i> Tidak Ada Pembayaran atau Harap tunggu validasi atltit</a>
                     @endif
                 @endif
                 @if($payment && $payment->verifikasi==1)
@@ -268,7 +268,7 @@
                     <td>Lari Estafet pi</td>
                     <td class="">Rp {{number_format($cost->moneyregest, 0)}}</td>
                     <td class="">{{$lespi}}</td>
-                    <td align="right">Rp {{number_format($lespi, 0)}}</td>
+                    <td align="right">Rp {{number_format($jlespi, 0)}}</td>
                 </tr>
                 @endif
                 <tr>

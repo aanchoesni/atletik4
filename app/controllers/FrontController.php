@@ -28,7 +28,10 @@ class FrontController extends \BaseController
             return View::make('front.index')
                 ->with('stat', $stat)
                 ->with('limit', $limit)
-                ->with('sponsors', $sponsors);
+                ->with('sponsors', $sponsors)
+                ->with('sma', $sma)
+                ->with('smp', $smp)
+                ->with('sd', $sd);
         }
 
         if ($limitend > 0) {
@@ -36,7 +39,10 @@ class FrontController extends \BaseController
             return View::make('front.index')
                 ->with('stat', $stat)
                 ->with('limit', $limit)
-                ->with('sponsors', $sponsors);
+                ->with('sponsors', $sponsors)
+                ->with('sma', $sma)
+                ->with('smp', $smp)
+                ->with('sd', $sd);
         }
 
         return View::make('front.index')

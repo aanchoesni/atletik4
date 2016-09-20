@@ -30,7 +30,7 @@ class PaymentsController extends \BaseController
         $menu    = Menu::where('tipe', Sentry::getUser()->last_name)->get();
         $jstotal = Session::get('jstotal');
 
-        if ($limitend >= 0) {
+        if ($limitend > 0) {
             return Redirect::to('user/cost')->with('errorMessage', trans('Pembayaran Sudah Ditutup.'));
         }
 
@@ -124,11 +124,11 @@ class PaymentsController extends \BaseController
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroyer($id)
     {
         Payment::destroy($id);
 
-        return Redirect::route('payments.index');
+        return Redirect::route('admin.valid')->with('successMessage', 'Konfirmasi pembayaran berhasil dibatalkan');
     }
 
 }

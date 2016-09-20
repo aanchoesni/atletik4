@@ -27,4 +27,9 @@ class Contest extends BaseModel
     {
         return $this->hasOne('Skema', 'nodada');
     }
+
+    public function sklh()
+    {
+        return $this->belongsTo('School', 'user_id', 'user_id');
+    }
 }

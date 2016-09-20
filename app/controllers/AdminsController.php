@@ -73,17 +73,47 @@ class AdminsController extends \BaseController
         if ($validatora->fails()) {
             return Redirect::back()->withErrors($validatora)->withInput();
         } else {
-            DB::table('admins')->insertGetId(
-                array(
-                    'noi'         => Input::get('noi'),
-                    'name'        => Input::get('name'),
-                    'position_id' => Input::get('position_id'),
-                    'tahun'       => Input::get('tahun'),
-                    'user_id'     => $user->id,
-                    'created_at'  => $date,
-                    'updated_at'  => $date,
-                )
-            );
+            if (Input::hasFile('foto')) {
+                $uploaded_file = Input::file('foto');
+                // mengambil extension file
+                $extension = $uploaded_file->getClientOriginalExtension();
+                // membuat nama file random dengan extension
+                $filename        = Input::get('nohp') . '.' . $extension;
+                $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/fotopanitia';
+                // memindahkan file ke folder public/img
+                $uploaded_file->move($destinationPath, $filename); // 25
+
+                DB::table('admins')->insertGetId(
+                    array(
+                        'noi'         => Input::get('noi'),
+                        'name'        => Input::get('name'),
+                        'position_id' => Input::get('position_id'),
+                        'tahun'       => Input::get('tahun'),
+                        'user_id'     => $user->id,
+                        'foto'        => $filename,
+                        'nohp'        => Input::get('nohp'),
+                        'sekolah'     => Input::get('sekolah'),
+                        'created_at'  => $date,
+                        'updated_at'  => $date,
+                    )
+                );
+            } else {
+
+                DB::table('admins')->insertGetId(
+                    array(
+                        'noi'         => Input::get('noi'),
+                        'name'        => Input::get('name'),
+                        'position_id' => Input::get('position_id'),
+                        'tahun'       => Input::get('tahun'),
+                        'user_id'     => $user->id,
+                        'foto'        => '',
+                        'nohp'        => Input::get('nohp'),
+                        'sekolah'     => Input::get('sekolah'),
+                        'created_at'  => $date,
+                        'updated_at'  => $date,
+                    )
+                );
+            }
         }
 
         // Redirect ke halaman login
@@ -98,9 +128,9 @@ class AdminsController extends \BaseController
      */
     public function show($id)
     {
-        $admin = Admin::findOrFail($id);
+        $admin = Admin::findOrFail(Crypt::decrypt($id));
 
-        return View::make('admins.show', compact('admin'));
+        return View::make('admins.show', compact('admin'))->withTitle('Cetak');
     }
 
     /**
@@ -115,6 +145,15 @@ class AdminsController extends \BaseController
 
         return View::make('admins.edit', compact('admins'))->withTitle("Ubah Admin");
         // return View::make('admins.edit', ['admins'=>$admins])->withTitle("Ubah $admins->first_name");
+    }
+
+    public function profile()
+    {
+        $idadmin = Admin::where('user_id', Sentry::getUser()->id)->first();
+        $admins  = Admin::find($idadmin->id);
+        // $admins = Admin::where('user_id', Sentry::getUser()->id);
+
+        return View::make('admins.profile', compact('admins'))->withTitle("Profile");
     }
 
     /**
@@ -133,19 +172,68 @@ class AdminsController extends \BaseController
             return Redirect::back()->withErrors($validator)->withInput();
         }
 
-        $admin->update($data);
+        if (Input::hasFile('foto')) {
+            $uploaded_file = Input::file('foto');
+            // mengambil extension file
+            $extension = $uploaded_file->getClientOriginalExtension();
+            // membuat nama file random dengan extension
+            $filename        = Input::get('nohp') . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/fotopanitia';
+            // memindahkan file ke folder public/img
+            $uploaded_file->move($destinationPath, $filename); // 25
+            // ganti field cover dengan cover yang baru
 
-        $user = User::findOrFail($id);
-
-        $validatoru = Validator::make($datau = Input::all(), User::$rules);
-
-        if ($validator->fails()) {
-            return Redirect::back()->withErrors($validatoru)->withInput();
+            $admin->foto = $filename;
         }
 
-        $user->update($datau);
+        if (!$admin->update(Input::except('foto')) ? true : false) {
+            return Redirect::back();
+        }
+
+        // $admin->update($data);
+
+        // $user = User::findOrFail($id);
+
+        // $validatoru = Validator::make($datau = Input::all(), User::$rules);
+
+        // if ($validatoru->fails()) {
+        //     return Redirect::back()->withErrors($validatoru)->withInput();
+        // }
+
+        // $user->update($datau);
 
         return Redirect::route('admin.admins.index')->with("successMessage", "Berhasil menyimpan $admin->name");
+    }
+
+    public function updateprofile($id)
+    {
+        $admin = Admin::findOrFail($id);
+
+        $validator = Validator::make($data = Input::all(), Admin::$rules);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->withInput();
+        }
+
+        if (Input::hasFile('foto')) {
+            $uploaded_file = Input::file('foto');
+            // mengambil extension file
+            $extension = $uploaded_file->getClientOriginalExtension();
+            // membuat nama file random dengan extension
+            $filename        = Input::get('nohp') . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'uploads/fotopanitia';
+            // memindahkan file ke folder public/img
+            $uploaded_file->move($destinationPath, $filename); // 25
+            // ganti field cover dengan cover yang baru
+
+            $admin->foto = $filename;
+        }
+
+        if (!$admin->update(Input::except('foto')) ? true : false) {
+            return Redirect::back();
+        }
+
+        return Redirect::to('dashboard')->with("successMessage", "Berhasil menyimpan $admin->name");
     }
 
     /**
@@ -180,6 +268,49 @@ class AdminsController extends \BaseController
             return Redirect::route('login')->with('errorMessage', $e->getMessage());
         }
         return Redirect::to('login')->with('successMessage', 'Akun Anda berhasil diaktivasi, silahkan login.');
+    }
+
+    public function exportadmin()
+    {
+        $admin = Admin::where('tahun', date('Y'))->orderBy('name', 'asc')->get();
+
+        return $this->exportExceladmin($admin);
+    }
+
+    private function exportExceladmin($admin)
+    {
+        $name = 'Daftar Admin_' . date('Y');
+        Excel::create($name, function ($excel) use ($admin) {
+            // Set the properties
+            $name = 'Daftar Admin_' . date('Y');
+            $excel->setTitle($name)
+                ->setCreator('Atletik Unesa ' . date('Y')); $excel->sheet($name, function ($sheet) use ($admin) {
+
+                $sheet->mergeCells('A1:G1')
+                    ->row(1, array('Daftar Admin ' . date('Y')));
+                $row = 3;
+
+                $sheet->row($row, array(
+                    'NIM',
+                    'Nama',
+                    'Jabatan',
+                    'Nomor HP',
+                    'Email',
+                    'Sekolah yang didaftarkan',
+                ));
+                foreach ($admin as $value) {
+                    $sheet->row(++$row, array(
+                        $value->noi,
+                        $value->name,
+                        $value->position->name,
+                        $value->nohp,
+                        $value->user->email,
+                        $value->sekolah,
+                    ));
+                }
+            });
+        })->export('xls');
+
     }
 
 }

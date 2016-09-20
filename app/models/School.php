@@ -20,4 +20,19 @@ class School extends \Eloquent
     {
         return $this->hasMany('Payment', 'user_id');
     }
+
+    public function lomba()
+    {
+        return $this->belongsTo('Contest', 'user_id', 'user_id');
+    }
+
+    public function pendamping()
+    {
+        return $this->belongsTo('Officer', 'user_id', 'user_id');
+    }
+
+    public function docbook()
+    {
+        return $this->belongsTo('Docbook', 'user_id', 'user_id');
+    }
 }

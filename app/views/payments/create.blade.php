@@ -72,7 +72,7 @@
                         <div class="panel-body">
                             <div class="box-footer">
                                 {{Form::submit('Simpan', array('class'=>'btn btn-danger'))}}
-                                <a href="{{ URL::to('admin/admins') }}" class="btn btn-default" type="button">Batal</a>
+                                <a href="{{ URL::to('user/cost') }}" class="btn btn-default" type="button">Batal</a>
                             </div>
                         </div>
                     </div>

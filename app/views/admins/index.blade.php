@@ -18,15 +18,19 @@
             <header class="panel-heading">
                 Daftar Admin
                 {{ HTML::buttonAdd() }}
+                <a href="{{ route('admin.cetakadmin') }}" class="btn btn-info" type="button">Cetak</a>
             </header>
             <div class="panel-body"  style:"overflow: scroll;">
                   <div class="adv-table">
                       <table  class="display table table-bordered table-striped" id="tbadmin">
                         <thead>
                           <tr>
+                              <th>Foto</th>
                               <th>No Identitas</th>
                               <th>Nama</th>
                               <th>Jabatan</th>
+                              <th>No. HP</th>
+                              <th>Sekolah</th>
                               <th>Keterangan</th>
                               <th width="10%">Aksi</th>
                           </tr>
@@ -34,9 +38,16 @@
                           <tbody>
                           @foreach($admins as $value)
                             <tr>
+                                @if($value->foto)
+                                <td height="75" width="50">{{ HTML::image('uploads/fotopanitia/' . $value->foto,'alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
+                                @else
+                                <td height="75" width="50">{{ HTML::image('admin/img/nopic.png','alt', array( 'width' => 50, 'height' => 75 ) ) }}</td>
+                                @endif
                                 <td>{{ $value->noi }}</td>
                                 <td>{{ $value->name }}</td>
                                 <td>{{ $value->position->name }}</td>
+                                <td>{{ $value->nohp }}</td>
+                                <td>{{ $value->sekolah }}</td>
                                 <td>{{ $value->tahun }}</td>
                                 <td style="text-align:center;">
                                     <div class="btn-group">

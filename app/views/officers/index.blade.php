@@ -36,23 +36,67 @@
       </section>
       <section class="panel panel-success">
         <header class="panel-heading" style="font-weight:bold">
-            Pelaksanaan Lomba
+            Pelaksanaan Lomba Tingkat SMA
         </header>
         <table class="table">
         <tr>
               <td>Hari</td>
               <td>:</td>
-              <td>{{$announcement->contestday}}, {{date("d M Y", strtotime($announcement->contestdate))}}</td>
+              <td>{{$announcement->contestsmaday}}, {{date("d M Y", strtotime($announcement->contestsmadate))}}</td>
         </tr>
         <tr>
               <td>Pukul</td>
               <td>:</td>
-              <td>{{$announcement->contesttime}}</td>
+              <td>{{$announcement->contestsmatime}}</td>
         </tr>
         <tr>
               <td>Tempat</td>
               <td>:</td>
-              <td>{{$announcement->contestplace}}</td>
+              <td>{{$announcement->contestsmaplace}}</td>
+        </tr>
+        </table>
+      </section>
+      <section class="panel panel-success">
+        <header class="panel-heading" style="font-weight:bold">
+            Pelaksanaan Lomba Tingkat SMP
+        </header>
+        <table class="table">
+        <tr>
+              <td>Hari</td>
+              <td>:</td>
+              <td>{{$announcement->contestsmpday}}, {{date("d M Y", strtotime($announcement->contestsmpdate))}}</td>
+        </tr>
+        <tr>
+              <td>Pukul</td>
+              <td>:</td>
+              <td>{{$announcement->contestsmptime}}</td>
+        </tr>
+        <tr>
+              <td>Tempat</td>
+              <td>:</td>
+              <td>{{$announcement->contestsmpplace}}</td>
+        </tr>
+        </table>
+      </section>
+      <section class="panel panel-success">
+        <header class="panel-heading" style="font-weight:bold">
+            Pelaksanaan Lomba Tingkat SD
+        </header>
+        <table class="table">
+        <tr>
+              <td>Hari</td>
+              <td>:</td>
+              <td>{{$announcement->contestsdday}}, {{date("d M Y", strtotime($announcement->contestsddate))}}</td>
+        </tr>
+        <tr>
+              <td>Pukul</td>
+              <td>:</td>
+              <td>{{$announcement->contestsdtime}}</td>
+        </tr>
+        <tr>
+              <td>Tempat</td>
+              <td>:</td>
+              <td>{{$announcement->contestsdplace}}</td>
         </tr>
         </table>
       </section>
@@ -78,7 +122,7 @@
   <div class="col-lg-9">
       <section class="panel panel-warning">
           <header class="panel-heading" style="font-weight:bold">
-              Daftar Petugas
+              Daftar Guru/ Pendamping Atlit
               {{ HTML::buttonAdd() }}
           </header>
           <table class="table table-striped table-advance table-hover">
@@ -111,6 +155,7 @@
                       {{ Form::open(array('url'=>route('user.officers.destroy',['officers'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }}
                       {{ Form::button('<i class="fa fa-trash-o "></i>', array('type'=>'submit','class'=>'btn btn-danger btn-xs')) }}
                       {{ Form::close() }}
+                      <a href="{{ route('user.officers.show', ['officers'=>Crypt::encrypt($value->id)]) }}" class="btn btn-success btn-xs" title="Print"><i class="fa fa-print"></i></a>
                   </td>
               </tr>
               @endforeach

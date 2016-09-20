@@ -17,8 +17,8 @@ class ContestsController extends \BaseController
         $spay    = Payment::where('user_id', Sentry::getUser()->id)->where(DB::raw('year'), '=', date('Y'))->where('verifikasi', '1')->first();
 
         if ($jenjang === 'SMA') {
-            $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
-            $runpis = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
+            $runpas = Contest::where('nocontest', 'Lari 100m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
+            $runpis = Contest::where('nocontest', 'Lari 100m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
             $ljpas  = Contest::where('nocontest', 'Lompat Jauh pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
             $ljpis  = Contest::where('nocontest', 'Lompat Jauh pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
             $tppas  = Contest::where('nocontest', 'Tolak Peluru pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
@@ -94,6 +94,7 @@ class ContestsController extends \BaseController
         $menu    = Menu::where('tipe', Sentry::getUser()->last_name)->get();
         $jenjang = Sentry::getUser()->last_name;
         $thn     = Input::get('tahun');
+        $spay    = Payment::where('user_id', Sentry::getUser()->id)->where(DB::raw('year'), '=', date('Y'))->where('verifikasi', '1')->first();
 
         if ($jenjang === 'SMA') {
             $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
@@ -116,7 +117,8 @@ class ContestsController extends \BaseController
                 ->with('tppis', $tppis)
                 ->with('ltpas', $ltpas)
                 ->with('ltpis', $ltpis)
-                ->with('thn', $thn);
+                ->with('thn', $thn)
+                ->with('spay', $spay);
         } elseif ($jenjang === 'SMP') {
             $runpas = Contest::where('nocontest', 'Lari 60m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
             $runpis = Contest::where('nocontest', 'Lari 60m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
@@ -138,7 +140,8 @@ class ContestsController extends \BaseController
                 ->with('tppis', $tppis)
                 ->with('ltpas', $ltpas)
                 ->with('ltpis', $ltpis)
-                ->with('thn', $thn);
+                ->with('thn', $thn)
+                ->with('spay', $spay);
         } elseif ($jenjang == 'SD') {
             $runpas = Contest::where('nocontest', 'Lari 50m pa')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
             $runpis = Contest::where('nocontest', 'Lari 50m pi')->where('user_id', Sentry::getUser()->id)->where(DB::raw('tahun'), '=', $thn)->get();
@@ -160,7 +163,8 @@ class ContestsController extends \BaseController
                 ->with('lbpis', $lbpis)
                 ->with('lespa', $lespa)
                 ->with('lespi', $lespi)
-                ->with('thn', $thn);
+                ->with('thn', $thn)
+                ->with('spay', $spay);
         }
     }
 
@@ -185,15 +189,17 @@ class ContestsController extends \BaseController
             return Redirect::route('user.contests.index')->with('errorMessage', trans('Pendaftaran Lomba Belum Dibuka.'));
         }
 
-        if ($limitend >= 0) {
+        if ($limitend > 0) {
             return Redirect::route('user.contests.index')->with('errorMessage', trans('Pendaftaran Lomba Sudah Ditutup.'));
         }
 
         if ($contest < 2) {
-            return View::make('contests.create')->withTitle('Admin')->with('menu', $menu)->with('menus', $menus);
+            return View::make('contests.create')->withTitle('Estafet')->with('menu', $menu)->with('menus', $menus);
         } else {
             if ($menus->menu == 'Lari Estafet pa' and $contest < 8) {
-                return View::make('contests.create')->withTitle('Admin')->with('menu', $menu)->with('menus', $menus);
+                return View::make('contests.create')->withTitle('Estafet')->with('menu', $menu)->with('menus', $menus);
+            } else if ($menus->menu == 'Lari Estafet pi' and $contest < 8) {
+                return View::make('contests.create')->withTitle('Estafet')->with('menu', $menu)->with('menus', $menus);
             } else {
                 return Redirect::route('user.contests.index')->with('errorMessage', trans('Lomba sudah penuh.'));
             }

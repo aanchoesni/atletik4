@@ -51,6 +51,9 @@
                                     <span style="display:inline;">
                                     <a href="{{URL::to('admin/schools/indexdetail/' . Crypt::encrypt($value->user_id)) }}" class="btn btn-primary btn-xs"><i class="fa fa-laptop"></i></a>
                                     </span>
+                                    <span style="display:inline;">
+                                    <a href="{{URL::to('admin/schools/pendamping/' . Crypt::encrypt($value->user_id)) }}" class="btn btn-primary btn-xs"><i class="fa fa-user"></i></a>
+                                    </span>
                                     {{-- {{ Form::open(array('url'=>route('admin.positions.destroy',['positions'=>$value->id]),'method'=>'delete', 'style'=>'display:inline;')) }} --}}
                                     {{-- {{ Form::button('<i class="fa fa-thumbs-up"></i>', array('type'=>'submit','class'=>'btn btn-success btn-xs')) }} --}}
                                     {{-- {{ Form::close() }} --}}

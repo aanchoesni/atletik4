@@ -1,0 +1,1 @@
+D:\xampp\htdocs\atletik4\app/views/logs/show.blade.php

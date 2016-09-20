@@ -51,6 +51,29 @@ Route::group(array('before' => 'auth'), function () {
         Route::get('cetakskema', array('as' => 'admin.cetakskema', 'uses' => 'SkemasController@exportskema'));
         Route::resource('documents', 'DocumentsController');
         Route::resource('rekors', 'RekorsController');
+        Route::get('schools/pendamping/{id}', array('as' => 'admin.schools.pendamping', 'uses' => 'SchoolsController@pendamping'));
+        Route::get('profile', 'AdminsController@profile');
+        Route::put('admins/updateprofile/{id}', array('as' => 'admin.admins.updateprofile', 'uses' => 'AdminsController@updateprofile'));
+        Route::get('daftarsekolah', array('as' => 'admin.daftarsekolah', 'uses' => 'SchoolsController@daftarsekolah'));
+        Route::get('daftarsekolah/delete/{id}', 'SchoolsController@destroy');
+        Route::resource('logs', 'LogsController');
+        Route::get('contesta/delete/{id}', 'SchoolsController@destroycontesta');
+        Route::get('contest/delete/{id}', 'SchoolsController@destroycontest');
+        Route::get('delpayment/delete/{id}', 'PaymentsController@destroyer');
+        Route::get('atlitallv', array('as' => 'admin.atlitallv', 'uses' => 'SchoolsController@atlitallv'));
+        Route::get('cetakatlet', array('as' => 'admin.cetakatlet', 'uses' => 'SchoolsController@exportatlet'));
+        Route::get('cetakadmin', array('as' => 'admin.cetakadmin', 'uses' => 'AdminsController@exportadmin'));
+        Route::get('sertifikatatlet', array('as' => 'admin.sertifikatatlet', 'uses' => 'SchoolsController@atlitser'));
+        Route::get('cetakseratlet', array('as' => 'admin.cetakseratlet', 'uses' => 'SchoolsController@exportseratlet'));
+        Route::get('rekappendamping', array('as' => 'admin.rekappendamping', 'uses' => 'OfficersController@rekappendamping'));
+        Route::get('cetakrekappendamping', array('as' => 'admin.cetakrekappendamping', 'uses' => 'OfficersController@exportrekappendamping'));
+        Route::get('bukudokumentasi', array('as' => 'admin.bukudokumentasi', 'uses' => 'OfficersController@bukudokumentasi'));
+        Route::get('cetakdocbook', array('as' => 'admin.cetakdocbook', 'uses' => 'OfficersController@exportdocbook'));
+        Route::resource('logbooks', 'LogbooksController');
+        Route::get('logbookso', array('as' => 'admin.logbookso', 'uses' => 'LogbooksController@indexo'));
+        Route::get('cetaklogbook', array('as' => 'admin.cetaklogbook', 'uses' => 'LogbooksController@exportlogbook'));
+        Route::get('mahasiswacetaklogbook', array('as' => 'admin.mahasiswacetaklogbook', 'uses' => 'LogbooksController@mahasiswacetaklogbook'));
+
     });
     Route::group(array('prefix' => 'panitia', 'before' => 'panitia'), function () {
         Route::resource('positions', 'PositionsController');
